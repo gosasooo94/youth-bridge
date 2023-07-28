@@ -10,6 +10,7 @@ public class FairVO {
 	public String getFairName() {
 		return fairName;
 	}
+	
 	public void setFairName(String fairName) {
 		this.fairName = fairName;
 	}
