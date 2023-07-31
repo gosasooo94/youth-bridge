@@ -18,7 +18,7 @@
       <link rel="icon" href="resources/images/fevicon.png" type="image/png" />
       <!-- bootstrap css -->
       <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
-      <!-- site css -->
+      <!-- site css --> 
       <link rel="stylesheet" href="resources/css/style.css" />
       <link rel="stylesheet" href="resources/css/font-awesome.min.css" />
       <!-- responsive css -->
