@@ -174,31 +174,38 @@
                                  <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"
                                     style="margin-left: 12.5%; flex:12.5%; max-width:75%;">
                                     <div class="table_price full margin_top20px">
-                                       <form>
+                                       <form action="updateDiary.do" method="post">
                                        	  <div class="mb-3" style="margin: 1.5% 2%;">
                                              <label class="form-label f_size24 ">
-                                                작성 날짜 : <fmt:formatDate value="${diary.notedate}" pattern="yyyy-MM-dd"/><!--오늘 날짜-->
+                                                작성 날짜 : <fmt:formatDate value="${diary.notedate}" pattern="yyyy년 MM월 dd일" /><!--오늘 날짜-->
                                                 날씨 : <input id="weather" name="notesun" value="${diary.notesun }" class="input_weather" type="text" readonly> <!-- 날씨 api로 날씨값 자동으로 가져옴-->
                                              </label>
                                           </div>
+                                          
+                                          <input name="memcode" type="hidden" class="form-control" id="exampleFormControlInput1"
+                                                value="${diary.memcode }"><!-- 작성 회원코드 -->
+                                          <input name="notecode" type="hidden" class="form-control" id="exampleFormControlInput1"
+                                                value="${diary.notecode }"><!-- 글 코드 --> 
+                                                
                                           <div class="mb-3" style="margin: 1.5% 2%">
                                              <label for="exampleFormControlInput1"
                                                 class="form-label f_size24"></label>
                                              <label for="exampleFormControlInput1"
                                                 class="form-label f_size24">제목</label>
-                                             <input type="text" class="form-control" id="exampleFormControlInput1"
+                                             <input name="notetitle" type="text" class="form-control" id="exampleFormControlInput1"
                                                 placeholder="제목칸" value="${diary.notetitle}">
                                           </div>
                                           <div class="mb-3" style="margin: 1.5% 2%">
                                              <label for="exampleFormControlTextarea1"
                                                 class="form-label f_size24">내용</label>
-                                             <textarea class="form-control" id="exampleFormControlTextarea1"
+                                             <textarea name="notecontent" class="form-control" id="exampleFormControlTextarea1"
                                                 rows="30">${diary.notecontent}</textarea>
                                           </div>
                                           <div class="right_alignment" style="margin-right: 2%">
                                              <div class="right_button">
-                                                <a class="btn btn-xs detail_button">수정하기</a>
-                                                <a class="btn btn-xs detail_button2">삭제하기</a>
+                                                <input type="submit" value="수정하기" class="btn btn-xs detail_button" />
+                                                <a onClick="clickInform();" class="btn btn-xs detail_button2">삭제하기</a>
+                                                <!-- onClick="location.href='deleteDiary.do?notecode=${diary.notecode}'"  -->
                                              </div>
                                           </div>
                                           <div class="left_alignment" style="margin-left: 2%">
@@ -228,6 +235,23 @@
       </div>
    </div>
    <!-- jQuery -->
+   <script>
+   function clickInform() {	/*삭제 확인 알림*/
+
+	   if (confirm("정말 삭제하시겠습니까??") == true) {
+	     diaryDeletion();
+	   } else {   //취소
+	     return false;
+	   }
+	   
+	 }
+
+	 function diaryDeletion() {	/*실제삭제*/
+	   location.href='deleteDiary.do?notecode=${diary.notecode}';
+	 }
+
+   </script>
+   
    <script src="resources/js/jquery.min.js"></script>
    <script src="resources/js/popper.min.js"></script>
    <script src="resources/js/bootstrap.min.js"></script>

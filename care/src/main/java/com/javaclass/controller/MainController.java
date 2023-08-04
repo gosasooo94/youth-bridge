@@ -19,4 +19,9 @@ public class MainController {
 	    return step;
 	}
 	
+	@RequestMapping("./diary/{step}.do")
+	   public String serveViewPage(@PathVariable String step) {
+	    return step;
+	}
+	
 }

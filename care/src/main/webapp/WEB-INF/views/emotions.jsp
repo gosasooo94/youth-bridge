@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html lang="UTF-8">
    <head>
@@ -23,9 +20,6 @@
       <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
       <!-- site css -->
       <link rel="stylesheet" href="resources/css/style.css" />
-      
-      <!-- font-awesome.min css -->
-      <link rel="stylesheet" href="resources/css/font-awesome.min.css" />
       <!-- responsive css -->
       <link rel="stylesheet" href="resources/css/responsive.css" />
       <!-- color css -->
@@ -44,7 +38,7 @@
    <body class="dashboard dashboard_1">
       <div class="full_container">
          <div class="inner_container">
-            <!-- sidebar 메뉴 -->
+            <!-- sidebar 메뉴-->
             <nav id="sidebar">
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
@@ -145,7 +139,7 @@
                      <div class="row column_title">
                         <div class="col-md-12">
                            <div class="page_title">
-                              <h2>일기장</h2>
+                              <h2>감정그래프</h2>
                            </div>
                         </div>
                      </div>
@@ -156,7 +150,7 @@
                            <div class="white_shd full margin_bottom_30">
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
-                                    <h2>일기목록</h2>
+                                    <h2>감정그래프목록</h2>
                                  </div>
                               </div>
                               <div class="full inbox_inner_section">
@@ -166,63 +160,15 @@
                                           <div class="mail-box">
                                              <aside class="lg-side">
                                                 <div class="inbox-head">
-                                                   <!-- 검색 시작 -->
-                                                   <form action="diary.do" method="post" class="pull-right position search_inbox">
+                                                   <form action="#" class="pull-right position search_inbox">
                                                       <div class="input-append">
-                                                      
-                                                      	 <!-- <input name="memcode" type="hidden" value="1"> -->
-                                                         <select name="searchCondition" class="sr-select left_alignment">
-                                                            <option value="notetitle">제목</option>
-                                                            <option value="notedate">작성일</option>
-                                                         </select>
-                                                         <input name="searchKeyword" type="text" class="sr-input" value="검색어 입력">
-                                                         <input type="submit" value=""
-                                                         style="background-image:url(resources/images/icon/information-icon-white.png)!important;  background-size:18px !important;
-                                                         background-repeat:no-repeat !important; background-position: 11.5px!important;
-                                                         "
-                                                         class="btn sr-btn search_color_navy input-button"/>
-                                                         
+                                                         <input type="text" class="sr-input" placeholder="검색어입력">
+                                                         <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
                                                       </div>
                                                    </form>
-                                                   <!-- 검색 끝 -->
                                                 </div>
                                                 <div class="inbox-body">
-                                                   <table class="table table-inbox table-hover">
-                                                      <tbody>
-                                                         <tr class="unread">
-                                                            <td class="view-message  dont-show width_length20">번호</td>
-                                                            <td class="view-message " >제목</td>
-                                                            <td class="view-message  inbox-small-cells width_length22">등록일</td>
-                                                         </tr>
-                                                         <c:forEach items="${deleteList}" var="diary" varStatus="diary2">
-	                                                         <tr class="" onClick="location.href='diary_see.do?memcode=${diary.memcode}&notecode=${diary.notecode}'">
-	                                                            <td class="view-message  dont-show width_length20">${deleteList.size()-diary2.index}</td>
-	                                                            <td class="view-message " >${diary.notetitle}</td>
-	                                                            <td class="view-message  inbox-small-cells width_length22">
-	                                                            	<fmt:formatDate value="${diary.notedate}" pattern="yyyy년 MM월 dd일"/>
-	                                                            </td>
-	                                                         </tr>
-                                                         </c:forEach>
-                                                         
-                                                      </tbody>
-                                                   </table>
-                                                </div>
-                                                <div class="full padding_infor_info padding_top_20">
-                                                   <div class="pagination button_section button_style2" style="margin-left: 48%">
-                                                      <!-- pagination -->
-                                                      <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                         <button type="button" class="btn"> < </button> 
-                                                         <button type="button" class="active btn">1</button> 
-                                                         <button type="button" class="btn">2</button> 
-                                                         <button type="button" class="btn">3</button>
-                                                         <button type="button" class="btn"> > </button>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                                <div class="right_alignment">
-                                                   <div class="right_button">
-                                                      <a href="diary_writing.do" class="btn btn-xs detail_button">일기작성</a>
-                                                   </div>
+                                                   <div class="button_block"><button type="button" onClick="location.href='emotions_see.do'" class="btn cur-p btn-secondary button_padding">2023년3월</button></div>
                                                 </div>
                                              </aside>
                                           </div>

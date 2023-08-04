@@ -16,13 +16,11 @@
    <meta name="description" content="">
    <meta name="author" content="">
    <!-- site icon -->
-   <link rel="icon" href="resources/images/fevicon.png" type="image/png" />
+   <link rel="icon" href="resources/images/fevicon.png" type="resources/image/png" />
    <!-- bootstrap css -->
    <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
    <!-- site css -->
    <link rel="stylesheet" href="resources/css/style.css" />
-   <!-- font-awesome.min css -->
-   <link rel="stylesheet" href="resources/css/font-awesome.min.css" />
    <!-- responsive css -->
    <link rel="stylesheet" href="resources/css/responsive.css" />
    <!-- color css -->
@@ -42,7 +40,7 @@
 <body class="dashboard dashboard_1">
    <div class="full_container">
       <div class="inner_container">
-         <!-- sidebar 메뉴-->
+         <!-- sidebar 메뉴 -->
          <nav id="sidebar">
             <div class="sidebar_blog_1">
                <div class="sidebar-header">
@@ -154,7 +152,7 @@
                   <div class="row column_title">
                      <div class="col-md-12">
                         <div class="page_title">
-                           <h2>일기장</h2>
+                           <h2>버킷리스트</h2>
                         </div>
                      </div>
                   </div>
@@ -165,72 +163,111 @@
                         <div class="white_shd full margin_bottom_30">
                            <div class="full graph_head">
                               <div class="heading1 margin_0">
-                                 <h2>일기작성</h2>
+                                 <h2>버킷리스트목록</h2>
                               </div>
                            </div>
                            <div class="full inbox_inner_section">
                               <div class="row">
-                                 <!-- column price -->
-                                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-                                    style="margin-left: 12.5%; flex:12.5%; max-width:75%;">
-                                    <div class="table_price full margin_top20px">
-                                       <!-- 폼 시작 -->
-                                       <form action="insertDiary.do" method="post">
-                                          <div class="mb-3" style="margin: 1.5% 2%;">
-                                             <label class="form-label f_size24 ">
-                                                날짜 : <input id="notedate" type="text" readonly><!--오늘 날짜-->
-                                                날씨 : <input id="weather" name="notesun" class="input_weather" type="text" readonly> <!-- 날씨 api로 날씨값 자동으로 가져옴-->
-                                             </label>
-                                          </div>
-                                          <input name="memcode" type="hidden" class="form-control" id="exampleFormControlInput1"
-                                                value="1"><!-- 작성 회원코드 -->
-                                          <div class="mb-3" style="margin: 1.5% 2%;">
-                                             <label for="exampleFormControlInput1"
-                                                class="form-label f_size24">제목</label>
-                                             <input name="notetitle" type="text" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="">
-                                          </div>
-                                          <div class="mb-3" style="margin: 1.5% 2%;">
-                                             <label for="exampleFormControlTextarea1"
-                                                class="form-label f_size24">내용</label>
-                                             <textarea name="notecontent" class="form-control" id="exampleFormControlTextarea1"
-                                                rows="30"></textarea>
-                                          </div>
-                                          <div class="right_alignment" style="margin-right: 2%;">
-                                             <div class="right_button">
-                                             	<input type="submit" value="일기작성" class="btn btn-xs detail_button">
+                                 <div class="col-md-12">
+                                    <div class="full padding_infor_info">
+                                       <div class="mail-box">
+                                          <aside class="lg-side">
+                                             <div class="inbox-head">
+                                                <form action="#" class="pull-right position search_inbox">
+                                                   <div class="input-append">
+                                                      <input type="text" class="sr-input" placeholder="검색어입력">
+                                                      <button class="btn sr-btn search_color_navy" type="button"><i
+                                                            class="fa fa-search"></i></button>
+                                                   </div>
+                                                </form>
                                              </div>
-                                          </div>
-                                          <div class="left_alignment" style="margin-left: 2%;">
-                                             <div class="right_button">
-                                                <a href="diary.html" class="btn btn-xs detail_button">목록보기</a>
+                                             <div class="inbox-body">
+                                                <table class="table table-inbox table-hover">
+                                                   <tbody>
+                                                      <tr class="unread">
+                                                         <td class="view-message  dont-show width_length20">달성여부</td>
+                                                         <td class="view-message ">제목</td>
+                                                         <td class="view-message  inbox-small-cells width_length20">달성날짜
+                                                         </td>
+                                                         <td class="view-message  inbox-small-cells width_length20">등록날짜
+                                                         </td>
+                                                      </tr>
+                                                      <tr class="">
+                                                         <td class="view-message  dont-show width_length20">O</td>
+                                                         <td class="view-message ">배낭여행</td>
+                                                         <td class="view-message  inbox-small-cells width_length20">
+                                                            2023년4월2일</td>
+                                                         <td class="view-message  inbox-small-cells width_length20">
+                                                            2023년7월2일</td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
                                              </div>
-                                          </div>
-                                       </form>
-                                       <!-- 폼 끝 -->
+                                             <div class="full padding_infor_info padding_top_20">
+                                                <div class="pagination button_section button_style2"
+                                                   style="margin-left: 48%">
+                                                   <!-- pagination -->
+                                                   <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                      <button type="button" class="btn">
+                                                         < </button>
+                                                            <button type="button" class="active btn">1</button>
+                                                            <button type="button" class="btn">2</button>
+                                                            <button type="button" class="btn">3</button>
+                                                            <button type="button" class="btn"> > </button>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="right_alignment">
+                                                <div class="padding_infor_info">
+                                                   <button type="button" class="model_bt btn detail_button"
+                                                      data-toggle="modal" data-target="#myModal">버킷리스트작성</button>
+                                                </div>
+                                             </div>
+                                       </div>
+                                       </aside>
                                     </div>
                                  </div>
-                                 <!-- end column price -->
                               </div>
                            </div>
                         </div>
                      </div>
-                     <!-- table section -->
                   </div>
+                  <!-- table section -->
                </div>
-               <!-- footer -->
-               <div class="container-fluid">
-                  <div class="footer">
-                     <p>Copyright ©2018 Designed by html.design. All rights reserved.</p>
+            </div>
+            <!-- footer -->
+            <div class="container-fluid">
+               <div class="footer">
+                  <p>Copyright ©2018 Designed by html.design. All rights reserved.</p>
+               </div>
+            </div>
+         </div>
+         <!-- 버튼클릭시나오는영역-->
+         <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                     <h4 class="modal-title">버킷리스트 작성하기</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                     내 버킷리스트
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-danger" data-dismiss="modal">작성하기</button>
                   </div>
                </div>
             </div>
-            <!-- end dashboard inner -->
          </div>
+         <!-- 버튼클릭시나오는영역끝-->
+         <!-- end dashboard inner -->
       </div>
    </div>
+   </div>
    <!-- jQuery -->
-   <script src="resources/js/weather.js"></script>	<!-- 날씨 api js -->
    <script src="resources/js/jquery.min.js"></script>
    <script src="resources/js/popper.min.js"></script>
    <script src="resources/js/bootstrap.min.js"></script>
