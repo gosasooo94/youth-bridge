@@ -3508,3 +3508,39 @@ table.projects tr td:first-child {
 .button_padding{
     padding:20px 45px;
 }
+/*0802 추가*/
+#weather{
+    border-style:none;
+    width: 15%;
+}
+#weather:hover{
+    cursor:default;
+}
+#notedate{
+    border-style:none;
+    width: 30%;
+}
+#notedate:hover{
+    cursor:default;
+}
+.sr-select{
+    border: medium none;
+    border-radius: 0;
+    box-shadow: none;
+    color: #222;
+    float: left;
+    height: 40px;
+    padding: 0 0px 0 20px;
+    font-size: 14px;
+    font-weight: 200;
+    width: 110px;
+    border-right: 3px solid #f6f6f6;
+}
+.input-button{
+    background-image:url(resources/images/icon/information-icon-white.png)!important;
+    background-repeat:no-repeat !important;   /*이미지 한개만*/
+    background-size:18px !important;
+    background-position: 11.5px!important; 
+    width: 40px;
+    height: 40px;
+}
