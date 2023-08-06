@@ -8,16 +8,19 @@ import org.springframework.stereotype.Repository;
 
 import com.javaclass.domain.FairVO;
 
-@Repository("fairDAO") 
-public class FairDAOImpl {
 
+@Repository("fairDAO") 
+public class FairDAOImpl implements FairDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
+	@Override
 	public List<FairVO> getBoardList(FairVO vo) {
 		System.out.println("===> Mybatis getBoardList() 호출");
 		List<FairVO> list = mybatis.selectList("FairDAO.getBoardList", vo);
 		return list;
 	}
-	
+
+
+
 }
