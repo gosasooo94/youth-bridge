@@ -30,17 +30,21 @@
       <link rel="stylesheet" href="resources/css/perfect-scrollbar.css" />
       <!-- custom css -->
       <link rel="stylesheet" href="resources/css/custom.css" />
+      <link rel="stylesheet" href="resources/css/daily_talk.css" />
+  
+      
 
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
       <script type="text/javascript">
-
+ 
+      
       </script>
   	
    </head>
-   <body class="dashboard dashboard_1">
+    <body class="dashboard dashboard_1">
       <div class="full_container">
          <div class="inner_container">
             <!-- sidebar 메뉴  -->
@@ -92,7 +96,7 @@
                         <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
                         <ul class="collapse list-unstyled" id="apps2">
                            <li><a href="daily_talk.html">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.html">> <span>업무대화</span></a></li>
+                           <li><a href="company_talk.html">> <span>회사대화</span></a></li>
                         </ul>
                      </li>
                      <li><a href="freedom_board.html"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
@@ -100,7 +104,7 @@
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
                            <li><a href="job.html">> <span>일자리</span></a></li>
-                           <li><a href="exposition.html">> <span>박람회</span></a></li>
+                           <li><a href="fairList.do">> <span>박람회</span></a></li>
                         </ul>
                      </li>
                      <li><a href="advocacy.html"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>지원정책</span></a></li>
@@ -156,75 +160,7 @@
                                  <div class="heading1 margin_0">
                                     <h2>일상대화</h2>
                                  </div>
-                              </div>
-                              <div class="full price_table padding_infor_info">
-                                 <div class="row">
-
-                                    <!-- column price --> 
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="margin-left: 25%; flex:50%; max-width:50%;">
-                                       <div class="table_price full">
-                                          <div class="inner_table_price">
-                                             <main id="main">
-        <div class="quiz__wrap">
-           <div class="quiz">
-                <div class="quiz__header">
-                    <h2 class="quiz__title"></h2>
-                </div>
-                <div class="quiz__main">
-                    <div class="quiz__question">
-
-                    </div>
-                    <div class="quiz__view">
-                        <div class="dog__wrap">
-                            <div class="true">정답입니다!</div>
-                            <div class="false">틀렸습니다!</div>
-                            <div class="card-container">
-                                <div class="dog">
-                                    <div class="head">
-                                        <div class="ears"></div>
-                                        <div class="face"></div>
-                                        <div class="eyes">
-                                            <div class="teardrop"></div>
-                                        </div>
-                                        <div class="nose"></div>
-                                        <div class="mouth">
-                                            <div class="tongue"></div>
-                                        </div>
-                                        <div class="chin"></div>
-                                    </div>
-                                    <div class="body">
-                                      <div class="tail"></div>
-                                      <div class="legs"></div>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>                        
-                    </div>
-                    <div class="quiz__choice">
-                        
-                        <label for="choice1">
-                            <input type="radio" id="choice1" name="choice" value="1">
-                            <span class="choice"></span>
-                        </label>
-                        <label for="choice2">
-                            <input type="radio" id="choice2" name="choice" value="2">
-                            <span class="choice"></span>
-                        </label>
-                        <label for="choice3">
-                            <input type="radio" id="choice3" name="choice" value="3">
-                            <span class="choice"></span>
-                        </label>
-                        <label for="choice4">
-                            <input type="radio" id="choice4" name="choice" value="4">
-                            <span class="choice"></span>
-                        </label>
-                    </div>
-                    <div class="quiz__answer">
-                        <button class="confirm" >정답확인하기</button>              
-                    </div>
-                    <div class="quiz__desc">설명</div>
-                </div>
-
+  
 
            
 
@@ -233,16 +169,7 @@
         </div>
 
     </main>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column price -->
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+    <!-- //main -->
                   <!-- footer -->
                   <div class="container-fluid">
                      <div class="footer">
@@ -280,5 +207,6 @@
       <!-- custom js -->
       <script src="resources/js/custom.js"></script>
       <script src="resources/js/chart_custom_style1.js"></script>
+      <script src="resources/js/daily_talk.js"></script>
    </body>
 </html>
