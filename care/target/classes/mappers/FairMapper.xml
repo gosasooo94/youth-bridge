@@ -4,10 +4,10 @@
 <mapper namespace="FairDAO">
 
 	<!-- 박람회 정보 제공--> 
-<select id="getBoardList" resultType="board"  >
+<select id="fairList" resultType="fair"  >
          SELECT *
          FROM FAIR
-         ORDER BY SEQ DESC
+         ORDER BY FAIRCODE DESC
    </select> 
 	
 

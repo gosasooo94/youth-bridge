@@ -158,21 +158,23 @@
                               </div>
                               <div class="full price_table padding_infor_info">
                                  <div class="row">
-                                    <!-- column contact -->  
+                                    <!-- column contact --> 
+                                    <c:forEach items="${fairList }" var="fair">
                                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                <c:forEach items="${fairList}" var="fair">
                                        <div class="contact_blog">
                                           <h4 class="brief"><br></h4>
                                           <div class="contact_inner">
                                              <div class="left">
-                                                <h3>${fair.fairName} </h3>
-                                                <p><strong>분류: ${fair.fairCatecode} </strong></p>
+                                                <h3>${fair.fairname }</h3>
                                                 <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: ${fair.fairStart}</li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: ${fair.fairEnd} </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: ${fair.fairAddr}</li>
+                                                	
+                                                   <li><i class="fa fa-globe"></i>시작날짜 :${fair.fairstart }</li>
+                                                   <li><i class="fa fa-bullhorn"></i>종료날짜 : ${fair.fairend }</li>
+                                                   <li><i class="fa fa-bullhorn2"></i>주소 : ${fair.fairaddr }</li>
+                                                   
                                                 </ul>
                                              </div>
+                                              
                                              <div class="right">
                                                 <div class="profile_contacts">
                                                    <img class="img-responsive" src="resources/images/corporate_logo/1.jpg" alt="#" />
@@ -180,442 +182,17 @@
                                              </div>
                                              <div class="bottom_list">
                                                 <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="one">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                     </c:forEach>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>2023 관광산업 일자리박람회</h3>
-                                                <p><strong>분류: 취업</strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: 23/09/18</li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: 23/09/19</li>
-                                                    <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/2.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="two">
-                                                   <i class="fa fa-user"> </i> 상세보기
+                                                   <button type="button" class="btn btn-primary btn-xs" >
+                                                   <i class="fa fa-user"> </i>상세보기
                                                    </button>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>2023 Global Talent Fair</h3>
-                                                <p><strong>분류: 취업</strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: 23/08/21</li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: 23/08/22</li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: COEX 3층 C-hall 및 컨퍼런스 룸 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/3.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="three">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>2023 글로벌 일자리 대전</h3>
-                                                <p><strong>분류: 취업</strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: 23/08/21</li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: 23/08/22</li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/4.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="four">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/5.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="five">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/6.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="six">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/7.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="seven">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/8.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="eight">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/9.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="nine">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/10.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="ten">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/11.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="eleven">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/12.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="twelve">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/13.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="thirteen">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>Strategy RA 체험형 인턴 모집</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/14.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="fourteen">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                    <!-- column contact --> 
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
-                                       <div class="contact_blog">
-                                          <h4 class="brief"><br></h4>
-                                          <div class="contact_inner">
-                                             <div class="left">
-                                                <h3>2023년 체험형 청년인턴 채용공고</h3>
-                                                <p><strong>분류: </strong></p>
-                                                <ul class="list-unstyled">
-                                                   <li><i class="fa fa-globe"></i>시작날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>종료날짜: </li>
-                                                   <li><i class="fa fa-bullhorn"></i>주소: 코엑스 3층D홀 </li>
-                                                </ul>
-                                             </div>
-                                             <div class="right">
-                                                <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/15.jpg" alt="#" />
-                                                </div>
-                                             </div>
-                                             <div class="bottom_list">
-                                                <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" id="fifteen">
-                                                   <i class="fa fa-user"> </i> 상세보기
-                                                   </button>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column contact blog -->
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end row -->
-                     </div>
+                                   </c:forEach>
+                                    
+
                   <div class="container-fluid">
                      <div class="footer">
                         <p>Copyright © 2018 Designed by html.design. All rights reserved.<br><br>
@@ -629,27 +206,27 @@
          </div>
       </div>
       <!-- jQuery -->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
+      <script src="resources/js/jquery.min.js"></script>
+      <script src="resources/js/popper.min.js"></script>
+      <script src="resources/js/bootstrap.min.js"></script>
       <!-- wow animation -->
-      <script src="js/animate.js"></script>
+      <script src="resources/js/animate.js"></script>
       <!-- select country -->
-      <script src="js/bootstrap-select.js"></script>
+      <script src="resources/js/bootstrap-select.js"></script>
       <!-- owl carousel -->
-      <script src="js/owl.carousel.js"></script> 
+      <script src="resources/js/owl.carousel.js"></script> 
       <!-- chart js -->
-      <script src="js/Chart.min.js"></script>
-      <script src="js/Chart.bundle.min.js"></script>
-      <script src="js/utils.js"></script>
-      <script src="js/analyser.js"></script>
+      <script src="resources/js/Chart.min.js"></script>
+      <script src="resources/js/Chart.bundle.min.js"></script>
+      <script src="resources/js/utils.js"></script>
+      <script src="resources/js/analyser.js"></script>
       <!-- nice scrollbar -->
-      <script src="js/perfect-scrollbar.min.js"></script>
+      <script src="resources/js/perfect-scrollbar.min.js"></script>
       <script>
          var ps = new PerfectScrollbar('#sidebar');
       </script>
       <!-- custom js -->
-      <script src="js/custom.js"></script>
-      <script src="js/chart_custom_style1.js"></script>
+      <script src="resources/js/custom.js"></script>
+      <script src="resources/js/chart_custom_style1.js"></script>
    </body>
 </html>

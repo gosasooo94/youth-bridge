@@ -7,6 +7,6 @@ import com.javaclass.domain.FairVO;
 
 public interface FairDAO {
 	
-	public List<FairVO> getBoardList(FairVO vo);
+	public List<FairVO> fairList(FairVO vo);
 	
 }

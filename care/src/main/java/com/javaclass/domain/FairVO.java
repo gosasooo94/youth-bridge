@@ -1,42 +1,35 @@
 package com.javaclass.domain;
 
 public class FairVO {
-	private String fairName;
-	private String fairAddr;
-	private String fairStart;
-	private String fairEnd;
-	private String fairCate;
+	private String fairname;
+	private String fairaddr;
+	private String fairstart;
+	private String fairend;
 	
-	public String getFairName() {
-		return fairName;
+	public String getFairname() {
+		return fairname;
+	}
+	public void setFairname(String fairname) {
+		this.fairname = fairname;
+	}
+	public String getFairaddr() {
+		return fairaddr;
+	}
+	public void setFairaddr(String fairaddr) {
+		this.fairaddr = fairaddr;
+	}
+	public String getFairstart() {
+		return fairstart;
+	}
+	public void setFairstart(String fairstart) {
+		this.fairstart = fairstart;
+	}
+	public String getFairend() {
+		return fairend;
+	}
+	public void setFairend(String fairend) {
+		this.fairend = fairend;
 	}
 	
-	public void setFairName(String fairName) {
-		this.fairName = fairName;
-	}
-	public String getFairAddr() {
-		return fairAddr;
-	}
-	public void setFairAddr(String fairAddr) {
-		this.fairAddr = fairAddr;
-	}
-	public String getFairStart() {
-		return fairStart;
-	}
-	public void setFairStart(String fairStart) {
-		this.fairStart = fairStart;
-	}
-	public String getFairEnd() {
-		return fairEnd;
-	}
-	public void setFairEnd(String fairEnd) {
-		this.fairEnd = fairEnd;
-	}
-	public String getFairCate() {
-		return fairCate;
-	}
-	public void setFairCate(String fairCate) {
-		this.fairCate = fairCate;
-	}
 	
 }

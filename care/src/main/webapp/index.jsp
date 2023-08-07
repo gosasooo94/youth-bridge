@@ -96,7 +96,7 @@
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
                            <li><a href="job.do">> <span>일자리</span></a></li>
-                           <li><a href="exposition.do">> <span>박람회</span></a></li>
+                           <li><a href="fairList.do">> <span>박람회</span></a></li>
                         </ul>
                      </li>
                      <li><a href="advocacy.html"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>지원정책</span></a></li>

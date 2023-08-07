@@ -16,11 +16,12 @@ public class expositionController {
 	@Autowired
 	private FairService fairService;
 	// 글 목록 검색
-	@RequestMapping("/getBoardList.do")
-	public void getBoardList(FairVO vo, Model model) {
-		model.addAttribute("boardList", fairService.getBoardList(vo));
+	@RequestMapping("/fairList.do")
+	public String fairList(FairVO vo, Model model) {
+		model.addAttribute("fairList", fairService.fairList(vo));
 		// ViewResolver를 지정하지 않으면 아래처럼 페이지명 지정
 		// return "views/getBoardList.jsp"; // View 이름 리턴
+		return "exposition";
 	}
 	
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javaclass.dao.FairDAO;
 import com.javaclass.dao.FairDAOImpl;
 import com.javaclass.domain.FairVO;
 
@@ -16,7 +15,8 @@ public class FairServiceImpl implements FairService {
 	@Autowired
 	private FairDAOImpl fairDAO;
 	
-	public List<FairVO> getBoardList(FairVO vo) {
-		return fairDAO.getBoardList(vo);
+	@Override
+	public List<FairVO> fairList(FairVO vo) {
+		return fairDAO.fairList(vo);
 	}
 }

@@ -6,6 +6,6 @@
 
    <!-- Alias 설정 -->
    <typeAliases>
-      <typeAlias alias="fair" type="com.javaclass.domain.FairVO" />      
+      <typeAlias alias="fair" type="com.javaclass.domain.FairVO" />
    </typeAliases>
 </configuration>
