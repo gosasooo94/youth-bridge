@@ -39,6 +39,10 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script type="text/javascript" src="resources/js/exposition.js"></script>
 
+
+
+</script>
+
    </head>
    <body class="dashboard dashboard_1">
       <div class="full_container">
@@ -167,22 +171,19 @@
                                              <div class="left">
                                                 <h3>${fair.fairname }</h3>
                                                 <ul class="list-unstyled">
-                                                	
                                                    <li><i class="fa fa-globe"></i>시작날짜 :${fair.fairstart }</li>
                                                    <li><i class="fa fa-bullhorn"></i>종료날짜 : ${fair.fairend }</li>
-                                                   <li><i class="fa fa-bullhorn2"></i>주소 : ${fair.fairaddr }</li>
-                                                   
+                                                   <li><i class="fa fa-bullhorn"></i>주소 : ${fair.fairaddr }</li>
                                                 </ul>
                                              </div>
-                                              
                                              <div class="right">
                                                 <div class="profile_contacts">
-                                                   <img class="img-responsive" src="resources/images/corporate_logo/1.jpg" alt="#" />
+                                                   <img class="img-responsive" src=${fair.fairpoto } alt="#" />
                                                 </div>
                                              </div>
                                              <div class="bottom_list">
                                                 <div class="right_button">
-                                                   <button type="button" class="btn btn-primary btn-xs" >
+                                                   <button type="button" class="btn btn-primary btn-xs" onclick="window.open('${fair.fairurl }') ">
                                                    <i class="fa fa-user"> </i>상세보기
                                                    </button>
                                                 </div>

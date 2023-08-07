@@ -5,7 +5,7 @@
 
 	<!-- 박람회 정보 제공--> 
 <select id="fairList" resultType="fair"  >
-         SELECT *
+         SELECT FAIRNAME, FAIRADDR, TO_CHAR(FAIRSTART,'YYYY.MM.DD')AS FAIRSTART,TO_CHAR(FAIREND,'YYYY.MM.DD')AS FAIREND,FAIRURL,FAIRPOTO
          FROM FAIR
          ORDER BY FAIRCODE DESC
    </select> 
