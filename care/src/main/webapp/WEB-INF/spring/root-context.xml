@@ -19,11 +19,12 @@
       <list>
          <value>com.javaclass.domain.FairVO</value>
          <value>com.javaclass.domain.JobVO</value>
-         <value>com.javaclass.domain.SdsVO</value>
-         <value>com.javaclass.domain.BoardVO</value>
          <value>com.javaclass.domain.LoginVO</value>
-         <value>com.javaclass.domain.ReserveVO</value>
+         <value>com.javaclass.domain.SdsLoginVO</value>
+         <value>com.javaclass.domain.MemberVO</value>
          <value>com.javaclass.domain.SdsMemberVO</value>
+         <value>com.javaclass.domain.ReserveVO</value>
+         <value>com.javaclass.domain.SdsVO</value>
       </list>
    </property>
  </bean>

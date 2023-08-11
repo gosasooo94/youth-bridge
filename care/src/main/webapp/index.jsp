@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- basic -->
-      <meta charset="UTF-8">
+        <!-- basic -->
+      <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +19,8 @@
       <link rel="icon" href="resources/images/fevicon.png" type="image/png" />
       <!-- bootstrap css -->
       <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
-      <!-- site css --> 
+      <!-- site css -->
       <link rel="stylesheet" href="resources/css/style.css" />
-      <link rel="stylesheet" href="resources/css/font-awesome.min.css" />
       <!-- responsive css -->
       <link rel="stylesheet" href="resources/css/responsive.css" />
       <!-- color css -->
@@ -70,12 +69,9 @@
                               <a href="counseling_center.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-
-                              <a href="sdsList.do">> <span>예약하기</span></a>
-
-                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservation.do">> <span>예약하기</span></a></c:if>
-                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservation.do">> <span>회원으로예약하기</span></a></c:if>
-                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>상담사로예약하기</span></a></c:if>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
 
                            </li>
                            <li>
