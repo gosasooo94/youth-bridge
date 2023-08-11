@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html lang="en">
    <head>
       <!-- basic -->
-      <meta charset="utf-8">
+      <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,6 +36,10 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
+      <%
+      String id = (String)session.getAttribute("IdLogin");
+      String sdsid = (String)session.getAttribute("SdsLogin");
+      %>
    </head>
    <body class="dashboard dashboard_1">
       <div class="full_container">
@@ -65,7 +70,9 @@
                               <a href="counseling_center.html">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <a href="reservation.html">> <span>예약하기</span></a>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservation.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservation.do">> <span>회원으로예약하기</span></a></c:if>
+                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>상담사로예약하기</span></a></c:if>
                            </li>
                            <li>
                               <a href="counselling_entry.html">> <span>상담하기</span></a>
@@ -95,8 +102,8 @@
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="job.html">> <span>일자리</span></a></li>
-                           <li><a href="exposition.html">> <span>박람회</span></a></li>
+                           <li><a href="job.html"> <span>일자리</span></a></li>
+                           <li><a href="exposition.html"> <span>박람회</span></a></li>
                         </ul>
                      </li>
                      <li><a href="advocacy.html"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>지원정책</span></a></li>
@@ -121,11 +128,28 @@
                               </ul>
                               <ul class="user_profile_dd">
                                  <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">user</span></a>
+<%-- choose는 확실히 구분될때, if는 조건으로 구분해야할 때 사용 --%>                                 
+<%-- 회원, 상담사 모두 null이면 로그인하러가기가 뜸 --%>                                                                     
+<c:if test="${Login eq null && SdsLogin eq null}"><a class="dropdown-toggle" href="login.do"><span class="name_user">로그인하기</span></a></c:if>
+<%-- 회원 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
+<c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }</span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.html">마이페이지</a>
-                                       <a class="dropdown-item" href="#"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
-                                    </div>
+                                    	<form action="myPage.do"><input type="hidden" name="id" value="${ IdLogin }" /><input class="dropdown-item" type="submit" name="member" value="마이페이지" /></form>
+                                      <!-- <a class="dropdown-item" name="member" href="myPage.do">마이페이지</a> -->
+                                      <a class="dropdown-item" href="logout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
+                                    </div></c:if>
+<%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
+<c:if test="${SdsLogin ne null && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ NickLogin }</span></a>
+                                    <div class="dropdown-menu">
+                                    <form action="sdsMyPage.do"><input type="hidden" name="sdsid" value="${ SdsLogin }" /><input class="dropdown-item" type="submit" name="sdsmember" value="마이페이지" /></form>
+                                      <!-- <a class="dropdown-item" name="sdsmember" href="sdsMyPage.do">마이페이지</a> -->
+                                      <a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
+                                    </div></c:if>
+<%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) + 상담사 권한이 'N'이면 로그아웃만 나옴(마이페이지 이용 불가) --%>                                    
+<%-- <c:if test="${SdsLogin ne null && SdsCheck eq 'N' && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user"><%= sdsnick %></span></a>
+									<div class="dropdown-menu">
+									<a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
+									</div></c:if>               --%>                                                          									
                                  </li>
                               </ul>
                            </div>
