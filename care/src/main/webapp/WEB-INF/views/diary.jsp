@@ -175,7 +175,7 @@
                                                             <option value="notetitle">제목</option>
                                                             <option value="notedate">작성일</option>
                                                          </select>
-                                                         <input name="searchKeyword" type="text" class="sr-input" value="검색어 입력">
+                                                         <input name="searchKeyword" type="text" class="sr-input" value="" placeholder="검색어 입력">
                                                          <input type="submit" value=""
                                                          style="background-image:url(resources/images/icon/information-icon-white.png)!important;  background-size:18px !important;
                                                          background-repeat:no-repeat !important; background-position: 11.5px!important;

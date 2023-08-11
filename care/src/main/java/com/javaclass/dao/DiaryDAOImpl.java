@@ -17,7 +17,7 @@ public class DiaryDAOImpl implements DiaryDAO{
 
 	public void insertDiary(DiaryVO vo) {
 		System.out.println("===> Mybatis insertDiary() ");
-		System.out.println("제목 : " + vo.getNotetitle() + "" + vo.getNotecontent() + vo.getNotesun());
+		//System.out.println("제목 : " + vo.getNotetitle() + " 내용 : " + vo.getNotecontent() +" 작성자코드 :" + vo.getMemcode());
 		mybatis.insert("DiaryDAO.insertDiary", vo);
 	}
 
@@ -42,6 +42,23 @@ public class DiaryDAOImpl implements DiaryDAO{
 		// TODO Auto-generated method stub
 		return mybatis.selectOne("DiaryDAO.getDiary", vo);
 	}
+	
+	//
+	@Override
+	public DiaryVO selectDiaryLately(DiaryVO vo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("DiaryDAO.getDiaryLately", vo);
+	}
+
+	// 감정분류 (감정그래프) 인서트
+	@Override
+	public void insertEmotions(DiaryVO vo) {
+		// TODO Auto-generated method stub
+		System.out.println("감정분류 인서트 다오!!!! "+vo.getNotegood() +" / " + vo.getNotebad() + " / " + vo.getNotecode());
+		mybatis.insert("DiaryDAO.insertEmotions", vo);
+	}
+
+	
 
 
 

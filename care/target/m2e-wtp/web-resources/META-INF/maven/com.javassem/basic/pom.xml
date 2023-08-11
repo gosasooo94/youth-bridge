@@ -127,6 +127,20 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- KoNLPy 자바 자연어 단어전처리 -->
+		<!-- https://mvnrepository.com/artifact/org.openkoreantext/open-korean-text -->
+		<dependency>
+			<groupId>org.openkoreantext</groupId>
+			<artifactId>open-korean-text</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<!-- json 파일 읽기 -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 
 		<!-- 마이바티스 추가 -->
 		<!-- mybatis -->

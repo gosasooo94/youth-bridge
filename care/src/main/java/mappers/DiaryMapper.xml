@@ -18,19 +18,23 @@
 
 	<!-- 글 상세보기 -->
 	<select id="getDiary" parameterType="diary" resultType="diary">
-		SELECT * FROM NOTE
+		SELECT *
+		FROM NOTE
 		WHERE MEMCODE = #{memcode}
 		AND NOTECODE= #{notecode}
 	</select>
 
 	<insert id="insertDiary" parameterType="diary">
-		INSERT INTO NOTE(NOTECODE, NOTETITLE, NOTEDATE, NOTESUN, NOTECONTENT, MEMCODE)
-		VALUES(seq_note.nextval, #{notetitle}, sysdate, #{notesun}, #{notecontent}, #{memcode})
+		INSERT INTO
+		NOTE(NOTECODE, NOTETITLE, NOTEDATE, NOTESUN, NOTECONTENT, MEMCODE)
+		VALUES(seq_note.nextval, #{notetitle}, sysdate, #{notesun},
+		#{notecontent}, #{memcode})
 	</insert>
 
 	<update id="updateDiary" parameterType="diary">
 		UPDATE NOTE SET
-		NOTETITLE = #{notetitle},
+		NOTETITLE
+		= #{notetitle},
 		NOTECONTENT = #{notecontent}
 		WHERE MEMCODE = #{memcode}
 		and NOTECODE = #{notecode}
@@ -38,7 +42,23 @@
 
 	<delete id="deleteDiary" parameterType="diary">
 		DELETE FROM NOTE
-		WHERE NOTECODE = #{notecode}
+		WHERE
+		NOTECODE = #{notecode}
 	</delete>
+
+
+	<!-- 감정그래프 -->
+	<insert id="insertEmotions" parameterType="diary">
+		INSERT INTO
+		NOTEEMO(NOTEEMOCODE, NOTEGOOD, NOTEBAD, NOTECODE)
+		VALUES(seq_noteemo.nextval, #{notegood}, #{notebad}, #{notecode})
+	</insert>
+
+	<select id="getDiaryLately" parameterType="diary"
+		resultType="diary">
+		SELECT * FROM
+		(SELECT * FROM NOTE ORDER BY NOTECODE DESC)
+		WHERE ROWNUM = 1
+	</select>
 
 </mapper>

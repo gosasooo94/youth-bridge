@@ -21,6 +21,11 @@ public interface DiaryService {
 	// 일기 상세보기
 	public DiaryVO getDiary(DiaryVO vo);
 
+	// 감정분류 (감정그래프) 인서트
+	void insertEmotions(DiaryVO vo);
+
+	public DiaryVO selectDiaryLately(DiaryVO vo);
+
 	
 
 }

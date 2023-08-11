@@ -16,5 +16,10 @@ public interface DiaryDAO {
 
 	public DiaryVO getDiary(DiaryVO vo);
 
+	// 감정분류 (감정그래프) 인서트
+	public void insertEmotions(DiaryVO vo);
+
+	public DiaryVO selectDiaryLately(DiaryVO vo);
+
 
 }

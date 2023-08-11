@@ -12,6 +12,10 @@ public class DiaryVO {
 	private String notesun; // 일기 날씨
 	private String notecontent; // 일기 내용
 	private Date notedate; // 일기 날짜
+	private int notegood;
+	private int notebad;
+	
+	
 	
 	public int getNotecode() {
 		return notecode;
@@ -48,6 +52,20 @@ public class DiaryVO {
 	}
 	public void setNotedate(Date notedate) {
 		this.notedate = notedate;
+	}
+	
+	//감정그래프 
+	public int getNotegood() {
+		return notegood;
+	}
+	public void setNotegood(int notegood) {
+		this.notegood = notegood;
+	}
+	public int getNotebad() {
+		return notebad;
+	}
+	public void setNotebad(int notebad) {
+		this.notebad = notebad;
 	}
 	
 }

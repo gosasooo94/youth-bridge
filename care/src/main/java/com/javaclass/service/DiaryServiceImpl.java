@@ -17,7 +17,7 @@ public class DiaryServiceImpl implements DiaryService {
 	private DiaryDAO diaryDAO;
 
 	public void insertDiary(DiaryVO vo) {
-		System.out.println("인서트 서비스 옴 : " + vo.getNotetitle() + vo.getNotecontent() + vo.getNotesun());
+		//System.out.println("인서트 서비스 옴 : " + vo.getNotetitle() + vo.getNotecontent() + vo.getNotesun());
 		diaryDAO.insertDiary(vo);
 	}
 
@@ -40,6 +40,22 @@ public class DiaryServiceImpl implements DiaryService {
 		return diaryDAO.getDiary(vo);
 		
 	}
+
+	// 감정분류 (감정그래프) 인서트
+	@Override
+	public void insertEmotions(DiaryVO vo) {
+		// TODO Auto-generated method stub
+		System.out.println("감정분류 인서트 옴 : " + vo.getNotegood() + " 부정 : " + vo.getNotebad() + "코드 : " + vo.getNotecode());
+		diaryDAO.insertEmotions(vo);
+		
+	}
+
+	@Override
+	public DiaryVO selectDiaryLately(DiaryVO vo) {
+		// TODO Auto-generated method stub
+		return diaryDAO.selectDiaryLately(vo);
+	}
+
 
 
 }
