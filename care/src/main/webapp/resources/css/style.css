@@ -3169,9 +3169,11 @@ ul.labels-category li p {
 }
 
 .profile_contacts img {
-    border-radius: 100%;
+	border-radius: 100%;
     border: 1px solid #ddd;
     padding: 4px;
+    width: 100px;
+    height: 100px;
 }
 
 .bottom_list {

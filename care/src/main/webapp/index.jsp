@@ -44,7 +44,7 @@
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
                      <div class="logo_section">
-                        <a href="index.jsp"><img class="logo_icon img-responsive" src="resources/images/logo/logo_icon.png" alt="#" /></a>
+                        <a href="index.html"><img class="logo_icon img-responsive" src="resources/images/logo/logo_icon.png" alt="#" /></a>
                      </div>
                   </div>
                   <div class="sidebar_user_info">
@@ -62,13 +62,13 @@
                         <a href="#advice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/counselling-icon.png" style="width: 30px;"></i><span>상담</span></a>
                         <ul class="collapse list-unstyled" id="advice">
                            <li>
-                              <a href="counseling_center.html">> <span>상담소 찾기</span></a>
+                              <a href="counseling_center.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <a href="reservation.html">> <span>예약하기</span></a>
+                              <a href="sdsList.do">> <span>예약하기</span></a>
                            </li>
                            <li>
-                              <a href="counselling_entry.html">> <span>상담하기</span></a>
+                              <a href="counselling_entry.do">> <span>상담하기</span></a>
                            </li>
                         </ul>
                      </li>
@@ -95,7 +95,7 @@
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="job.do">> <span>일자리</span></a></li>
+                           <li><a href="jobList.do">> <span>일자리</span></a></li>
                            <li><a href="fairList.do">> <span>박람회</span></a></li>
                         </ul>
                      </li>

@@ -7,5 +7,7 @@
    <!-- Alias 설정 -->
    <typeAliases>
       <typeAlias alias="fair" type="com.javaclass.domain.FairVO" />
+      <typeAlias alias="job" type="com.javaclass.domain.JobVO" />
+      <typeAlias alias="sds" type="com.javaclass.domain.SdsVO" />
    </typeAliases>
 </configuration>

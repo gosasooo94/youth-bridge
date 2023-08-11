@@ -8,8 +8,8 @@
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
    <property name="url" value="jdbc:oracle:thin:@192.168.0.36:1521:orcl"></property>
-   <property name="username" value="haha"></property>
-   <property name="password" value="haha"></property>
+   <property name="username" value="huhu"></property>
+   <property name="password" value="huhu"></property>
 </bean>
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
   <property name="dataSource" ref="dataSource" />
@@ -18,6 +18,8 @@
   <property name="typeAliases">
       <list>
          <value>com.javaclass.domain.FairVO</value>
+         <value>com.javaclass.domain.JobVO</value>
+         <value>com.javaclass.domain.SdsVO</value>
       </list>
    </property>
  </bean>

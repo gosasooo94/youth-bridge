@@ -52,7 +52,7 @@
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
                      <div class="logo_section">
-                        <a href="index.html"><img class="logo_icon img-responsive" src="resources/images/logo/logo_icon.png" alt="#" /></a>
+                        <a href="index.do"><img class="logo_icon img-responsive" src="resources/images/logo/logo_icon.png" alt="#" /></a>
                      </div>
                   </div>
                   <div class="sidebar_user_info">
@@ -96,7 +96,7 @@
                         <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
                         <ul class="collapse list-unstyled" id="apps2">
                            <li><a href="daily_talk.html">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.html">> <span>회사대화</span></a></li>
+                           <li><a href="company_talk.html">> <span>업무대화</span></a></li>
                         </ul>
                      </li>
                      <li><a href="freedom_board.html"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
@@ -158,18 +158,67 @@
                            <div class="white_shd full margin_bottom_30">
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
-                                    <h2>일상대화</h2>
+                                    <h2>일상 대화 퀴즈</h2>
                                  </div>
+
+    </div>
+    
+      <%
+        String[] data = {
+            "아침에 일어난 당신은 방문을 열고 나오니 부모님과 마주치게 되었습니다. 다음 중 적절한 발언은 무엇인가요?`좋은 아침이에요!`무시한다`다시 자러 갈게요.`xx 좋은 아침이네요!",
+            "등굣길에서 친구를 만났습니다. 반가운 마음에 친구를 불러서 같이 가고 싶은 당신이 해야 할 말은 무엇인가요?`어디 가냐 XX야, 같이 가야지.`좋은 아침이야 친구야, 친한척해라`친구야 반갑다. 같이 가자!`나버리고 혼자 가니?",
+            "지인과 의견이 달라 다툼이 생길 것 같습니다. 다음 중 하면 안 되는 말은 무엇일까요?`제 생각은 이런 이유로 조금 다른데 어떤 거 같나요?`그 의견도 좋은 생각인 거 같은데 같이 생각해 볼까요?`조금만 더 생각해 보고 의견을 공유해 볼까요?`제 말이 맞는 거 같은 데 왜 그렇게 말씀하시죠?",
+            "길을 걷다가 친구들끼리 싸우는 것을 보았습니다. 다음 중 당신이 하면 안 되는 말은 무엇인가요??`(싸움을 말리며) 싸움은 나쁜 거야!`(싸움을 말리며) 친구끼리 사이좋게 지내야지 둘 다 멈춰!`(싸움을 지켜보며) 재밌네, 계속 싸워라!`(싸움을 말리며) 둘이 싸우는 것을 보니 슬프구나.",
+            "어딘가로 향하던 중 옆집에 사는 할아버지를 만났습니다. 할아버지는 당신에게 우체국의 위치를 물어보는데 다음 중 해야 하는 말은 무엇인가요?(당신은 우체국의 위치를 알고 있습니다.)`앞에 보이는 마트에서 왼쪽으로 돌아서 가면 있어요!`저는 모르겠는데요?`말없이 무시하고 지나간다.`왜 그걸 알려드려야 하는 거죠?",
+            "당신은 여자(남자) 친구와 데이트 약속을 잡았습니다. 그런데 당신은 그만 약속에 늦었는데요. 다음 중 하면 안 되는 말은 무엇일까요?`늦어서 미안해.`많이 기다렸지, 앞으로는 늦지 않을게.`사람이 살다 보면 늦을 수도 있지, 너무 뭐라 하지 마.`좀 더 일찍 나와야 했는데, 앞으로 안 늦도록 노력할게.",
+            "어머니가 당신에게 심부름을 부탁했습니다. 다음 중 상황에 맞는 말은 무엇일까요?`심부름 값은 얼마 주실 건데요?`(장바구니를 집어 들며) 조심히 다녀오겠습니다!`제가 왜요?`저 말고 동생 시키면 안 되나요?",
+            "길을 가던 중 모르는 사람과 부딪히게 되었습니다. 상대방이 먼저 사과를 하고 있을 때 하면 안 되는 말은 무엇일까요?`저도 조심해야 했는데 죄송합니다.`다치신 곳은 없으신가요?`저는 괜찮습니다. 조심히 들어가세요!`눈을 어디에 뜨고 다니시는 겁니까?",
+            "형제(자매, 남매) 간에 다툼이 일어났습니다. 다음 중 해야 하는 말은 무엇일까요?`죽고 싶냐?`엄마, (형)이 또 저 때려요!`미안해! 다시는 안 그럴게!`아잇XX, 주먹맛 좀 볼래?",
+            "자러 갈 시간입니다. 자기 전에 가족들에게 해야 할 말은 무엇일까요?`잘 거니까 깨우지 마라.`안녕히 주무세요!`잘 시간인데 티브이 좀 끄면 안 돼?`굳잠!"
+            		
+        };
+
+        int score = 0;
+        String[] answers = {"1", "3", "4","3","1","3","2","4","3","2"};
+    %>
+
+
+
+    <form method="post">
+        <% for (int i = 0; i < data.length; i++) { %>
+            <%-- 문제와 선택지 출력 --%>
+            <p><%= (i + 1) + ". " + data[i].split("`")[0] %></p>
+            <% for (int j = 1; j < data[i].split("`").length; j++) { %>
+                <input type="radio" name="answer<%= i %>" value="<%= j %>" />
+                <%= data[i].split("`")[j] %><br>
+            <% } %>
+            <%-- 사용자가 선택한 답을 받아오는 부분 --%>
+            <input type="hidden" name="question<%= i %>" value="<%= data[i].split("`")[0] %>" />
+            <br>
+        <% } %>
+        <input type="submit" value="제출" />
+    </form>
+
+    <%-- 사용자가 답을 선택한 경우 --%>
+    <%
+        if (request.getMethod().equals("POST")) {
+            for (int i = 0; i < data.length; i++) {
+                String question = data[i].split("`")[0];
+                String userAnswer = request.getParameter("answer" + i);
+
+                if (userAnswer != null && userAnswer.equals(answers[i])) {
+                    score++;
+                }
+            }
+            out.println("정답 개수 / 전체 문항수 >> " + score + " / " + data.length );
+        }
+    %>
+
+          
+ 			  </div>
+              </div>
+   
   
-
-           
-
-            </div>
-
-        </div>
-
-    </main>
-    <!-- //main -->
                   <!-- footer -->
                   <div class="container-fluid">
                      <div class="footer">
@@ -207,6 +256,6 @@
       <!-- custom js -->
       <script src="resources/js/custom.js"></script>
       <script src="resources/js/chart_custom_style1.js"></script>
-      <script src="resources/js/daily_talk.js"></script>
+
    </body>
 </html>

@@ -4,63 +4,63 @@
  
  $(function() {
  		$('#one').click(function() {
-		window.open("https://hsjobfair.com/");
+		location.href = 'https://hsjobfair.com/';
 	});
 	
 		$('#two').click(function() {
-		window.open("https://academy.visitkorea.or.kr/fair/fairHome.do");
+		location.href = 'https://academy.visitkorea.or.kr/fair/fairHome.do';
 	});
 	
 		$('#three').click(function() {
-		window.open ('https://globaltalentfair.kotra.biz/');
+		location.href = 'https://globaltalentfair.kotra.biz/';
 	});
 	
 		$('#four').click(function() {
-		window.open ('https://jffds.kotra.biz/fairDash.do?hl=KOR');
+		location.href = 'https://jffds.kotra.biz/fairDash.do?hl=KOR';
 	});
 	
 		$('#five').click(function() {
-		window.open ('https://defensejobfair.net/');
+		location.href = 'https://defensejobfair.net/';
 	});
 	
 		$('#six').click(function() {
-		window.open ('http://www.kitas.kr/web/kor/main/');
+		location.href = 'http://www.kitas.kr/web/kor/main/';
 	});
 	
 		$('#seven').click(function() {
-		window.open ('https://seoulpopcon.org/');
+		location.href = 'https://seoulpopcon.org/';
 	});
 	
 		$('#eight').click(function() {
-		window.open ('https://barshow.co.kr/');
+		location.href = 'https://barshow.co.kr/';
 	});
 	
 		$('#nine').click(function() {
-		window.open ('https://startup-afro.kr/fairDash.do');
+		location.href = 'https://startup-afro.kr/fairDash.do';
 	});
 	
 		$('#ten').click(function() {
-		window.open ('https://kyf.or.kr/user/business/lectureView.do?mentoringId=3466');
+		location.href = 'https://kyf.or.kr/user/business/lectureView.do?mentoringId=3466';
 	});
 	
 		$('#eleven').click(function() {
-		window.open ('http://koreaveganfair.com/new_t/html/?gclid=EAIaIQobChMI5sfQ9IXCgAMV5w57Bx3FUwbxEAAYASAAEgJJnvD_BwE');
+		location.href = 'http://koreaveganfair.com/new_t/html/?gclid=EAIaIQobChMI5sfQ9IXCgAMV5w57Bx3FUwbxEAAYASAAEgJJnvD_BwE';
 	});
 	
 		$('#twelve').click(function() {
-		window.open ('https://kcdf.or.kr/hanbokexpo/main');
+		location.href = 'https://kcdf.or.kr/hanbokexpo/main';
 	});
 	
 		$('#thirteen').click(function() {
-		window.open ('https://www.imidex.org/fairContents.do?FAIRMENU_IDX=15620&hl=KOR');
+		location.href = 'https://www.imidex.org/fairContents.do?FAIRMENU_IDX=15620&hl=KOR';
 	});
 	
 		$('#fourteen').click(function() {
-		window.open ('https://www.cphikorea.co.kr/main/main.php');
+		location.href = 'https://www.cphikorea.co.kr/main/main.php';
 	});
 	
 		$('#fifteen').click(function() {
-		window.open ('https://www.franchisecoex.co.kr/');
+		location.href = 'https://www.franchisecoex.co.kr/';
 	});
  	
  	

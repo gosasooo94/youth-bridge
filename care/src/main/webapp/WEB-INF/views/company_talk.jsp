@@ -35,6 +35,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
+
    </head>
    <body class="dashboard dashboard_1">
       <div class="full_container">
@@ -44,7 +45,7 @@
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
                      <div class="logo_section">
-                        <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        <a href="index.do"><img class="logo_icon img-responsive" src="resources/images/logo/logo_icon.png" alt="#" /></a>
                      </div>
                   </div>
                   <div class="sidebar_user_info">
@@ -87,8 +88,8 @@
                      <li>
                         <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
                         <ul class="collapse list-unstyled" id="apps2">
-                           <li><a href="daily_talk.html">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.html">> <span>업무대화</span></a></li>
+                           <li><a href="daily_talk.do">> <span>일상대화</span></a></li>
+                           <li><a href="company_talk.do">> <span>업무대화</span></a></li>
                         </ul>
                      </li>
                      <li><a href="freedom_board.html"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
@@ -96,7 +97,7 @@
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
                            <li><a href="job.html">> <span>일자리</span></a></li>
-                           <li><a href="exposition.html">> <span>박람회</span></a></li>
+                           <li><a href="fairList.do">> <span>박람회</span></a></li>
                         </ul>
                      </li>
                      <li><a href="advocacy.html"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>지원정책</span></a></li>
@@ -112,7 +113,7 @@
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
-                           <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                           <a href="index.html"><img class="img-responsive" src="resources/images/logo/logo.png" alt="#" /></a>
                         </div>
                         <div class="right_topbar">
                            <div class="icon_info">
@@ -150,45 +151,63 @@
                            <div class="white_shd full margin_bottom_30">
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
-                                    <h2>회사대화</h2>
+                                    <h2>업무 대화 퀴즈</h2>
                                  </div>
-                              </div>
-                              <div class="full price_table padding_infor_info">
-                                 <div class="row">
+                              
+                 
 
-                                    <!-- column price --> 
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="margin-left: 25%; flex:50%; max-width:50%;">
-                                       <div class="table_price full">
-                                          <div class="inner_table_price">
-                                             <div class="price_table_head green_bg">
-                                                <h2>3번째 문제</h2>
-                                             </div>
-                                             <div class="price_table_inner">
-                                                <div class="cont_table_price_blog">
-                                                   <p class="green_color"><span >그 이야기 들어봤어?</span></p>
-                                                </div>
-                                                <div class="cont_table_price">
-                                                   <ul>
-                                                      <div class="button_block"><button type="button" class="btn cur-p btn-info" style="margin-bottom: 20px; margin-top: 20px;">아니</button></div>
-                                                      <div class="button_block"><button type="button" class="btn cur-p btn-info" style="margin-bottom: 25px;">왜? 무슨 일 있어?</button></div>
-                                                      <div class="button_block"><button type="button" class="btn cur-p btn-info" style="margin-bottom: 25px;">뭔데 뭔데?</button></div>
-                                                      <div class="button_block"><button type="button" class="btn cur-p btn-info" style="margin-bottom: 30px;">응 들어봤어</button></div>
-                                                   </ul>
-                                                </div>
-                                             </div>
-                                             <div class="price_table_bottom">
-                                                <div class="center"><a class="main_bt" href="#" style="background: #009688;">다음</a></div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- end column price -->
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+             <%
+        String[] data = {
+                "호감을 얻는 자세로 틀린 것은?`공평하게 대화하기`긍정적으로 대화하기`겸손하게 대화하기`비밀 없이 대화하기",
+                "직장인들에게 필요한 대화기술이 아닌 것은?`부정적인 말 자주하기`메모하기`자세한 설명 요구하기`상대의 말에 자신의 말을 덧붙이기",
+                "회사 호칭으로 옳은 것은?`태경아`성요씨`성민언니`택훈오빠",
+                "회사 대화방법으로 틀린 것은?`듣는 연습하기`친절하고 예의있게 행동하기`자신감 갖기`눈을 회피하며 대화하기",
+                "의사소통 오류의 원인이 아닌 것은?`부족한 팀 케미스트리`적극적인 경청자세`잘못된 채널 선택`투명성 부족",
+                "직장을 위한 대화 전략이 아닌 것은?`직원들과 정기적인 만남`성취 인정`닫힌 환경 만들기`피드백에 개방적",
+                "직원과 효과적인 의사 소통 방법이 아닌 것은?`직원을 이해`직원에게 먼저 알림`정기적인 의사소통`단어와 행동 불일치",
+                "직장상사와 카톡으로 대화하기 팁이 아닌 것은?`이모티콘 자주 사용`필요한 경우에만 카톡하기`내용이 정리되지 않을 땐 요점 확인하기`감사합니다. 붙이기",
+                "상사와의 일반적인 대화법으로 틀린 것은?`상사가 내 옆에 서서 이름을 부르면 나도 일어서서 대답하기`대화 기다리기`모르는 것이 있으면 먼저 조사하고 상사에게 물어보기`나의 잘못된 부분이나 부족한 부분을 이야기하면 감사해하기",
+                "상사와 의견이 다를 때 대화법으로 틀린 것은`내가 기분이 나빠져도 예의 바르게 말하기`상사가 기분 나빠하지 않도록 조심해서 말하기`상사 의견보다 내 의견 먼저 이야기하기`부정적인 반응 보이지 않기"
+            		
+        };
+
+        int score = 0;
+        String[] answers = {"4", "1", "2","4","2","3","4","1","2","3"};
+    %>
+
+    
+</div>
+    <form method="post">
+        <% for (int i = 0; i < data.length; i++) { %>
+            <%-- 문제와 선택지 출력 --%>
+            <p><%= (i + 1) + ". " + data[i].split("`")[0] %></p>
+            <% for (int j = 1; j < data[i].split("`").length; j++) { %>
+                <input type="radio" name="answer<%= i %>" value="<%= j %>" />
+                <%= data[i].split("`")[j] %><br>
+            <% } %>
+            <%-- 사용자가 선택한 답을 받아오는 부분 --%>
+            <input type="hidden" name="question<%= i %>" value="<%= data[i].split("`")[0] %>" />
+            <br>
+        <% } %>
+        <input type="submit" value="제출" />
+    </form>
+
+    <%-- 사용자가 답을 선택한 경우 --%>
+    <%
+        if (request.getMethod().equals("POST")) {
+            for (int i = 0; i < data.length; i++) {
+                String question = data[i].split("`")[0];
+                String userAnswer = request.getParameter("answer" + i);
+
+                if (userAnswer != null && userAnswer.equals(answers[i])) {
+                    score++;
+                }
+            }
+            out.println("정답 개수 / 전체 문항수 >> " + score + " / " + data.length );
+        }
+    %>
+          </div>
+          </div>
                   <!-- footer -->
                   <div class="container-fluid">
                      <div class="footer">
