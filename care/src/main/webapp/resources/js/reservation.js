@@ -1,3 +1,4 @@
+
 function openReservationPopup() {
     // 팝업 창의 크기와 속성을 설정합니다.
     var popupWidth = 800;

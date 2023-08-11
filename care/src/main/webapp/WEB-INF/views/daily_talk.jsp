@@ -95,15 +95,15 @@
                      <li>
                         <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
                         <ul class="collapse list-unstyled" id="apps2">
-                           <li><a href="daily_talk.html">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.html">> <span>업무대화</span></a></li>
+                           <li><a href="daily_talk.do">> <span>일상대화</span></a></li>
+                           <li><a href="company_talk.do">> <span>업무대화</span></a></li>
                         </ul>
                      </li>
                      <li><a href="freedom_board.html"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="job.html">> <span>일자리</span></a></li>
+                           <li><a href="jobList.do">> <span>일자리</span></a></li>
                            <li><a href="fairList.do">> <span>박람회</span></a></li>
                         </ul>
                      </li>

@@ -96,7 +96,7 @@
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="job.html">> <span>일자리</span></a></li>
+                           <li><a href="jobList.do">> <span>일자리</span></a></li>
                            <li><a href="fairList.do">> <span>박람회</span></a></li>
                         </ul>
                      </li>
