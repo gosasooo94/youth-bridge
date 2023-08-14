@@ -3,16 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	
+
    <!-- Alias 설정 -->
-   <typeAliases>   <!--  -->
-      <typeAlias alias="board" type="com.javaclass.domain.BoardVO" />
+   <typeAliases>
+      <typeAlias alias="fair" type="com.javaclass.domain.FairVO" />
+      <typeAlias alias="job" type="com.javaclass.domain.JobVO" />
+      <typeAlias alias="reservation" type="com.javaclass.domain.ReservationVO" />
+	   <typeAlias alias="board" type="com.javaclass.domain.BoardVO" />
       <typeAlias alias="login" type="com.javaclass.domain.LoginVO" />            
       <typeAlias alias="sdslogin" type="com.javaclass.domain.SdsLoginVO" />            
       <typeAlias alias="member" type="com.javaclass.domain.MemberVO" />            
       <typeAlias alias="sdsmember" type="com.javaclass.domain.SdsMemberVO" />            
-      <typeAlias alias="reserve" type="com.javaclass.domain.ReserveVO" />            
+      <typeAlias alias="reserve" type="com.javaclass.domain.ReserveVO" />        
+      <typeAlias alias="schedule" type="com.javaclass.domain.ScheduleVO" />        
    </typeAliases>
-   
-   
+
 </configuration>

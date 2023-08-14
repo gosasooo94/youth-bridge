@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- basic -->
-      <meta charset="UTF-8">
+        <!-- basic -->
+      <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +19,8 @@
       <link rel="icon" href="resources/images/fevicon.png" type="image/png" />
       <!-- bootstrap css -->
       <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
-      <!-- site css --> 
+      <!-- site css -->
       <link rel="stylesheet" href="resources/css/style.css" />
-      <link rel="stylesheet" href="resources/css/font-awesome.min.css" />
       <!-- responsive css -->
       <link rel="stylesheet" href="resources/css/responsive.css" />
       <!-- color css -->
@@ -49,7 +48,7 @@
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
                      <div class="logo_section">
-                        <a href="index.jsp"><img class="logo_icon img-responsive" src="resources/images/logo/logo_icon.png" alt="#" /></a>
+                        <a href="index.html"><img class="logo_icon img-responsive" src="resources/images/logo/logo_icon.png" alt="#" /></a>
                      </div>
                   </div>
                   <div class="sidebar_user_info">
@@ -67,15 +66,16 @@
                         <a href="#advice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/counselling-icon.png" style="width: 30px;"></i><span>상담</span></a>
                         <ul class="collapse list-unstyled" id="advice">
                            <li>
-                              <a href="counseling_center.html">> <span>상담소 찾기</span></a>
+                              <a href="counseling_center.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservation.do">> <span>예약하기</span></a></c:if>
-                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservation.do">> <span>회원으로예약하기</span></a></c:if>
-                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>상담사로예약하기</span></a></c:if>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
+
                            </li>
                            <li>
-                              <a href="counselling_entry.html">> <span>상담하기</span></a>
+                              <a href="counselling_entry.do">> <span>상담하기</span></a>
                            </li>
                         </ul>
                      </li>
@@ -94,19 +94,22 @@
                      <li>
                         <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
                         <ul class="collapse list-unstyled" id="apps2">
-                           <li><a href="daily_talk.html">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.html">> <span>회사대화</span></a></li>
+                           <li><a href="daily_talk.do">> <span>일상대화</span></a></li>
+                           <li><a href="company_talk.do">> <span>업무대화</span></a></li>
                         </ul>
                      </li>
                      <li><a href="freedom_board.html"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="job.html"> <span>일자리</span></a></li>
-                           <li><a href="exposition.html"> <span>박람회</span></a></li>
+
+                           <li><a href="jobList.do">> <span>일자리</span></a></li>
+                           <li><a href="fairList.do">> <span>박람회</span></a></li>
+
                         </ul>
                      </li>
                      <li><a href="advocacy.html"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>지원정책</span></a></li>
+                     <li><a href="faq.do"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>FAQ</span></a></li>
                   </ul>
                </div>
             </nav>

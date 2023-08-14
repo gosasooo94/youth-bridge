@@ -1,41 +1,68 @@
 package com.javaclass.domain;
 
 public class FairVO {
-	private String fairName;
-	private String fairAddr;
-	private String fairStart;
-	private String fairEnd;
-	private String fairCate;
-	
-	public String getFairName() {
-		return fairName;
+	private String fairname;
+	private String fairaddr;
+	private String fairstart;
+	private String fairend;
+	private String fairpoto;
+	private String fairurl;
+	private String faircatecode;
+
+	public String getFairname() {
+		return fairname;
 	}
-	public void setFairName(String fairName) {
-		this.fairName = fairName;
+
+	public void setFairname(String fairname) {
+		this.fairname = fairname;
 	}
-	public String getFairAddr() {
-		return fairAddr;
+
+	public String getFairaddr() {
+		return fairaddr;
 	}
-	public void setFairAddr(String fairAddr) {
-		this.fairAddr = fairAddr;
+
+	public void setFairaddr(String fairaddr) {
+		this.fairaddr = fairaddr;
 	}
-	public String getFairStart() {
-		return fairStart;
+
+	public String getFairstart() {
+		return fairstart;
 	}
-	public void setFairStart(String fairStart) {
-		this.fairStart = fairStart;
+
+	public void setFairstart(String fairstart) {
+		this.fairstart = fairstart;
 	}
-	public String getFairEnd() {
-		return fairEnd;
+
+	public String getFairend() {
+		return fairend;
 	}
-	public void setFairEnd(String fairEnd) {
-		this.fairEnd = fairEnd;
+
+	public void setFairend(String fairend) {
+		this.fairend = fairend;
 	}
-	public String getFairCate() {
-		return fairCate;
+
+	public String getFairpoto() {
+		return fairpoto;
 	}
-	public void setFairCate(String fairCate) {
-		this.fairCate = fairCate;
+
+	public void setFairpoto(String fairpoto) {
+		this.fairpoto = fairpoto;
 	}
-	
+
+	public String getFairurl() {
+		return fairurl;
+	}
+
+	public void setFairurl(String fairurl) {
+		this.fairurl = fairurl;
+	}
+
+	public String getFaircatecode() {
+		return faircatecode;
+	}
+
+	public void setFaircatecode(String faircatecode) {
+		this.faircatecode = faircatecode;
+	}
+
 }

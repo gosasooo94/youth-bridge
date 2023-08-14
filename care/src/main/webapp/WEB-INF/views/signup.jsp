@@ -40,7 +40,7 @@
                </div>
                 <div class="info">
 	     <p class="label">전화번호</p>
-	     <input class="insert" type="text" name="tel" id="tel" />
+	     <input class="insert" type="text" name="tel" id="tel" placeholder="'-'를 포함시켜주세요"/>
 	 </div>
 	 <div class="info">
 	     <p class="label" >주소</p>
@@ -51,7 +51,7 @@
 	 </div>					
 	<div class="info">
 	    <p class="label">아이디</p>
-	    <input class="insert" type="text" name="id" id="id"/>
+	    <input class="insert" type="text" name="id" id="id"/><br/>
 	    <span id="idCheckResult" style="width:150px;color:red"></span>
 	</div>				
 	<div class="info">
@@ -70,12 +70,12 @@
 	</div>
 	<div class="info">
 	   <p class="label">닉네임</p>
-	   <input class="insert" type="text" name="nick" id="nick"/>
+	   <input class="insert" type="text" name="nick" id="nick"/><br/>
 	   <span id="nickCheckResult" style="width:150px;color:red"></span>
 	</div>			
                 <br><br>
                 <input type="checkbox" id="check" class="agree" disabled>&nbsp 이용약관 개인정보 수집 및 정보이용에 동의합니다.
-                    <br/><a onclick="pop()">동의하기</a>
+                    <br/><a onclick="pop()">[약관보기]</a>
                 <div class="btns">
 	   <button type="submit" id="button" class="confirm" >회원가입</button>
 	 </div>

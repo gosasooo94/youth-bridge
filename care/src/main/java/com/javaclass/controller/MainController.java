@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.javaclass.controller;
 
 import org.springframework.stereotype.Controller;
@@ -19,4 +16,5 @@ public class MainController {
 	  step) { return step; }
 	 
    
+
 }

@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.javaclass.dao.LoginDAO;
 import com.javaclass.domain.LoginVO;
 import com.javaclass.domain.SdsLoginVO;
 import com.javaclass.service.LoginService;

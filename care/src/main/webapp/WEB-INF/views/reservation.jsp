@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -11,7 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <title>상담 예약하기</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -35,23 +35,26 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
+      <%
+      String id = (String)session.getAttribute("IdLogin");
+      String sdsid = (String)session.getAttribute("SdsLogin");
+      %>
    </head>
    <body class="dashboard dashboard_1">
       <div class="full_container">
          <div class="inner_container">
             <!-- sidebar 메뉴  -->
-            <nav id="sidebar">
+            <nav id="sidebar" name="sidebar">
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
                      <div class="logo_section">
-                        <a href="index.do"><img class="logo_icon img-responsive" src="resources/images/logo/logo_icon.png" alt="#" /></a>
+                        <a href="index.jsp"><img class="logo_icon img-responsive" src="resources/images/logo/logo_icon.png" alt="#" /></a>
                      </div>
                   </div>
                   <div class="sidebar_user_info">
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>user</h6>
                         </div>
                      </div>
                   </div>
@@ -65,7 +68,10 @@
                               <a href="counseling_center.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <a href="reservation.do">> <span>예약하기</span></a>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
+
                            </li>
                            <li>
                               <a href="counselling_entry.do">> <span>상담하기</span></a>
@@ -76,30 +82,32 @@
                         <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a>
                         <ul class="collapse list-unstyled" id="diary">
                            <li>
-                              <a href="diary.do">> <span>일기</span></a>
+                              <a href="diary.html">> <span>일기</span></a>
                            </li>
                            <li>
-                              <a href="emotions.do">> <span>감정그래프</span></a>
+                              <a href="emotions.html">> <span>감정그래프</span></a>
                            </li>
                         </ul>
                      </li>
-                     <li><a href="bucket_list.do"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px;"></i> <span>버킷리스트</span></a></li>
+                     <li><a href="bucket_list.html"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px;"></i> <span>버킷리스트</span></a></li>
                      <li>
                         <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
                         <ul class="collapse list-unstyled" id="apps2">
                            <li><a href="daily_talk.do">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.do">> <span>회사대화</span></a></li>
+                           <li><a href="company_talk.do">> <span>업무대화</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="freedom_board.do"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
+                     <li><a href="freedom_board.html"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="job.do">> <span>일자리</span></a></li>
-                           <li><a href="exposition.do">> <span>박람회</span></a></li>
+
+                           <li><a href="jobList.do">> <span>일자리</span></a></li>
+                           <li><a href="fairList.do">> <span>박람회</span></a></li>
+
                         </ul>
                      </li>
-                     <li><a href="advocacy.do"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>지원정책</span></a></li>
+                     <li><a href="advocacy.html"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>지원정책</span></a></li>
                   </ul>
                </div>
             </nav>
@@ -112,7 +120,7 @@
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
-                           <a href="index.do"><img class="img-responsive" src="resources/images/logo/logo.png" alt="#" /></a>
+                           <a href="index.html"><img class="img-responsive" src="resources/images/logo/logo.png" alt="#" /></a>
                         </div>
                         <div class="right_topbar">
                            <div class="icon_info">
@@ -121,13 +129,28 @@
                               </ul>
                               <ul class="user_profile_dd">
                                  <li>
-                                    <c:if test="${Login eq null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">로그인하기</span></a></c:if>
-                                    <c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }</span></a></c:if>
-                                    <c:if test="${SdsLogin ne null && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ NickLogin }</span></a></c:if>
+<%-- choose는 확실히 구분될때, if는 조건으로 구분해야할 때 사용 --%>                                 
+<%-- 회원, 상담사 모두 null이면 로그인하러가기가 뜸 --%>                                                                     
+<c:if test="${Login eq null && SdsLogin eq null}"><a class="dropdown-toggle" href="login.do"><span class="name_user">로그인하기</span></a></c:if>
+<%-- 회원 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
+<c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }</span></a>
                                     <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.do">마이페이지</a>
-                                       <a class="dropdown-item" href="#"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
-                                    </div>
+                                    	<form action="myPage.do"><input type="hidden" name="id" value="${ IdLogin }" /><input class="dropdown-item" type="submit" name="member" value="마이페이지" /></form>
+                                      <!-- <a class="dropdown-item" name="member" href="myPage.do">마이페이지</a> -->
+                                      <a class="dropdown-item" href="logout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
+                                    </div></c:if>
+<%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
+<c:if test="${SdsLogin ne null && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ NickLogin }</span></a>
+                                    <div class="dropdown-menu">
+                                    <form action="sdsMyPage.do"><input type="hidden" name="sdsid" value="${ SdsLogin }" /><input class="dropdown-item" type="submit" name="sdsmember" value="마이페이지" /></form>
+                                      <!-- <a class="dropdown-item" name="sdsmember" href="sdsMyPage.do">마이페이지</a> -->
+                                      <a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
+                                    </div></c:if>
+<%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) + 상담사 권한이 'N'이면 로그아웃만 나옴(마이페이지 이용 불가) --%>                                    
+<%-- <c:if test="${SdsLogin ne null && SdsCheck eq 'N' && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user"><%= sdsnick %></span></a>
+									<div class="dropdown-menu">
+									<a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
+									</div></c:if>               --%>                                                          									
                                  </li>
                               </ul>
                            </div>
@@ -146,128 +169,17 @@
                            </div>
                         </div>
                      </div>
-                     <div class="row column1">
-                        <div class="col-md-6 col-lg-3">
-                           <div class="full counter_section margin_bottom_30">
-                              <div class="couter_icon">
-                                 <div> 
-                                    <i class="fa fa-user lavender_color"></i>
-                                 </div>
-                              </div>
-                              <div class="counter_no">
-                                 <div>
-                                    <p class="total_no" style="margin-top: 3.2%;">상담사 김유성</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                           <div class="full counter_section margin_bottom_30">
-                              <div class="couter_icon">
-                                 <div> 
-                                    <i class="fa fa-user apricot_color"></i>
-                                 </div>
-                              </div>
-                              <div class="counter_no">
-                                 <div>
-                                    <p class="total_no" style="margin-top: 3.2%;">상담사 이태순</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                           <div class="full counter_section margin_bottom_30">
-                              <div class="couter_icon">
-                                 <div> 
-                                    <i class="fa fa-user bud_color"></i>
-                                 </div>
-                              </div>
-                              <div class="counter_no">
-                                 <div>
-                                    <p class="total_no" style="margin-top: 3.2%;">상담사 김택훈</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                           <div class="full counter_section margin_bottom_30">
-                              <div class="couter_icon">
-                                 <div> 
-                                    <i class="fa fa-user red_color"></i>
-                                 </div>
-                              </div>
-                              <div class="counter_no">
-                                 <div>
-                                    <p class="total_no" style="margin-top: 3.2%;">상담사 이진아</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                           <div class="full counter_section margin_bottom_30">
-                              <div class="couter_icon">
-                                 <div> 
-                                    <i class="fa fa-user lavender_color"></i>
-                                 </div>
-                              </div>
-                              <div class="counter_no">
-                                 <div>
-                                    <p class="total_no" style="margin-top: 3.2%;">상담사 김유성</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                           <div class="full counter_section margin_bottom_30">
-                              <div class="couter_icon">
-                                 <div> 
-                                    <i class="fa fa-user apricot_color"></i>
-                                 </div>
-                              </div>
-                              <div class="counter_no">
-                                 <div>
-                                    <p class="total_no" style="margin-top: 3.2%;">상담사 이태순</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                           <div class="full counter_section margin_bottom_30">
-                              <div class="couter_icon">
-                                 <div> 
-                                    <i class="fa fa-user bud_color"></i>
-                                 </div>
-                              </div>
-                              <div class="counter_no">
-                                 <div>
-                                    <p class="total_no" style="margin-top: 3.2%;">상담사 김택훈</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                           <div class="full counter_section margin_bottom_30">
-                              <div class="couter_icon">
-                                 <div> 
-                                    <i class="fa fa-user red_color"></i>
-                                 </div>
-                              </div>
-                              <div class="counter_no">
-                                 <div>
-                                    <p class="total_no" style="margin-top: 3.2%;">상담사 이진아</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                     
                      <div class="row column3">
                         <!-- testimonial -->
+                                    <c:forEach items="${reservationList }" var="reservation">
                         <div class="col-md-6">
                            <div class="dark_bg full margin_bottom_30">
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
                                     <h2>상담사</h2>
                                  </div>
+                                    
                               </div>
                               <div class="full graph_revenue">
                                  <div class="row">
@@ -276,57 +188,27 @@
                                           <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
                                              <!-- Wrapper for carousel items -->
                                              <div class="item carousel-item active">
-                                                <div class="img-box" style="width: 400px; height: 400px;"><img src="resources/images/layout_img/user_img.jpg" alt=""></div>
+                                                <div class="img-box" style="width: 400px; height: 400px;"><img src= 'resources/images/sds/${reservation.sdsimg }' alt=""></div>
                                                 <p class="testimonial"></p>
-                                                <p class="overview"><b style="font-size: 40px;">김유성</b></p>
+                                                <p class="overview"><b style="font-size: 40px;"> ${reservation.sdsname}</b></p>
                                              </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end testimonial -->
-                        <div class="col-md-6" >
-                           <div class="dash_blog" style="min-height:630px;">
-                              <div class="dash_blog_inner">
-                                 <div class="dash_head">
-                                    <h3><span><i class="fa fa-comments-o"></i> 정보</span></h3>
-                                 </div>
-                                 <div class="full padding_infor_info" style="height: 400px;">
-                                    <div class="price_table">
-                                       <div class="table-responsive">
-                                          <table class="table">
-                                             <tbody>
-                                                <tr>
-                                                   <th style="width:80%; font-size: 26px;">⦁ 우주대학교 의학전문대학원 의학과 석사 졸업</th>
-                                                </tr>
-                                                <tr>
-                                                   <th style="font-size: 26px;">⦁ 우주대학교병원 수련의 수료</th>
-                                              </tr>
-                                                <tr>
-                                                   <th style="font-size: 26px;">⦁ 고구려대학교 안산병원 정신건강의학과 전공의수료</th>
-                                                 </tr>
-                                                <tr>
-                                                   <th style="font-size: 26px;">⦁ 정신건강의학과 전문의</th>
-                                                   </tr>
-                                                   <tr>
-                                                      <th style="font-size: 26px;">⦁ 언제대학교 섭식장애 정신건강연구소 연구직 겸임</th>
-                                                      </tr>
-                                             </tbody>
-                                          </table>
-                                       </div>
-                                    </div>
-                                 </div>
-                                <div class="read_more">
+                                                <div class="read_more">
 								    	<div class="center">
 								    	    <a class="main_bt read_bt" href="javascript:void(0);" onclick="openReservationPopup()">예약하기</a>
 								    	</div>
+                                          </div>
+                                       </div>
+                                    
 								</div>
+                                    </div>
+                                
+                                 </div>
                               </div>
                            </div>
                         </div>
+                            </c:forEach>
+                        <!-- end testimonial -->
+                    
                      </div>
                   </div>
                   <!-- footer -->
@@ -368,4 +250,5 @@
       <script src="resources/js/custom.js"></script>
       <script src="resources/js/chart_custom_style1.js"></script>
    </body>
+
 </html>

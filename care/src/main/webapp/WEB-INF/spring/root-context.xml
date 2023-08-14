@@ -24,6 +24,8 @@
          <value>com.javaclass.domain.MemberVO</value>
          <value>com.javaclass.domain.SdsMemberVO</value>
          <value>com.javaclass.domain.ReserveVO</value>
+         <value>com.javaclass.domain.ReservationVO</value>
+         <value>com.javaclass.domain.ScheduleVO</value>
       </list>
    </property>
  </bean>

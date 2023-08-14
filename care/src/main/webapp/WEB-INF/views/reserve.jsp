@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,6 +26,7 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css"
               integrity="sha512-63+XcK3ZAZFBhAVZ4irKWe9eorFG0qYsy2CaM5Z+F3kUn76ukznN0cp4SArgItSbDFD1RrrWgVMBY9C/2ZoURA=="
               crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="resources/css/reserve.css" />
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js'></script>
 
@@ -36,9 +38,8 @@
     <script type="text/javascript" src="resources/js/reserve.js"></script>       
 </head>
 <body>
-	
+
     <div class="card mb-4 mt-3 p-2">
-    	<input type="button" value="버튼" />
         <div id='calendar'></div>
     </div>
 
@@ -49,6 +50,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
             crossorigin="anonymous"></script>
-
-    <!-- DATATABLE -->
 </html>
