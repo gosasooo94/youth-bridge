@@ -11,7 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <title>박람회</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -58,7 +58,6 @@
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>이게 맞지</h6>
                         </div>
                      </div>
                   </div>
@@ -72,8 +71,8 @@
                               <a href="counseling_center.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
-                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
                               <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
 
                            </li>
@@ -183,7 +182,8 @@
                               </div>
                               <div class="full price_table padding_infor_info">
                                  <div class="row">
-                                    <!-- column contact --> 
+                                    <!-- column contact -->
+                                      <!-- JSTL 반복문 카드 형태 리스트 --> 
                                     <c:forEach items="${fairList }" var="fair">
                                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
                                        <div class="contact_blog">

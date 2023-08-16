@@ -24,7 +24,10 @@
          <value>com.javaclass.domain.MemberVO</value>
          <value>com.javaclass.domain.SdsMemberVO</value>
          <value>com.javaclass.domain.ReserveVO</value>
-         <value>com.javaclass.domain.SdsVO</value>
+         <value>com.javaclass.domain.ReservationVO</value>
+         <value>com.javaclass.domain.CategoryVO</value>
+         <value>com.javaclass.domain.CityVO</value>
+         <value>com.javaclass.domain.ClinicVO</value>
       </list>
    </property>
  </bean>

@@ -11,7 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <title>업무대화퀴즈</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -55,7 +55,6 @@
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>이게 맞지</h6>
                         </div>
                      </div>
                   </div>
@@ -69,8 +68,8 @@
                               <a href="counseling_center.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
-                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
                               <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
 
                            </li>
@@ -178,9 +177,7 @@
                                  <div class="heading1 margin_0">
                                     <h2>업무 대화 퀴즈</h2>
                                  </div>
-                              
-                 
-
+ <%-- 문제--%>
              <%
         String[] data = {
                 "호감을 얻는 자세로 틀린 것은?`공평하게 대화하기`긍정적으로 대화하기`겸손하게 대화하기`비밀 없이 대화하기",
@@ -195,7 +192,7 @@
                 "상사와 의견이 다를 때 대화법으로 틀린 것은`내가 기분이 나빠져도 예의 바르게 말하기`상사가 기분 나빠하지 않도록 조심해서 말하기`상사 의견보다 내 의견 먼저 이야기하기`부정적인 반응 보이지 않기"
             		
         };
-
+		//정답
         int score = 0;
         String[] answers = {"4", "1", "2","4","2","3","4","1","2","3"};
     %>
@@ -210,14 +207,14 @@
                 <input type="radio" name="answer<%= i %>" value="<%= j %>" />
                 <%= data[i].split("`")[j] %><br>
             <% } %>
-            <%-- 사용자가 선택한 답을 받아오는 부분 --%>
+            <%-- 선택한 답을 받아오는 부분 --%>
             <input type="hidden" name="question<%= i %>" value="<%= data[i].split("`")[0] %>" />
             <br>
         <% } %>
         <input type="submit" value="제출" />
     </form>
 
-    <%-- 사용자가 답을 선택한 경우 --%>
+    <%-- 답을 선택한 경우 --%>
     <%
         if (request.getMethod().equals("POST")) {
             for (int i = 0; i < data.length; i++) {

@@ -13,7 +13,7 @@ import com.javaclass.service.FairService;
 public class expositionController {
 	@Autowired
 	private FairService fairService;
-	// 글 목록 검색
+	// 박람회 목록 검색
 	@RequestMapping("/fairList.do")
 	public String fairList(FairVO vo, Model model) {
 		model.addAttribute("fairList", fairService.fairList(vo));

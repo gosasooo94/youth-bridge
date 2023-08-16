@@ -75,7 +75,7 @@
 	</div>			
                 <br><br>
                 <input type="checkbox" id="check" class="agree" disabled>&nbsp 이용약관 개인정보 수집 및 정보이용에 동의합니다.
-                    <br/><a onclick="pop()">[약관보기]]</a>
+                    <br/><a onclick="pop()">[약관보기]</a>
                 <div class="btns">
 	   <button type="submit" id="button" class="confirm" >회원가입</button>
 	 </div>

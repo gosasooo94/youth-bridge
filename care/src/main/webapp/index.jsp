@@ -11,7 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <title>Youth-Bridge</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -55,7 +55,6 @@
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>이게 맞지</h6>
                         </div>
                      </div>
                   </div>
@@ -66,11 +65,11 @@
                         <a href="#advice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/counselling-icon.png" style="width: 30px;"></i><span>상담</span></a>
                         <ul class="collapse list-unstyled" id="advice">
                            <li>
-                              <a href="counseling_center.do">> <span>상담소 찾기</span></a>
+                              <a href="counseling_center1.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
-                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
                               <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
 
                            </li>
@@ -109,6 +108,7 @@
                         </ul>
                      </li>
                      <li><a href="advocacy.html"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>지원정책</span></a></li>
+                     <li><a href="faq.do"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>FAQ</span></a></li>
                   </ul>
                </div>
             </nav>
@@ -136,7 +136,7 @@
 <%-- 회원 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
 <c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }</span></a>
                                     <div class="dropdown-menu">
-                                    	<form action="myPage.do"><input type="hidden" name="id" value="${ IdLogin }" /><input class="dropdown-item" type="submit" name="member" value="마이페이지" /></form>
+                                       <form action="myPage.do"><input type="hidden" name="id" value="${ IdLogin }" /><input class="dropdown-item" type="submit" name="member" value="마이페이지" /></form>
                                       <!-- <a class="dropdown-item" name="member" href="myPage.do">마이페이지</a> -->
                                       <a class="dropdown-item" href="logout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
                                     </div></c:if>
@@ -149,9 +149,9 @@
                                     </div></c:if>
 <%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) + 상담사 권한이 'N'이면 로그아웃만 나옴(마이페이지 이용 불가) --%>                                    
 <%-- <c:if test="${SdsLogin ne null && SdsCheck eq 'N' && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user"><%= sdsnick %></span></a>
-									<div class="dropdown-menu">
-									<a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
-									</div></c:if>               --%>                                                          									
+                           <div class="dropdown-menu">
+                           <a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
+                           </div></c:if>               --%>                                                                                     
                                  </li>
                               </ul>
                            </div>

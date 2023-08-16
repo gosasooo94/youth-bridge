@@ -13,7 +13,7 @@ import com.javaclass.service.JobService;
 public class JobController {
 	@Autowired
 	private JobService jobService;
-	// 글 목록 검색
+	// 일자리 목록 검색
 	@RequestMapping("/jobList.do")
 	public String jobList(JobVO vo, Model model) {
 		model.addAttribute("jobList", jobService.jobList(vo));

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>약관보기</title>
 <!-- agree로 바꾸어서 적용하려 했으나 적용되지 않아 부득이하게 test그대로 파일명을 잡음 -->   
 <link rel="stylesheet" href="resources/css/test.css">	
 <script type="text/javascript" src="resources/js/test.js"></script>

@@ -8,7 +8,7 @@
    <typeAliases>
       <typeAlias alias="fair" type="com.javaclass.domain.FairVO" />
       <typeAlias alias="job" type="com.javaclass.domain.JobVO" />
-      <typeAlias alias="sds" type="com.javaclass.domain.SdsVO" />
+      <typeAlias alias="reservation" type="com.javaclass.domain.ReservationVO" />
 	   <typeAlias alias="board" type="com.javaclass.domain.BoardVO" />
       <typeAlias alias="login" type="com.javaclass.domain.LoginVO" />            
       <typeAlias alias="sdslogin" type="com.javaclass.domain.SdsLoginVO" />            

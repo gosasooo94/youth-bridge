@@ -1,5 +1,5 @@
 function sample4_execDaumPostcode() {
-    new daum.Postcode({
+    new daum.Postcode({        
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
@@ -32,11 +32,23 @@ function sample4_execDaumPostcode() {
                 guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
                 guideTextBox.style.display = 'block';
 
-            } else {
-                guideTextBox.innerHTML = '';
-                guideTextBox.style.display = 'none';
             }
         }
       
     }).open();
+    new daum.Postcode({
+    onclose: function(state) {
+  //state는 우편번호 찾기 화면이 어떻게 닫혔는지에 대한 상태 변수 이며, 
+  //상세 설명은 아래 목록에서 확인
+        if(state === 'FORCE_CLOSE'){
+  //사용자가 브라우저 닫기 버튼을 통해 팝업창을 닫았을 경우, 
+  //실행될 코드를 작성하는 부분
+
+        } else if(state === 'COMPLETE_CLOSE'){
+  //사용자가 검색결과를 선택하여 팝업창이 닫혔을 경우, 
+  //실행될 코드를 작성하는 부분
+  //oncomplete 콜백 함수가 실행 완료된 후에 실행
+        }
+    }
+});
 }

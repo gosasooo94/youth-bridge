@@ -11,7 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <title>일상대화퀴즈</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -55,7 +55,6 @@
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>이게 맞지</h6>
                         </div>
                      </div>
                   </div>
@@ -69,8 +68,8 @@
                               <a href="counseling_center.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
-                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
                               <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
 
                            </li>
@@ -180,7 +179,7 @@
                                  </div>
 
     </div>
-    
+     <%-- 문제 --%>
       <%
         String[] data = {
             "아침에 일어난 당신은 방문을 열고 나오니 부모님과 마주치게 되었습니다. 다음 중 적절한 발언은 무엇인가요?`좋은 아침이에요!`무시한다`다시 자러 갈게요.`xx 좋은 아침이네요!",
@@ -195,7 +194,7 @@
             "자러 갈 시간입니다. 자기 전에 가족들에게 해야 할 말은 무엇일까요?`잘 거니까 깨우지 마라.`안녕히 주무세요!`잘 시간인데 티브이 좀 끄면 안 돼?`굳잠!"
             		
         };
-
+		//정답
         int score = 0;
         String[] answers = {"1", "3", "4","3","1","3","2","4","3","2"};
     %>
@@ -210,14 +209,14 @@
                 <input type="radio" name="answer<%= i %>" value="<%= j %>" />
                 <%= data[i].split("`")[j] %><br>
             <% } %>
-            <%-- 사용자가 선택한 답을 받아오는 부분 --%>
+            <%--  선택한 답을 받아오는 부분 --%>
             <input type="hidden" name="question<%= i %>" value="<%= data[i].split("`")[0] %>" />
             <br>
         <% } %>
         <input type="submit" value="제출" />
     </form>
 
-    <%-- 사용자가 답을 선택한 경우 --%>
+    <%-- 답을 선택한 경우 --%>
     <%
         if (request.getMethod().equals("POST")) {
             for (int i = 0; i < data.length; i++) {

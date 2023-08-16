@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
 <%-- <script src="../js/check.js"></script>   --%>      
 <link rel="stylesheet" href="resources/css/signup.css">
 <%-- <script type="text/javascript" src="././resources/js/signup.js"></script> --%>

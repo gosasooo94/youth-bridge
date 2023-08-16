@@ -11,7 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <title>상담 예약하기</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -55,7 +55,6 @@
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
                         <div class="user_info">
-                           <h6>이게 맞지</h6>
                         </div>
                      </div>
                   </div>
@@ -66,11 +65,11 @@
                         <a href="#advice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/counselling-icon.png" style="width: 30px;"></i><span>상담</span></a>
                         <ul class="collapse list-unstyled" id="advice">
                            <li>
-                              <a href="counseling_center.do">> <span>상담소 찾기</span></a>
+                              <a href="counseling_center1.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
-                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="sdsList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
                               <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
 
                            </li>
@@ -173,7 +172,7 @@
                      
                      <div class="row column3">
                         <!-- testimonial -->
-                                    <c:forEach items="${sdsList }" var="sds">
+                                    <c:forEach items="${reservationList }" var="reservation">
                         <div class="col-md-6">
                            <div class="dark_bg full margin_bottom_30">
                               <div class="full graph_head">
@@ -189,9 +188,9 @@
                                           <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
                                              <!-- Wrapper for carousel items -->
                                              <div class="item carousel-item active">
-                                                <div class="img-box" style="width: 400px; height: 400px;"><img src= 'resources/images/sds/${sds.sdsimg }' alt=""></div>
+                                                <div class="img-box" style="width: 400px; height: 400px;"><img src= 'resources/images/sds/${reservation.sdsimg }' alt=""></div>
                                                 <p class="testimonial"></p>
-                                                <p class="overview"><b style="font-size: 40px;"> ${sds.sdsname}</b></p>
+                                                <p class="overview"><b style="font-size: 40px;"> ${reservation.sdsname}</b></p>
                                              </div>
                                                 <div class="read_more">
 								    	<div class="center">
