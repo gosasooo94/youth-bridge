@@ -12,11 +12,18 @@ public class DiaryVO {
 	private String notesun; // 일기 날씨
 	private String notecontent; // 일기 내용
 	private Date notedate; // 일기 날짜
-	private int notegood;
-	private int notebad;
+	private int notegood;	// 감정 긍저엉
+	private int notebad;		// 감정 부정어
+	private int noteemocode;	// 감전분류코드
 	
 	
 	
+	public int getNoteemocode() {
+		return noteemocode;
+	}
+	public void setNoteemocode(int noteemocode) {
+		this.noteemocode = noteemocode;
+	}
 	public int getNotecode() {
 		return notecode;
 	}

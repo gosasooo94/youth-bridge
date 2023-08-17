@@ -3,6 +3,7 @@ package com.javaclass.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import com.javaclass.domain.Criteria;
 import com.javaclass.domain.DiaryVO;
 
 public interface DiaryDAO {
@@ -12,7 +13,7 @@ public interface DiaryDAO {
 
 	public void deleteDiary(DiaryVO vo);
 
-	public List<DiaryVO> getdiaryList(HashMap map);
+	public List<DiaryVO> getdiaryList(HashMap map, Criteria cri);
 
 	public DiaryVO getDiary(DiaryVO vo);
 
@@ -20,6 +21,12 @@ public interface DiaryDAO {
 	public void insertEmotions(DiaryVO vo);
 
 	public DiaryVO selectDiaryLately(DiaryVO vo);
+
+	public void updateEmotions(DiaryVO vo);
+
+	public DiaryVO selectDiaryUpdate(DiaryVO vo);
+
+	public void deleteEmotions(DiaryVO vo);
 
 
 }

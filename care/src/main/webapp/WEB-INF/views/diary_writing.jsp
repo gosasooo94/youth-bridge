@@ -183,7 +183,7 @@
                                              </label>
                                           </div>
                                           <input name="memcode" type="hidden" class="form-control" id="exampleFormControlInput1"
-                                                value="1"><!-- 작성 회원코드 -->
+                                                value="2"><!-- 작성 회원코드 -->									<!-- @@@@@@@@@@@@@여기도 바꿔야함!!!!!!!!!!!!!!!! -->
                                           <div class="mb-3" style="margin: 1.5% 2%;">
                                              <label for="exampleFormControlInput1"
                                                 class="form-label f_size24">제목</label>

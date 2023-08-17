@@ -6,6 +6,8 @@
 
    <!-- Alias 설정 -->
    <typeAliases>	<!-- 여기에 선언하고 안쓰면 오류남 -->
-      <typeAlias alias="diary" type="com.javaclass.domain.DiaryVO" />            
+      <typeAlias alias="diary" type="com.javaclass.domain.DiaryVO" />       <!-- 일기&감정분류 -->
+      <typeAlias alias="bucket" type="com.javaclass.domain.BucketVO" />     <!-- 버킷리스트 -->   
+      <typeAlias alias="emo" type="com.javaclass.domain.EmoVO" />     <!-- 감정그래프 -->  
    </typeAliases>
 </configuration>

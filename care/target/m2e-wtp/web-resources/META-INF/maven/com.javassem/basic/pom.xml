@@ -134,6 +134,13 @@
 			<artifactId>open-korean-text</artifactId>
 			<version>2.3.1</version>
 		</dependency>
+		
+		<!-- Java Object를 Json 문자열로 변환할 수 있고, Json 문자열을 Java Object로 변환 -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.9.0</version>
+        </dependency>
 
 		<!-- json 파일 읽기 -->
 		<dependency>

@@ -77,14 +77,14 @@
                         <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/diary-icon.png" style="width: 30px"></i><span>일기장</span></a>
                         <ul class="collapse list-unstyled" id="diary">
                            <li>
-                              <a href="diary.do">> <span>일기</span></a>
+                              <a href="diary.do?memcode=1">> <span>일기</span></a>
                            </li>
                            <li>
-                              <a href="emotions.do">> <span>감정그래프</span></a>
+                              <a href="emotions.do?memcode=1">> <span>감정그래프</span></a>
                            </li>
                         </ul>
                      </li>
-                     <li><a href="bucket_list.do"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li>
+                     <li><a href="bucket_list.do?memcode=1"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li>
                      <li>
                         <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px"></i> <span>의사소통훈련</span></a>
                         <ul class="collapse list-unstyled" id="apps2">

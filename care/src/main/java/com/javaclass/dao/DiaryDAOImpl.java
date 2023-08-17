@@ -3,10 +3,12 @@ package com.javaclass.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.javaclass.domain.Criteria;
 import com.javaclass.domain.DiaryVO;
 
 @Repository("diaryDAO")
@@ -32,9 +34,10 @@ public class DiaryDAOImpl implements DiaryDAO{
 	}
 
 	@Override
-	public List<DiaryVO> getdiaryList(HashMap map) {
-		// TODO Auto-generated method stub
-		return mybatis.selectList("DiaryDAO.getDiaryList", map);
+	public List<DiaryVO> getdiaryList(HashMap map, Criteria cri) {
+		int offset = (cri.getPageNum() - 1) * cri.getAmount();
+	    RowBounds rowBounds = new RowBounds(offset, cri.getAmount());
+		return mybatis.selectList("DiaryDAO.getDiaryList", map, rowBounds);
 	}
 
 	@Override
@@ -56,6 +59,27 @@ public class DiaryDAOImpl implements DiaryDAO{
 		// TODO Auto-generated method stub
 		System.out.println("감정분류 인서트 다오!!!! "+vo.getNotegood() +" / " + vo.getNotebad() + " / " + vo.getNotecode());
 		mybatis.insert("DiaryDAO.insertEmotions", vo);
+	}
+
+	// 감전분류 업데이트
+	@Override
+	public void updateEmotions(DiaryVO vo) {
+		System.out.println("감정분류 다오인포 : " + vo.getNotecode() + "/긍정 : " + vo.getNotegood() + "/ 부정 : " + vo.getNotebad());
+		mybatis.update("DiaryDAO.updateEmotions", vo);
+		
+	}
+
+	@Override
+	public DiaryVO selectDiaryUpdate(DiaryVO vo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("DiaryDAO.selectDiaryUpdate", vo);
+	}
+
+	// 감정분류 삭제
+	@Override
+	public void deleteEmotions(DiaryVO vo) {
+		mybatis.delete("DiaryDAO.deleteEmotions", vo);
+		
 	}
 
 	

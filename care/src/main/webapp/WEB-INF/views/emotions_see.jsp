@@ -3,7 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
-<html lang="UTF-8">
+<html lang="en">
+
 <head>
 <!-- basic -->
 <meta charset="utf-8">
@@ -40,7 +41,7 @@
 <body class="dashboard dashboard_1">
 	<div class="full_container">
 		<div class="inner_container">
-			<!-- sidebar 메뉴-->
+			<!-- sidebar 메뉴 -->
 			<nav id="sidebar">
 				<div class="sidebar_blog_1">
 					<div class="sidebar-header">
@@ -158,30 +159,35 @@
 								<div class="white_shd full margin_bottom_30">
 									<div class="full graph_head">
 										<div class="heading1 margin_0">
-											<h2>감정그래프목록</h2>
+											<h2>n년 n월 감정그래프</h2>
 										</div>
 									</div>
 									<div class="full inbox_inner_section">
 										<div class="row">
-											<div class="col-md-12">
-												<div class="full padding_infor_info">
-													<div class="mail-box">
-														<aside class="lg-side">
-															<div
-																class=" full button_sction padding_infor_info button_style1 padding-bottom_0">
-																<!-- button main -->
-																<c:forEach items="${EmoList}" var="emo">
-																	<div class="button_block">
-																		<button type="button"
-																			onClick="location.href='emotions_see.do?notedate=${emo.notedate}&memcode=1'"
-																			class="btn cur-p btn-secondary button_padding">${emo.notedate}</button>
-																	</div>
-																</c:forEach>
+											<!-- column price -->
+											<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12"
+												style="margin-left: 12.5%; flex: 12.5%; max-width: 75%;">
+												<div class="table_price full margin_top20px">
+													<div class="white_shd full margin_bottom_30">
+														<div class="full graph_head">
+															<div class="heading1 margin_0">
+																<h2>그래프</h2>
+																<!--<c:forEach items="${emo}" var="emo" >-->
+																<!--</c:forEach>-->
 															</div>
-														</aside>
+														</div>
+														<div class="map_section padding_infor_info">
+															<div id="myChart"></div>
+														</div>
+													</div>
+													<div class="left_alignment" style="margin-left: 2%;">
+														<div class="right_button">
+															<a href="emotions.do" class="btn btn-xs detail_button">목록보기</a>
+														</div>
 													</div>
 												</div>
 											</div>
+											<!-- end column price -->
 										</div>
 									</div>
 								</div>
@@ -202,6 +208,45 @@
 		</div>
 	</div>
 	<!-- jQuery -->
+
+
+	<script src="https://www.chartjs.org/dist/master/chart.min.js"></script>
+	<script type="text/javascript"
+		src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {
+			'packages' : [ 'corechart' ]
+		});
+		google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+					[ '일기쓴날', '긍정어', '부정어' ],
+					<c:forEach items="${emo}" var="emoo" varStatus="index">
+					<c:if test="${!index.last}">
+			         ['${emoo.notedate}', ${emoo.notegood}, ${emoo.notebad}],
+			         </c:if> 
+			         <c:if test="${index.last}">
+			            ['${emoo.notedate}', ${emoo.notegood}, ${emoo.notebad}]
+			         </c:if> 
+			      	</c:forEach>
+					
+			]);
+
+			var options = {
+				title : '',
+				legend : {
+					position : 'bottom'
+				}
+			};
+
+			var chart = new google.visualization.LineChart(document
+					.getElementById('myChart'));
+
+			chart.draw(data, options);
+		}
+	</script>
+	<!-- <script src="resources/js/emograph.js"></script> -->
 	<script src="resources/js/jquery.min.js"></script>
 	<script src="resources/js/popper.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
@@ -225,4 +270,5 @@
 	<script src="resources/js/custom.js"></script>
 	<script src="resources/js/chart_custom_style1.js"></script>
 </body>
+
 </html>

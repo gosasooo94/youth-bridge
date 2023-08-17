@@ -3544,3 +3544,33 @@ table.projects tr td:first-child {
     width: 40px;
     height: 40px;
 }
+.button_pa{
+    padding: 0 0px 20px 20px;
+}
+.button_bt{
+    padding: 8.5px 10px 8.5px 10px;
+}
+.padding_pp{
+    padding: 2% 10%;
+}
+.middle_alignment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.h1_style{
+    font-size:2vb;
+    text-align:left;
+    color: #212529;
+    font-weight:500;
+}
+.h1_style2{
+    font-size:3vb;
+    text-align:left;
+    color: #212529;
+    font-weight:600;
+}
+.middle_alignment2{
+    display: flex;
+    align-items: center;
+}
