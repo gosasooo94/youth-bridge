@@ -159,7 +159,7 @@
 								<div class="white_shd full margin_bottom_30">
 									<div class="full graph_head">
 										<div class="heading1 margin_0">
-											<h2>n년 n월 감정그래프</h2>
+											<h2>${noedate}</h2>
 										</div>
 									</div>
 									<div class="full inbox_inner_section">

@@ -9,6 +9,7 @@ public class EmoVO {
 	private int notecode;		// 일기장코드
 	private String notedate;		// 일기장 저장 날짜	(감정분류 기분이 일기장이라 감정분류 페이지에서 버튼을 일기장 저장 월 기분으로 하기 위해 저장함)
 	private int memcode;		// 회원번호
+	private String notedatesee;
 	
 	public int getNoteemocode() {
 		return noteemocode;
@@ -46,5 +47,12 @@ public class EmoVO {
 	public void setMemcode(int memcode) {
 		this.memcode = memcode;
 	}
+	public String getNotedatesee() {
+		return notedatesee;
+	}
+	public void setNotedatesee(String notedatesee) {
+		this.notedatesee = notedatesee;
+	}
+	
 	
 }

@@ -199,7 +199,7 @@
 																		style="width: 180px; height: 40px; margin-right: 20px;">
 																		<h1 style="font-size: 1.5rem; line-height: 40px;"
 																			class="middle_alignment">
-																			달성여부 : &nbsp;<span>${bucketSum.allsum}</span>/<span>${bucketSum.yessum}</span>
+																			달성여부 : &nbsp;<span>${bucketSum.yessum}</span>/<span>${bucketSum.allsum}</span>
 																		</h1>
 																	</div>
 																</form>

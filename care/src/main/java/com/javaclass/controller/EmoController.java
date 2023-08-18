@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +35,8 @@ public class EmoController {
 		vo.setNotedate(vo.getNotedate()+"-01");
 		System.out.println(vo.getNotedate()+ "/" + vo.getMemcode());
 		
+		String noedate = vo.getNotedate().substring(0, 4) +"년 " + vo.getNotedate().substring(5, 7)+"월";
+		
 		List<EmoVO> emoGraphDat = emoService.getEmo(vo);
 		
 		Gson gson = new Gson();
@@ -60,7 +61,8 @@ public class EmoController {
         System.out.println(json);
         
 		
-		model.addAttribute("emo", emoGraphDat); // Model 정보 저장
+        model.addAttribute("emo", emoGraphDat); // Model 정보 저장
+        model.addAttribute("noedate", noedate); // 변수 딱 하나만 보냄
 		
 	}
 

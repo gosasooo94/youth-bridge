@@ -20,6 +20,8 @@
          <value>com.javaclass.domain.DiaryVO</value>
          <value>com.javaclass.domain.BucketVO</value>
          <value>com.javaclass.domain.EmoVO</value>
+         <value>com.javaclass.domain.PageVO</value>
+         <value>com.javaclass.domain.Criteria</value>
       </list>
    </property>
  </bean>
