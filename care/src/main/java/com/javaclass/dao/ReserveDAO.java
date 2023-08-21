@@ -1,11 +1,13 @@
 package com.javaclass.dao;
 
-import java.util.ArrayList;
-import java.util.Calendar;
+import com.javaclass.domain.ReserveVO;
 
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository
 public interface ReserveDAO {
-	public ArrayList<Calendar> calenList();
+   // 풀캘린더에 일정 나오는 부분
+    List<ReserveVO> getEventList();
+    
+    // 일정 입력 부분
+    public void insertReserve(ReserveVO vo);
 }

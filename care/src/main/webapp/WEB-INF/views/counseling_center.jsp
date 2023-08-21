@@ -1,47 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>상담소 찾기</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
-<!-- site icon -->
-<link rel="icon" href="resources/images/fevicon.png" type="image/png" />
-<!-- bootstrap css -->
-<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
-<!-- site css -->
-<link rel="stylesheet" href="resources/css/style.css" />
-<!-- responsive css -->
-<link rel="stylesheet" href="resources/css/responsive.css" />
-<!-- color css -->
-<link rel="stylesheet" href="resources/css/colors.css" />
-<!-- select bootstrap -->
-<link rel="stylesheet" href="resources/css/bootstrap-select.css" />
-<!-- scrollbar css -->
-<link rel="stylesheet" href="resources/css/perfect-scrollbar.css" />
-<!-- custom css -->
-<link rel="stylesheet" href="resources/css/custom.css" />
-<!--[if lt IE 9]>
+   <head>
+        <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Youth-Bridge</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="resources/images/fevicon.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+      <!-- site css -->
+      <link rel="stylesheet" href="resources/css/style.css" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="resources/css/responsive.css" />
+      <!-- color css -->
+      <link rel="stylesheet" href="resources/css/colors.css" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="resources/css/bootstrap-select.css" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="resources/css/perfect-scrollbar.css" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="resources/css/custom.css" />
+      <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-<script
-	src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9d97072881c8aba749386593c3327fb1&libraries=services,clusterer,drawing">
-</script>
       <%
       String id = (String)session.getAttribute("IdLogin");
+      int memcode = (Integer)session.getAttribute("MemLogin");
       String sdsid = (String)session.getAttribute("SdsLogin");
+      int sdsmemcode = (Integer)session.getAttribute("sdsmemLogin");
       %>
    </head>
    <body class="dashboard dashboard_1">
@@ -78,27 +76,31 @@
 
                            </li>
                            <li>
-                              <a href="counselling_entry.do">> <span>상담하기</span></a>
+                              <!-- <a href="counselling_entry.do">> <span>상담하기</span></a> -->
+                              <a href="chat.do">> <span>상담하기(회원)</span></a>
+                              <a href="chat2.do">> <span>상담하기(상담사)</span></a>
+                              
                            </li>
                         </ul>
                      </li>
+                    
                      <li>
-                        <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a>
+                        <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a>
                         <ul class="collapse list-unstyled" id="diary">
-                           <li>
-                              <a href="diary.html">> <span>일기</span></a>
+                               <li>
+                              <a onclick="service()" style="cursor:pointer"> <span >일기</span></a>
                            </li>
                            <li>
-                              <a href="emotions.html">> <span>감정그래프</span></a>
+                              <a onclick="service2()" style="cursor:pointer"><span>감정그래프</span></a>
                            </li>
                         </ul>
                      </li>
-                     <li><a href="bucket_list.html"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px;"></i> <span>버킷리스트</span></a></li>
+					<li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px",></i> <span>버킷리스트</span></a></li>             
+                 
                      <li>
                         <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
                         <ul class="collapse list-unstyled" id="apps2">
-                           <li><a href="daily_talk.do">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.do">> <span>업무대화</span></a></li>
+                           <li><a href="training.do">> <span>대화하기</span></a></li>
                         </ul>
                      </li>
                      <li><a href="freedom_board.html"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
@@ -111,7 +113,8 @@
 
                         </ul>
                      </li>
-                     <li><a href="advocacy.html"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>지원정책</span></a></li>
+                     <li><a href="advocacy.do"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;,"></i> <span>지원정책</span></a></li>
+                     <li><a href="faq.do"><i><img src="resources/images/icon/support-icon.png" style="width: 30px;"></i> <span>FAQ</span></a></li>
                   </ul>
                </div>
             </nav>
@@ -124,7 +127,7 @@
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
-                           <a href="index.html"><img class="img-responsive" src="resources/images/logo/logo.png" alt="#" /></a>
+                           <a href="index.jsp"><img class="img-responsive" src="resources/images/logo/logo.png" alt="#" /></a>
                         </div>
                         <div class="right_topbar">
                            <div class="icon_info">
@@ -139,7 +142,7 @@
 <%-- 회원 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
 <c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }</span></a>
                                     <div class="dropdown-menu">
-                                    	<form action="myPage.do"><input type="hidden" name="id" value="${ IdLogin }" /><input class="dropdown-item" type="submit" name="member" value="마이페이지" /></form>
+                                       <form action="myPage.do"><input type="hidden" name="id" value="${ IdLogin }" /><input class="dropdown-item" type="submit" name="member" value="마이페이지" /></form>
                                       <!-- <a class="dropdown-item" name="member" href="myPage.do">마이페이지</a> -->
                                       <a class="dropdown-item" href="logout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
                                     </div></c:if>
@@ -152,9 +155,9 @@
                                     </div></c:if>
 <%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) + 상담사 권한이 'N'이면 로그아웃만 나옴(마이페이지 이용 불가) --%>                                    
 <%-- <c:if test="${SdsLogin ne null && SdsCheck eq 'N' && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user"><%= sdsnick %></span></a>
-									<div class="dropdown-menu">
-									<a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
-									</div></c:if>               --%>                                                          									
+                           <div class="dropdown-menu">
+                           <a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
+                           </div></c:if>               --%>                                                                                     
                                  </li>
                               </ul>
                            </div>
@@ -258,7 +261,7 @@
 		</div>
 	</div>
 	<!-- jQuery -->
-
+	<script  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9d97072881c8aba749386593c3327fb1&libraries=services,clusterer,drawing"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="resources/js/jquery-3.3.1.min.js"></script>
 	<!-- <script src="resources/js/jquery.min.js"></script> -->
@@ -284,7 +287,35 @@
 	<script src="resources/js/custom.js"></script>
 	<script src="resources/js/chart_custom_style1.js"></script>
 	<script src="resources/js/category.js"></script>
-
-
+		<script>
+	function service() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}else{
+			location.href="diary.do?memcode=${ MemLogin }"
+		}
+	}
+	function service2() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}else{
+			location.href="emotions.do?memcode=${ MemLogin }"
+		}
+	}
+	function service3() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}else{
+			location.href="bucket_list.do?memcode=${ MemLogin }"
+		}
+	}
+	</script>
+	 
 </body>
 </html>

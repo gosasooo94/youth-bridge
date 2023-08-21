@@ -10,7 +10,7 @@ import com.javaclass.service.FairService;
 
 
 @Controller
-public class expositionController {
+public class FairController {
 	@Autowired
 	private FairService fairService;
 	// 박람회 목록 검색

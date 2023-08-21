@@ -28,6 +28,12 @@
          <value>com.javaclass.domain.CategoryVO</value>
          <value>com.javaclass.domain.CityVO</value>
          <value>com.javaclass.domain.ClinicVO</value>
+         <value>com.javaclass.domain.SupportVO</value>
+         <value>com.javaclass.domain.DiaryVO</value>
+         <value>com.javaclass.domain.BucketVO</value>
+         <value>com.javaclass.domain.EmoVO</value>
+         <value>com.javaclass.domain.Criteria</value>
+         <value>com.javaclass.domain.PageVO</value>
       </list>
    </property>
  </bean>

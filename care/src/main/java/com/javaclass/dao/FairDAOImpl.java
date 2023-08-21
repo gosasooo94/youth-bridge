@@ -12,6 +12,7 @@ import com.javaclass.domain.FairVO;
 
 @Repository("fairDAO") 
 public class FairDAOImpl implements FairDAO {
+	
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	

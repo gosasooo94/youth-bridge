@@ -7,7 +7,7 @@ public class FairVO {
 	private String fairend;
 	private String fairpoto;
 	private String fairurl;
-	private String faircatecode;
+	private String faircate;
 
 	public String getFairname() {
 		return fairname;
@@ -57,12 +57,12 @@ public class FairVO {
 		this.fairurl = fairurl;
 	}
 
-	public String getFaircatecode() {
-		return faircatecode;
+	public String getFaircate() {
+		return faircate;
 	}
 
-	public void setFaircatecode(String faircatecode) {
-		this.faircatecode = faircatecode;
+	public void setFaircate(String faircate) {
+		this.faircate = faircate;
 	}
 
 }

@@ -12,6 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js_file/js.js"></script>    
        <!-- <link rel="stylesheet" href="style.css">-->
+<script type="text/javascript" src="resources/js/popup.js"></script>   
 
        
     </head>
@@ -25,19 +26,37 @@
                     <button type="button" class="togglebtn" onclick="register()">상담사</button>
                 </div>
                 <form id="getLogin" action="login.do" class="input-group" method="post">
-                    <input type="text" name="id" class="input-field" placeholder="ID" value="" required="">
-                    <input type="password" name="pw" class="input-field" placeholder="PASSWORD" value="" required="">
+                    <input type="text" id="id" name="id" class="input-field" placeholder="ID" value="" required="">
+                    <input type="password" id="pw" name="pw" class="input-field" placeholder="PASSWORD" value="" required="">
                     <button class="submit">Login</button>
-                    <span class="find"><a href="fid.do">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="fpw.do">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="signup.do">회원가입</a></span>                 
+                    <span class="find"><a style="cursor:pointer" onclick="fid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer" onclick="fpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="signup.do">회원가입</a></span>                 
                 </form>
+                                
                 <form id="register" action="sdslogin.do" class="input-group" method="post">
-                    <input type="text" name="sdsid" class="input-field" placeholder="ID" required="">
-                    <input type="password" name="sdspw" class="input-field" placeholder="PASSWORD" required="">
+                    <input type="text" id="id" name="sdsid" class="input-field" placeholder="ID" required="">
+                    <input type="password" id="pw" name="sdspw" class="input-field" placeholder="PASSWORD" required="">
                     <button class="submit">Login</button>
-                    <span class="find"><a href="sdsfid.do">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="sdsfpw.do">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="sdssignup.do">회원가입</a></span> 
+                    <span class="find"><a style="cursor:pointer" onclick="sdsfid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer" onclick="sdsfpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="sdssignup.do">회원가입</a></span> 
                 </form>
+
+                <% if (request.getAttribute("errorMessage") != null) { %>
+            <script>
+            var errorMessage = "<%= request.getAttribute("errorMessage") %>";
+              alert(errorMessage);
+            </script>
+            <% } else { %>
+             <script>
+             
+             </script>
+            <% } %>
+
             </div>
        </div>
+       
+       
+       
+       
+       
         <script>
             var x = document.getElementById("getLogin");
             var y = document.getElementById("register");
@@ -54,4 +73,5 @@
             }
         </script>
     
- </body></html>
+ </body>
+ </html>
