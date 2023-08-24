@@ -73,13 +73,14 @@
                               <a href="counseling_center1.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>예약하기</span></a></c:if>
                               <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
                               <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
-
                            </li>
                            <li>
-                              <a href="counselling_entry.do">> <span>상담하기</span></a>
+                               <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>상담하기</span></a></c:if>
+                       	       <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do">> <span>상담하기(회원)</span></a></c:if>
+                        	   <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do">> <span>상담하기(상담사)</span></a></c:if>
                            </li>
                         </ul>
                      </li>
@@ -98,11 +99,10 @@
                      <li>
                         <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
                         <ul class="collapse list-unstyled" id="apps2">
-                           <li><a href="daily_talk.do">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.do">> <span>업무대화</span></a></li>
+                           <li><a href="training.do">> <span>대화하기</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="freedom_board.html"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
+                     <li><a href="getAllFreeBoards.do"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
@@ -223,6 +223,41 @@
     </div>
   </div>
 </div>
-
+     	<script>
+	function service() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}else{
+			location.href="diary.do?memcode=${MemLogin}";
+		}
+	}
+	function service2() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}else{
+			location.href="emotions.do?memcode=${MemLogin}";
+		}
+	}
+	function service3() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}else{
+			location.href="bucket_list.do?memcode=${MemLogin}";
+		}
+	}
+	function service4() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}
+	}
+	</script>
   </body>
 </html>

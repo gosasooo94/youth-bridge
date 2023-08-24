@@ -43,7 +43,6 @@ public class LoginController {
                session.setAttribute("IdLogin", login.getId());                                                                     
                session.setAttribute("Login", login.getNick());
                session.setAttribute("MemLogin", login.getMemcode());
-               
                 
                
                return "redirect:/index.jsp";
@@ -92,6 +91,8 @@ public class LoginController {
                }else {
                   session.setAttribute("SdsLogin", sdslogin.getSdsid());
                   session.setAttribute("NickLogin", sdslogin.getSdsnick());
+                  session.setAttribute("sdsmemLogin", sdslogin.getSdsmemcode());
+                  System.out.println(sdslogin.getSdsmemcode());
                   
                   
                   return "redirect:index.jsp"; 

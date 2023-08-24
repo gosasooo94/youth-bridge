@@ -12,7 +12,7 @@ $(function(){
 					return false;
 				}
 				if($("#title").val()==""){
-					alert("제목을 입력해주세요.");
+					alert("내용을 입력해주세요.");
 					$("#title").focus();
 					return false;
 				}
@@ -27,20 +27,18 @@ $(function(){
 					return false;
 				}
 				
-			alert('상담일정이 입력되었습니다!');
+			alert('상담일정이 입력 또는 수정되었습니다!');
 			
 			
 		
          $('#scheduleData').submit();
          
          setTimeout(function() {
-             window.opener.location.href = "reserve.do";
+             window.opener.location.href = "redirect:/reserve.do";
              window.close();
-          }, 3);
+          }, 5);
 
-      });
-
-				
+      });				
 			});
 				
 	

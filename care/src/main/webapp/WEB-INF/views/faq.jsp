@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html lang="en">
-   <head>
+  <head>
         <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +11,12 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Youth-Bridge</title>
-      <meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>FAQ</title>
+<link rel="stylesheet" href="resources/css/faq.css">
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- site icon -->
@@ -35,13 +39,15 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script defer src="resources/js/faq.js"></script>
       <%
       String id = (String)session.getAttribute("IdLogin");
       int memcode = (Integer)session.getAttribute("MemLogin");
       String sdsid = (String)session.getAttribute("SdsLogin");
       int sdsmemcode = (Integer)session.getAttribute("sdsmemLogin");
       %>
-   </head>
+</head>
    <body class="dashboard dashboard_1">
       <div class="full_container">
          <div class="inner_container">
@@ -70,16 +76,14 @@
                               <a href="counseling_center1.do">> <span>상담소 찾기</span></a>
                            </li>
                            <li>
-                              <c:if test="${Login eq null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
+                              <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>예약하기</span></a></c:if>
                               <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
                               <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
-
                            </li>
                            <li>
-                              <!-- <a href="counselling_entry.do">> <span>상담하기</span></a> -->
-                              <a href="chat.do">> <span>상담하기(회원)</span></a>
-                              <a href="chat2.do">> <span>상담하기(상담사)</span></a>
-                              
+                             <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>상담하기</span></a></c:if>
+                             <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do">> <span>상담하기(회원)</span></a></c:if>
+                             <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do">> <span>상담하기(상담사)</span></a></c:if>
                            </li>
                         </ul>
                      </li>
@@ -103,7 +107,7 @@
                            <li><a href="training.do">> <span>대화하기</span></a></li>
                         </ul>
                      </li>
-                     <li><a href="freedom_board.html"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
+                     <li><a href="getAllFreeBoards.do"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
@@ -286,6 +290,43 @@
 	<!-- custom js -->
 	<script src="resources/js/custom.js"></script>
 	<script src="resources/js/chart_custom_style1.js"></script>
+	<script src="resources/faq.js"></script>
+	      	<script>
+	function service() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}else{
+			location.href="diary.do?memcode=${ MemLogin }"
+		}
+	}
+	function service2() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}else{
+			location.href="emotions.do?memcode=${ MemLogin }"
+		}
+	}
+	function service3() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}else{
+			location.href="bucket_list.do?memcode=${ MemLogin }"
+		}
+	}
+	function service4() {
+		let logIn = "${IdLogin}";
+		if(logIn ==""){
+			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			location.href="login.do";
+		}
+	}
+	</script>
 
 </body>
 </html>

@@ -29,14 +29,14 @@
                     <input type="text" id="id" name="id" class="input-field" placeholder="ID" value="" required="">
                     <input type="password" id="pw" name="pw" class="input-field" placeholder="PASSWORD" value="" required="">
                     <button class="submit">Login</button>
-                    <span class="find"><a style="cursor:pointer" onclick="fid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer" onclick="fpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="signup.do">회원가입</a></span>                 
+                    <span class="find"><a style="cursor:pointer; color: black" onclick="fid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer; color: black;" onclick="fpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="signup.do" style="text-decoration:none;color: black;">회원가입</a></span>                 
                 </form>
                                 
                 <form id="register" action="sdslogin.do" class="input-group" method="post">
                     <input type="text" id="id" name="sdsid" class="input-field" placeholder="ID" required="">
                     <input type="password" id="pw" name="sdspw" class="input-field" placeholder="PASSWORD" required="">
                     <button class="submit">Login</button>
-                    <span class="find"><a style="cursor:pointer" onclick="sdsfid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer" onclick="sdsfpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="sdssignup.do">회원가입</a></span> 
+                    <span class="find"><a style="cursor:pointer; color: black;" onclick="sdsfid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;color: black;" onclick="sdsfpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="sdssignup.do" style="text-decoration:none;color: black;">회원가입</a></span> 
                 </form>
 
                 <% if (request.getAttribute("errorMessage") != null) { %>
@@ -52,10 +52,6 @@
 
             </div>
        </div>
-       
-       
-       
-       
        
         <script>
             var x = document.getElementById("getLogin");

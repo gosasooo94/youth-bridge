@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@ page import="java.util.HashMap" %>
 <%@page import="java.util.List"%>
 <%@page import="com.javaclass.domain.ReserveVO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
@@ -36,7 +37,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"
             integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     
+    <%
+    String sdsmemcode = request.getParameter("sdsmemcode");
+    // 상담사 이름(sdsname)을 이용하여 처리
+%> 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -44,36 +48,19 @@
                 customButtons: { 
                      myCustomButton: { 
                          text: '일정추가', 
-                         click: function(event) { 
-                           var url = "ReservePopup.do";
+                         click: function(event) {
+                           var sdsmemcode = "<%= sdsmemcode %>"; // 상담사 이름 추출
+                           var url = "ReservePopup.do?sdsmemcode=" + encodeURIComponent(sdsmemcode);
                            var name = "ReservePopup";
-                           var option ="width = 600, height = 700 left = 100, top = 50, location = no";
+                           var option ="width = 600, height = 600 left = 100, top = 50, location = no";
                            window.open(url,name,option)
                          } 
-                     },
-                     myCustomButton2: { 
-                         text: '일정수정', 
-                         click: function(event) { 
-                           var url = "ReserveUpdatePopup.do";
-                           var name = "ReserveUpdatePopup";
-                           var option ="width = 600, height = 700 left = 100, top = 50, location = no";
-                           window.open(url,name,option)
-                         } 
-                     },
-                     myCustomButton3: { 
-                         text: '일정삭제', 
-                         click: function(event) { 
-                           var url = "deleteReserve.do";
-                           var name = "deleteReserve";
-                           var option ="width = 600, height = 700 left = 100, top = 50, location = no";
-                           window.open(url,name,option)
-                         } 
-                     }
+                     },    
              },
              headerToolbar: {
                  left: 'prev,next today,dayGridMonth',
                  center: 'title',
-                 right: 'listWeek,myCustomButton,myCustomButton2,myCustomButton3'
+                 right: 'listWeek,myCustomButton'
              },
             locale: 'ko',
             
@@ -81,6 +68,16 @@
                    var number = document.createElement("a");
                    number.classList.add("fc-daygrid-day-number");
                    number.innerHTML = info.dayNumberText.replace("일",'');
+                   
+                // 클릭 이벤트 핸들러 함수 작성
+                   function cellClickHandler(event) {
+                       // 여기에 일정 수정을 위한 로직 작성
+                       // 예: 특정 날짜의 일정을 수정하기 위한 팝업 창을 띄워주는 등의 동작
+                       console.log("날짜 셀 클릭됨:", info.date);
+                   }
+
+                   // HTML 엘리먼트에 클릭 이벤트 핸들러 추가
+                   number.addEventListener("click", cellClickHandler);
                    
                    // 시간을 함께 표시하도록 추가
                var time = document.createElement("div");
@@ -95,7 +92,7 @@
                       {
                       return{html: number.outerHTML};
                       }
-                   return{domNodes:[]};   
+                   return{domNodes:[number]};   
                    },
                    selectable: true,
                    droppable: true,
@@ -108,18 +105,37 @@
                        // 서버에서 데이터를 처리한 후, 성공적으로 처리되면 아래와 같이 FullCalendar를 업데이트할 수 있습니다.
                        calendar.refetchEvents();
                    },
+                   eventRender: function(info) {
+                      var mrcode = info.event.extendedProps.mrcode;
+                      var title = info.event.title;
+                      
+                      // 일정 제목 옆에 mrcode 값 추가하여 표시
+                      info.el.querySelector('.fc-title').innerHTML = title + ' (MRCODE: ' + mrcode + ')';
+                  },
             // Your calendar configuration options
             events: [
                 // Iterate over eventList and generate event objects here
                 <c:forEach var="event" items="${eventList}">
                 {
-                    title: '<c:out value="${event.title}"/>',
+                   title: '<c:out value="${event.mctitle}"/>',
                     start: '<c:out value="${event.startdate}"/>',
                     end: '<c:out value="${event.enddate}"/>',
+                    color : '<c:out value="${event.color}"/>',
+                    extendedProps: {
+                        mrcode: '<c:out value="${event.mrcode}"/>' // mrcode 추가
+                    },
                 },
                 </c:forEach>
-            ]
-                              
+            ],
+                  eventClick: function(info) {
+                    var mrcode = info.event.extendedProps.mrcode; // event에서 mrcode 추출
+                    console.log("mrcode:", mrcode);
+                    var sdsmemcode = "<%= sdsmemcode %>"; // 상담사 이름 추출
+                    var url = "ReserveUpdatePopup.do?sdsmemcode=" + encodeURIComponent(sdsmemcode) + "&mrcode=" + encodeURIComponent(mrcode);
+                    var name = "ReserveUpdatePopup";
+                    var option ="width=600,height=600,left=100,top=50,location=no";
+                    window.open(url, name, option);
+                },                        
         });
         
         calendar.render();
@@ -127,6 +143,7 @@
 </script>
 </head>
 <body>
+   
     <div class="card mb-4 mt-3 p-2">
         <div id='calendar'></div>
     </div>

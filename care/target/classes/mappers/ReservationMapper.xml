@@ -5,7 +5,7 @@
 
 	<!-- 상담사 리스트 --> 
 <select id="reservationList" resultType="reservation"  >
-         SELECT SDSNAME, SDSTEL, SDSADDR, SDSCHECK, SDSCARD, SDSSEX, SDSNICK, SDSIMG
+         SELECT SDSMEMCODE,SDSNAME, SDSTEL, SDSADDR, SDSCHECK, SDSCARD, SDSSEX, SDSNICK, SDSIMG
          FROM SDSMEMBER
          WHERE SDSCHECK = 'Y'
          ORDER BY SDSMEMCODE DESC
