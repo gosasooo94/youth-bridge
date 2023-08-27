@@ -8,7 +8,7 @@
 
 <link rel="styleet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="resources/css/schedule.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -20,7 +20,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="resources/js/picker.js"></script>
   <!-- datetimepicker plug -->
-  <link rel="stylesheet" type="text/css" href="resources/css/jquery.datetimepicker.css"/ >
+  <link rel="stylesheet" type="text/css" href="resources/css/jquery.datetimepicker.css"/>
+  <!-- css파일 -->
+<link rel="stylesheet" href="resources/css/ReserveUpdatePopup.css">
 <script src="resources/js/jquery.js"></script>
 <script src="resources/js/jquery.datetimepicker.full.min.js"></script>
 <!-- datetimepicker 한국어 플러그인 -->
@@ -29,6 +31,8 @@
 <script src="resources/js/reservePopupAlert.js"></script>
 <!-- 삭제하면 알려주는 경고창 -->
 <script src="resources/js/deletealert.js"></script>
+<!-- 일정 비동기로 체크해주는 js -->
+<script src="resources/js/dateCheck.js"></script>
 <script>
 $.datetimepicker.setLocale('kr');
 </script>
@@ -62,7 +66,7 @@ String sdsmemcode = request.getParameter("sdsmemcode");
       <br/>
       <div>
       <p class="label" >상담분류</p>
-      <input class="insert" type="text" name="mccate" id="cate"  />
+      <input class="insert" type="hidden" name="mccate" id="cate"  />
       <input id="cate" type="radio" name="mccate1" value="대인관계 문제 해결" class="radio" onclick="getCate(event);" /><label for="대인관계 문제 해결">대인관계 문제 해결</label><br/>
       <input id="cate" type="radio" name="mccate1" value="스트레스와 불안" class="radio" onclick="getCate(event);" /><label for="스트레스와 불안">스트레스와 불안</label><br/>
       <input id="cate" type="radio" name="mccate1" value="진로에 대한 고민" class="radio" onclick="getCate(event);" /><label for="진로에 대한 고민">진로에 대한 고민</label><br/>
@@ -75,7 +79,8 @@ String sdsmemcode = request.getParameter("sdsmemcode");
       </div>
       
       <div class = "domain">
-         <input id="datetimepicker" autocomplete="off" name="startdate" type="text" >
+         <input id="datetimepicker" class="existing-start-dates" autocomplete="off" name="startdate" type="text" ><br/>
+         <span id="datetimepickerResult" style="width:150px;color:red"></span>
       </div>
       
       <div class = "domain">
@@ -85,7 +90,7 @@ String sdsmemcode = request.getParameter("sdsmemcode");
       <div class = "domain">
          <input id="datetimepicker1" autocomplete="off" name="enddate" type="text" >
       </div>
-      
+      <br/>
       <input class="ok-button" id="btn" onclick="alertClick()" type="submit" value="수정하기"></input>
       
    </form>

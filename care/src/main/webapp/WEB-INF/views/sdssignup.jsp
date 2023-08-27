@@ -43,26 +43,26 @@
    <div class="sign-up">
    <div class="info">
                 <p class="label">이름</p>
-                    <input type="text" class="insert" id="sdsname" name="sdsname" maxlength="8" title="8자 까지 입력"/>
+                    <input type="text" class="insert" id="sdsname" name="sdsname" maxlength="8" title="8자 까지 입력" autocomplete="off"/>
                </div>
                 <div class="info">
         <p class="label">전화번호</p>
-        <input class="insert" type="text" placeholder="'-'를 포함시켜주세요" name="sdstel" id="sdstel" />
+        <input class="insert" type="text" placeholder="'-'를 포함시켜주세요" name="sdstel" id="sdstel" autocomplete="off"/>
     </div>
     <div class="info">
         <p class="label" >주소</p>
         <!-- <input type="button" name="button" id="juso" value="주소"  onclick="sample4_execDaumPostcode()" /> -->
         <input class="insert" type="text" name="sdsaddr" id="sdsaddr" onclick="sample4_execDaumPostcode()" />
         <p class="label" >상세주소</p>
-        <input class="insert" type="text" name="sdsaddr" id="sdsaddr" />
+        <input class="insert" type="text" name="sdsaddr" id="sdsaddr"autocomplete="off" />
     </div>
     <div class="info">
        <p class="label">자격증</p>
-       <input class="insert" type="text" name="sdscard" id="sdscard" placeholder="'-'를 포함시켜주세요"/>
+       <input class="insert" type="text" name="sdscard" id="sdscard" placeholder="'-'를 포함시켜주세요" autocomplete="off"/>
    </div>                  
    <div class="info">
        <p class="label">아이디</p>
-       <input class="sdsinsert" type="text" name="sdsid" id="sdsid"/><br/>
+       <input class="sdsinsert" type="text" name="sdsid" id="sdsid" autocomplete="off"/><br/>
        <span id="sdsidCheckResult" style="width:150px;color:red"></span>
    </div>            
    <div class="info">
@@ -81,7 +81,7 @@
    </div>
    <div class="info">
       <p class="label">닉네임</p>
-      <input class="insert" type="text" name="sdsnick" id="sdsnick"/><br/>
+      <input class="insert" type="text" name="sdsnick" id="sdsnick" autocomplete="off"/><br/>
       <span id="sdsnickCheckResult" style="width:150px;color:red"></span>
    </div>         
    <div class="info">

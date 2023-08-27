@@ -73,23 +73,24 @@
                         <a href="#advice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/counselling-icon.png" style="width: 30px;"></i><span>상담</span></a>
                         <ul class="collapse list-unstyled" id="advice">
                            <li>
-                              <a href="counseling_center1.do">> <span>상담소 찾기</span></a>
+                              <a href="counseling_center1.do"> <span>상담소 찾기</span></a>
                            </li>
                            <li>
                               <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>예약하기</span></a></c:if>
-                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
-                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do"> <span>예약하기</span></a></c:if>
+                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do"> <span>일정등록하기</span></a></c:if>
                            </li>
                            <li>
                              <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>상담하기</span></a></c:if>
-                             <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do">> <span>상담하기(회원)</span></a></c:if>
-                             <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do">> <span>상담하기(상담사)</span></a></c:if>
+                             <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do"> <span>상담하기</span></a></c:if>
+                             <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do"> <span>상담하기</span></a></c:if>
                            </li>
                         </ul>
                      </li>
                     
                      <li>
-                        <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a>
+                        <c:if test="${Login eq null && SdsLogin eq null}"> <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a></c:if>
+                       <c:if test="${Login ne null && SdsLogin eq null}"> <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a></c:if>
                         <ul class="collapse list-unstyled" id="diary">
                                <li>
                               <a onclick="service()" style="cursor:pointer"> <span >일기</span></a>
@@ -99,21 +100,16 @@
                            </li>
                         </ul>
                      </li>
-					<li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px",></i> <span>버킷리스트</span></a></li>             
-                 
-                     <li>
-                        <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
-                        <ul class="collapse list-unstyled" id="apps2">
-                           <li><a href="training.do">> <span>대화하기</span></a></li>
-                        </ul>
-                     </li>
+					<c:if test="${Login eq null && SdsLogin eq null}"><li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li></c:if>             
+					<c:if test="${Login ne null && SdsLogin eq null}"><li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li></c:if>             
+                     <li><a href="training.do"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>대화하기</span></a></li>
                      <li><a href="getAllFreeBoards.do"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
 
-                           <li><a href="jobList.do">> <span>일자리</span></a></li>
-                           <li><a href="fairList.do">> <span>박람회</span></a></li>
+                           <li><a href="jobList.do"> <span>일자리</span></a></li>
+                           <li><a href="fairList.do"> <span>박람회</span></a></li>
 
                         </ul>
                      </li>
@@ -144,14 +140,14 @@
 <%-- 회원, 상담사 모두 null이면 로그인하러가기가 뜸 --%>                                                                     
 <c:if test="${Login eq null && SdsLogin eq null}"><a class="dropdown-toggle" href="login.do"><span class="name_user">로그인하기</span></a></c:if>
 <%-- 회원 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
-<c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }</span></a>
+<c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }&nbsp님</span></a>
                                     <div class="dropdown-menu">
                                        <form action="myPage.do"><input type="hidden" name="id" value="${ IdLogin }" /><input class="dropdown-item" type="submit" name="member" value="마이페이지" /></form>
                                       <!-- <a class="dropdown-item" name="member" href="myPage.do">마이페이지</a> -->
                                       <a class="dropdown-item" href="logout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
                                     </div></c:if>
 <%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
-<c:if test="${SdsLogin ne null && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ NickLogin }</span></a>
+<c:if test="${SdsLogin ne null && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ NickLogin }&nbsp상담사</span></a>
                                     <div class="dropdown-menu">
                                     <form action="sdsMyPage.do"><input type="hidden" name="sdsid" value="${ SdsLogin }" /><input class="dropdown-item" type="submit" name="sdsmember" value="마이페이지" /></form>
                                       <!-- <a class="dropdown-item" name="sdsmember" href="sdsMyPage.do">마이페이지</a> -->
@@ -187,7 +183,7 @@
           <div class="faq-box__question"><span>Q. YOUTH-BRIDGE가 무엇인가요?</span></div>
           <div class="faq-box__answer">
             <div>
-              청년들과 사회적 기회를 연결 하는 <font color="red">다리 역할</font>을 의미합니다.
+            -  청년들과 사회적 기회를 연결 하는 <font color="red">다리 역할</font>을 의미합니다.
               </div>
             
           </div>
@@ -218,11 +214,11 @@
           <div class="faq-box__question"><span>Q. 비회원으로 상담기능이 가능한가요?</span></div>
           <div class="faq-box__answer">
            <div>
-            결론부터 말씀드리면 불가능합니다.
+            	죄송합니다. 회원 가입 후 사용이 가능합니다.
            </div>
            
             <div>
-              상담의 경우 회원과 상담사 둘 모두에게 민감한 부분이 될 수 있고, 비회원분들이 이용할 수 있도록 오픈상담으로 하면<br/> 여러가지 문제들<font color="red">(사회적 문제, 인신공격 등)</font>이 발생할 우려가 있어 회원가입을 하고 이용하셔야 한다는 점 알려드립니다.
+           	   상담의 경우 회원과 상담사 둘 모두에게 민감한 부분이 될 수 있고, 비회원분들이 이용할 수 있도록 오픈상담으로 하면<br/> 여러가지 문제들<font color="red">(사회적 문제, 인신공격 등)</font>이 발생할 우려가 있어 회원가입을 하고 이용하셔야 한다는 점 알려드립니다.
             </div>
           </div>
         </li>
@@ -291,38 +287,38 @@
 	<script src="resources/js/custom.js"></script>
 	<script src="resources/js/chart_custom_style1.js"></script>
 	<script src="resources/faq.js"></script>
-	      	<script>
+	<script>
 	function service() {
 		let logIn = "${IdLogin}";
 		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			alert("서비스 페이지는 회원만 사용할 수 있습니다.");
 			location.href="login.do";
 		}else{
-			location.href="diary.do?memcode=${ MemLogin }"
+			location.href="diary.do?memcode=${MemLogin}";
 		}
 	}
 	function service2() {
 		let logIn = "${IdLogin}";
 		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			alert("서비스 페이지는 회원만 사용할 수 있습니다.");
 			location.href="login.do";
 		}else{
-			location.href="emotions.do?memcode=${ MemLogin }"
+			location.href="emotions.do?memcode=${MemLogin}";
 		}
 	}
 	function service3() {
 		let logIn = "${IdLogin}";
 		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			alert("서비스 페이지는 회원만 사용할 수 있습니다.");
 			location.href="login.do";
 		}else{
-			location.href="bucket_list.do?memcode=${ MemLogin }"
+			location.href="bucket_list.do?memcode=${MemLogin}";
 		}
 	}
 	function service4() {
 		let logIn = "${IdLogin}";
 		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
+			alert("서비스 페이지는 회원만 사용할 수 있습니다.");
 			location.href="login.do";
 		}
 	}

@@ -8,5 +8,7 @@ public interface FairService {
 
 	// 글 목록 조회
 	List<FairVO> fairList(FairVO vo);
-	
+
+	List<FairVO> fairReserve(FairVO vo);
+
 }

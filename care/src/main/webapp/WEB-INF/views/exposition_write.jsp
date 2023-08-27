@@ -67,7 +67,7 @@
                         <a href="#advice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/counselling-icon.png" style="width: 30px;"></i><span>상담</span></a>
                         <ul class="collapse list-unstyled" id="advice">
                            <li>
-                              <a href="counseling_center1.do">> <span>상담소 찾기</span></a>
+                              <a href="counseling_center1.do"> <span>상담소 찾기</span></a>
                            </li>
                            <li>
                               <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>예약하기</span></a></c:if>
@@ -76,8 +76,8 @@
                            </li>
                            <li>
                              <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>상담하기</span></a></c:if>
-                             <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do">> <span>상담하기(회원)</span></a></c:if>
-                             <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do">> <span>상담하기(상담사)</span></a></c:if>
+                             <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do"> <span>상담하기</span></a></c:if>
+                             <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do"> <span>상담하기</span></a></c:if>
                            </li>
                         </ul>
                      </li>
@@ -93,14 +93,9 @@
                            </li>
                         </ul>
                      </li>
-					<li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px",></i> <span>버킷리스트</span></a></li>             
-                 
-                     <li>
-                        <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
-                        <ul class="collapse list-unstyled" id="apps2">
-                           <li><a href="training.do">> <span>대화하기</span></a></li>
-                        </ul>
-                     </li>
+					<c:if test="${Login eq null && SdsLogin eq null}"><li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li></c:if>             
+					<c:if test="${Login ne null && SdsLogin eq null}"><li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li></c:if>             
+                     <li><a href="training.do"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>대화하기</span></a></li>
                      <li><a href="getAllFreeBoards.do"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>

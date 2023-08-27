@@ -40,6 +40,7 @@
     <%
     String sdsmemcode = request.getParameter("sdsmemcode");
     // 상담사 이름(sdsname)을 이용하여 처리
+    int memcode = (Integer)session.getAttribute("MemLogin");
 %> 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -52,7 +53,7 @@
                            var sdsmemcode = "<%= sdsmemcode %>"; // 상담사 이름 추출
                            var url = "ReservePopup.do?sdsmemcode=" + encodeURIComponent(sdsmemcode);
                            var name = "ReservePopup";
-                           var option ="width = 600, height = 600 left = 100, top = 50, location = no";
+                           var option ="width = 600, height = 600 left = 100, top = 400, location = no";
                            window.open(url,name,option)
                          } 
                      },    
@@ -122,20 +123,27 @@
                     end: '<c:out value="${event.enddate}"/>',
                     color : '<c:out value="${event.color}"/>',
                     extendedProps: {
-                        mrcode: '<c:out value="${event.mrcode}"/>' // mrcode 추가
+                        mrcode: '<c:out value="${event.mrcode}"/>', // mrcode 추가
+                        memcode: '<c:out value="${event.memcode}"/>' // mrcode 추가
                     },
                 },
                 </c:forEach>
             ],
-                  eventClick: function(info) {
+            eventClick: function(info) {
+                var loggedInMemcode = "${MemLogin}"; // 로그인한 사용자의 memcode
+                var clickedEventMemcode = info.event.extendedProps.memcode; // 클릭한 이벤트의 memcode
+
+                if (loggedInMemcode === clickedEventMemcode) {
                     var mrcode = info.event.extendedProps.mrcode; // event에서 mrcode 추출
                     console.log("mrcode:", mrcode);
                     var sdsmemcode = "<%= sdsmemcode %>"; // 상담사 이름 추출
                     var url = "ReserveUpdatePopup.do?sdsmemcode=" + encodeURIComponent(sdsmemcode) + "&mrcode=" + encodeURIComponent(mrcode);
                     var name = "ReserveUpdatePopup";
-                    var option ="width=600,height=600,left=100,top=50,location=no";
+                    var option = "width=600,height=600,left=100,top=50,location=no";
                     window.open(url, name, option);
-                },                        
+                }
+            }
+,                        
         });
         
         calendar.render();

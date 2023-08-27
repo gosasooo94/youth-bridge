@@ -60,7 +60,7 @@
 	<!-- 삭제 -->
 	<delete id="deleteBucket" parameterType="bucket">
 		DELETE FROM LIST
-		WHERE LISTCODE = #{listcode}}
+		WHERE LISTCODE = #{listcode}
 	</delete>
 
 </mapper>

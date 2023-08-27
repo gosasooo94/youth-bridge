@@ -66,6 +66,22 @@
         line-height: 1.6 !important;
         color: #333 !important;
     }
+    
+    .heartButton {
+    font-size: 0; /* 버튼 내부 텍스트 숨김 */
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#heartIcon_GOOD {
+    width: 24px;
+    height: 24px;
+}
+
+.fullheart {
+    display: none; /* 기본적으로 채워진 하트는 숨김 */
+}
 </style>
    </head>
    <body class="dashboard dashboard_1">
@@ -102,13 +118,14 @@
                            </li>
                            <li>
                             <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>상담하기</span></a></c:if>
-                            <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do">> <span>상담하기(회원)</span></a></c:if>
-                            <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do">> <span>상담하기(상담사)</span></a></c:if>
+                            <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do">> <span>상담하기</span></a></c:if>
+                            <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do">> <span>상담하기</span></a></c:if>
                            </li>
                         </ul>
                      </li>
                      <li>
-                        <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a>
+                         <c:if test="${Login eq null && SdsLogin eq null}"> <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a></c:if>
+                       <c:if test="${Login ne null && SdsLogin eq null}"> <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a></c:if>
                         <ul class="collapse list-unstyled" id="diary">
                              <li>
                               <a onclick="service()" style="cursor:pointer"> <span >일기</span></a>
@@ -118,15 +135,9 @@
                            </li>
                         </ul>
                      </li>
-					<li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px",></i> <span>버킷리스트</span></a></li>             
-                 
-                     <li>
-                        <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
-                        <ul class="collapse list-unstyled" id="apps2">
-                           <li><a href="daily_talk.do">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.do">> <span>업무대화</span></a></li>
-                        </ul>
-                     </li>
+               <c:if test="${Login eq null && SdsLogin eq null}"><li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li></c:if>             
+               <c:if test="${Login ne null && SdsLogin eq null}"><li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li></c:if>             
+                     <li><a href="training.do"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>대화하기</span></a></li>
                      <li><a href="getAllFreeBoards.do"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
@@ -164,14 +175,14 @@
 <%-- 회원, 상담사 모두 null이면 로그인하러가기가 뜸 --%>                                                                     
 <c:if test="${Login eq null && SdsLogin eq null}"><a class="dropdown-toggle" href="login.do"><span class="name_user">로그인하기</span></a></c:if>
 <%-- 회원 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
-<c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }</span></a>
+<c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }&nbsp님</span></a>
                                     <div class="dropdown-menu">
                                        <form action="myPage.do"><input type="hidden" name="id" value="${ IdLogin }" /><input class="dropdown-item" type="submit" name="member" value="마이페이지" /></form>
                                       <!-- <a class="dropdown-item" name="member" href="myPage.do">마이페이지</a> -->
                                       <a class="dropdown-item" href="logout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
                                     </div></c:if>
 <%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
-<c:if test="${SdsLogin ne null && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ NickLogin }</span></a>
+<c:if test="${SdsLogin ne null && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ NickLogin }&nbsp상담사</span></a>
                                     <div class="dropdown-menu">
                                     <form action="sdsMyPage.do"><input type="hidden" name="sdsid" value="${ SdsLogin }" /><input class="dropdown-item" type="submit" name="sdsmember" value="마이페이지" /></form>
                                       <!-- <a class="dropdown-item" name="sdsmember" href="sdsMyPage.do">마이페이지</a> -->
@@ -189,172 +200,176 @@
                      </div>
                   </nav>
                </div>
-				<!-- end topbar -->
-				<!-- dashboard inner -->
-				<div class="midde_cont">
-					<div class="container-fluid">
-						<div class="row column_title">
-							<div class="col-md-12">
-								<div class="page_title">
-									<h2>
-									자유게시판
-									</h2>
-								</div>
-							</div>
-						</div>
-						<!-- row -->
-						 <div class="row">
+            <!-- end topbar -->
+            <!-- dashboard inner -->
+            <div class="midde_cont">
+               <div class="container-fluid">
+                  <div class="row column_title">
+                     <div class="col-md-12">
+                        <div class="page_title">
+                           <h2>
+                           자유게시판
+                           </h2>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- row -->
+                   <div class="row">
                     <!-- table section -->
-					<div class="container">
-						    <div class="row">
-						        <div class="col-md-12">
-						            <h2 class="mb-4">${freeBoard.freetitle}</h2>
-						            <div class="card mb-4">
-						                <div class="card-header">
-						                 <div class="author-date">
-										        <span class="author">작성자: ${freeBoard.member.nick}</span>
-										        <span class="date">작성일: <fmt:formatDate value="${freeBoard.freedate}" pattern="yyyy/MM/dd HH:mm" /></span>
-										    </div>
-						                </div>
-						                <div class="card-body">
-						                    <p class="card-text content">${freeBoard.freecontent}</p>
-						                </div>
-						                <div class="card-footer text-right">
-										    <c:if test="${canEditDelete}">
-										        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">수정</button>
-										        <a href="deleteFreeBoard.do?freecode=${freeBoard.freecode}" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">삭제</a>
-										        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-												    <div class="modal-dialog" role="document">
-												        <div class="modal-content">
-												            <div class="modal-header">
-												                <h5 class="modal-title" id="deleteModalLabel">경 고 </h5>
-												                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												                    <span aria-hidden="true">&times;</span>
-												                </button>
-												            </div>
-												            <div class="modal-body text-center">
-												             	   게시글을 삭제하시겠습니까?
-												            </div>
-												            <div class="modal-footer">
-												                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-												                <a href="deleteFreeBoard.do?freecode=${freeBoard.freecode}" class="btn btn-danger">삭제</a>
-												            </div>
-												        </div>
-												    </div>
-												</div>
-										    </c:if>
-										     <a href="getAllFreeBoards.do" class="btn btn-secondary">목록으로</a>
-										</div>
-										<!-- 수정 모달 -->
-											<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-											    <div class="modal-dialog" role="document">
-											        <div class="modal-content">
-											            <div class="modal-header">
-											                <h5 class="modal-title" id="editModalLabel">게시글 수정</h5>
-											                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											                    <span aria-hidden="true">&times;</span>
-											                </button>
-											            </div>
-											            <div class="modal-body">
-											                <form action="updateFreeBoard.do" method="post">
-											                    <input type="hidden" name="freecode" value="${freeBoard.freecode}">
-											                    <div class="form-group">
-											                        <label for="freetitle">제목</label>
-											                        <input type="text" class="form-control" name="freetitle" value="${freeBoard.freetitle}">
-											                    </div>
-											                    <div class="form-group">
-											                        <label for="freecontent">내용</label>
-											                        <textarea class="form-control" name="freecontent">${freeBoard.freecontent}</textarea>
-											                    </div>
-											                    <button type="submit" class="btn btn-primary">수정</button>
-											                </form>
-											            </div>
-											        </div>
-											    </div>
-											</div>
-						            </div>
-						        </div>
-						    </div>
-						</div>
-						<!-- table section -->
-	             		   </div>
-							<!-- row -->
-					</div>
-					<!-- footer -->
-					<div class="container-fluid">
-						<div class="footer">
-							<p>Copyright © 2018 Designed by html.design. All rights
-								reserved.</p>
-						</div>
-					</div>
-				</div>
-				<!-- end dashboard inner -->
-			</div>
-		</div>
-	</div>
-	<!-- jQuery -->
-	<script  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9d97072881c8aba749386593c3327fb1&libraries=services,clusterer,drawing"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<!-- <script src="resources/js/jquery.min.js"></script> -->
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<!-- wow animation -->
-	<script src="resources/js/animate.js"></script>
-	<!-- select country -->
-	<script src="resources/js/bootstrap-select.js"></script>
-	<!-- owl carousel -->
-	<script src="resources/js/owl.carousel.js"></script>
-	<!-- chart js -->
-	<script src="resources/js/Chart.min.js"></script>
-	<script src="resources/js/Chart.bundle.min.js"></script>
-	<script src="resources/js/utils.js"></script>
-	<script src="resources/js/analyser.js"></script>
-	<!-- nice scrollbar -->
-	<script src="resources/js/perfect-scrollbar.min.js"></script>
-	<script>
-		var ps = new PerfectScrollbar('#sidebar');
-	</script>
-	<!-- custom js -->
-	<script src="resources/js/custom.js"></script>
-	<script src="resources/js/chart_custom_style1.js"></script>
-	<script src="resources/js/category.js"></script>
-		<script>
-	function service() {
-		let logIn = "${IdLogin}";
-		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
-			location.href="login.do";
-		}else{
-			location.href="diary.do?memcode=${MemLogin}";
-		}
-	}
-	function service2() {
-		let logIn = "${IdLogin}";
-		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
-			location.href="login.do";
-		}else{
-			location.href="emotions.do?memcode=${MemLogin}";
-		}
-	}
-	function service3() {
-		let logIn = "${IdLogin}";
-		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
-			location.href="login.do";
-		}else{
-			location.href="bucket_list.do?memcode=${MemLogin}";
-		}
-	}
-	function service4() {
-		let logIn = "${IdLogin}";
-		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
-			location.href="login.do";
-		}
-	}
-	</script>
-	 
+               <div class="container">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <h2 class="mb-4">${freeBoard.freetitle}</h2>
+                              <div class="card mb-4">
+                                  <div class="card-header">
+                                   <div class="author-date">
+                                      <span class="author">작성자: ${freeBoard.member.nick}</span>
+                                      <span class="date">작성일: <fmt:formatDate value="${freeBoard.freedate}" pattern="yyyy/MM/dd HH:mm" /></span>
+                                  </div>
+                                  </div>
+                                  <div class="card-body">
+                                      <p class="card-text content">${freeBoard.freecontent}</p>
+                                  </div>
+                                       <c:if test="${freeBoard.freeimgname != null}">
+                                                     <div class="form-group">
+                                                 <img alt="등록된 이미지가 없습니다." src='resources/images/free/${freeBoard.freeimg}'> 
+                                                     </div>
+                                                     </c:if>
+                                  <div class="card-footer text-right">
+                                  <c:if test="${canEditDelete}">
+                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">수정</button>
+                                      <a href="deleteFreeBoard.do?freecode=${freeBoard.freecode}" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">삭제</a>
+                                      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel">경 고 </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                      	 게시글을 삭제하시겠습니까?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                                                    <a href="deleteFreeBoard.do?freecode=${freeBoard.freecode}" class="btn btn-danger">삭제</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </c:if>
+                                   <a href="getAllFreeBoards.do" class="btn btn-secondary">목록으로</a>
+                              </div>
+                              <!-- 수정 모달 -->
+                                 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                                     <div class="modal-dialog" role="document">
+                                         <div class="modal-content">
+                                             <div class="modal-header">
+                                                 <h5 class="modal-title" id="editModalLabel">게시글 수정</h5>
+                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                     <span aria-hidden="true">&times;</span>
+                                                 </button>
+                                             </div>
+                                             <div class="modal-body">
+                                                 <form action="updateFreeBoard.do" method="post">
+                                                     <input type="hidden" name="freecode" value="${freeBoard.freecode}">
+                                                     <div class="form-group">
+                                                         <label for="freetitle">제목</label>
+                                                         <input type="text" class="form-control" name="freetitle" value="${freeBoard.freetitle}">
+                                                     </div>
+                                                     <div class="form-group">
+                                                         <label for="freecontent">내용</label>
+                                                         <textarea class="form-control" name="freecontent">${freeBoard.freecontent}</textarea>
+                                                     </div>
+                                                     <button type="submit" class="btn btn-primary">수정</button>
+                                                 </form>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- table section -->
+                         </div>
+                     <!-- row -->
+               </div>
+               <!-- footer -->
+               <div class="container-fluid">
+                  <div class="footer">
+                     <p>Copyright © 2018 Designed by html.design. All rights
+                        reserved.</p>
+                  </div>
+               </div>
+            </div>
+            <!-- end dashboard inner -->
+         </div>
+      </div>
+   </div>
+   <!-- jQuery -->
+   <script  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9d97072881c8aba749386593c3327fb1&libraries=services,clusterer,drawing"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="resources/js/jquery-3.3.1.min.js"></script>
+   <!-- <script src="resources/js/jquery.min.js"></script> -->
+   <script src="resources/js/popper.min.js"></script>
+   <script src="resources/js/bootstrap.min.js"></script>
+   <!-- wow animation -->
+   <script src="resources/js/animate.js"></script>
+   <!-- select country -->
+   <script src="resources/js/bootstrap-select.js"></script>
+   <!-- owl carousel -->
+   <script src="resources/js/owl.carousel.js"></script>
+   <!-- chart js -->
+   <script src="resources/js/Chart.min.js"></script>
+   <script src="resources/js/Chart.bundle.min.js"></script>
+   <script src="resources/js/utils.js"></script>
+   <script src="resources/js/analyser.js"></script>
+   <!-- nice scrollbar -->
+   <script src="resources/js/perfect-scrollbar.min.js"></script>
+   <script>
+      var ps = new PerfectScrollbar('#sidebar');
+   </script>
+   <!-- custom js -->
+   <script src="resources/js/custom.js"></script>
+   <script src="resources/js/chart_custom_style1.js"></script>
+   <script src="resources/js/category.js"></script>
+   <script>
+   function service() {
+      let logIn = "${IdLogin}";
+      if(logIn ==""){
+         alert("서비스 페이지는 회원만 사용할 수 있습니다.");
+         location.href="login.do";
+      }else{
+         location.href="diary.do?memcode=${MemLogin}";
+      }
+   }
+   function service2() {
+      let logIn = "${IdLogin}";
+      if(logIn ==""){
+         alert("서비스 페이지는 회원만 사용할 수 있습니다.");
+         location.href="login.do";
+      }else{
+         location.href="emotions.do?memcode=${MemLogin}";
+      }
+   }
+   function service3() {
+      let logIn = "${IdLogin}";
+      if(logIn ==""){
+         alert("서비스 페이지는 회원만 사용할 수 있습니다.");
+         location.href="login.do";
+      }else{
+         location.href="bucket_list.do?memcode=${MemLogin}";
+      }
+   }
+   function service4() {
+      let logIn = "${IdLogin}";
+      if(logIn ==""){
+         alert("서비스 페이지는 회원만 사용할 수 있습니다.");
+         location.href="login.do";
+      }
+   }
+   </script>
 </body>
 </html>

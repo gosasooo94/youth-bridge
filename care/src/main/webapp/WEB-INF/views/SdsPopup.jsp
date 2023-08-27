@@ -9,7 +9,7 @@
 <link rel="styleet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="resources/css/schedule.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<link rel="stylesheet" href="resources/css/ReserveUpdatePopup.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -46,12 +46,11 @@ int sdsmemcode = (Integer)session.getAttribute("sdsmemLogin");
    <%-- ReserveController참고하면 form에 대한 부분 이해 가능(입력) --%>
    <form id = "scheduleData" method="post" action="insertSdsReserve.do">
         <div>
-          <h3 class = "zTree-h3"> 회원코드 상담사이름</h3>
           <%-- hidden으로 숨겨놓음 가끔 고장난거 같으면 한번 직접 입력해주면 고쳐짐 --%>
-          상담사번호 : <input type="text" id="sdsmemcode" name="sdsmemcode" value="<%=sdsmemcode %>" />
+         <input type="hidden" id="sdsmemcode" name="sdsmemcode" value="<%=sdsmemcode %>" />
         </div>
       <br/>
-      <div class = "top">
+      <div class = "domain">
          <input class="subject" id="title" type="text" name="sctitle" placeholder="일정을 입력해주세요.(25자)">
       </div>
       

@@ -36,22 +36,22 @@
 	<div class="sign-up">
 	<div class="info">
                 <p class="label">이름</p>
-                    <input type="text" class="insert" id="name" name="name" maxlength="8" title="8자 까지 입력"/>
+                    <input type="text" class="insert" id="name" name="name" maxlength="8" title="8자 까지 입력" autocomplete="off"/>
                </div>
                 <div class="info">
 	     <p class="label">전화번호</p>
-	     <input class="insert" type="text" name="tel" id="tel" placeholder="'-'를 포함시켜주세요"/>
+	     <input class="insert" type="text" name="tel" id="tel" placeholder="'-'를 포함시켜주세요" autocomplete="off"/>
 	 </div>
 	 <div class="info">
 	     <p class="label" >주소</p>
 	     <!-- <input type="button" name="button" id="juso" value="주소"  onclick="sample4_execDaumPostcode()" /> -->
 	     <input class="insert" type="text" name="addr" id="addr" onclick="sample4_execDaumPostcode()" />
 	     <p class="label" >상세주소</p>
-	     <input class="insert" type="text" name="addr" id="addr" />
+	     <input class="insert" type="text" name="addr" id="addr" autocomplete="off" />
 	 </div>					
 	<div class="info">
 	    <p class="label">아이디</p>
-	    <input class="insert" type="text" name="id" id="id"/><br/>
+	    <input class="insert" type="text" name="id" id="id" autocomplete="off"/><br/>
 	    <span id="idCheckResult" style="width:150px;color:red"></span>
 	</div>				
 	<div class="info">
@@ -70,7 +70,7 @@
 	</div>
 	<div class="info">
 	   <p class="label">닉네임</p>
-	   <input class="insert" type="text" name="nick" id="nick"/><br/>
+	   <input class="insert" type="text" name="nick" id="nick" autocomplete="off"/><br/>
 	   <span id="nickCheckResult" style="width:150px;color:red"></span>
 	</div>			
                 <br><br>

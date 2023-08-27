@@ -18,4 +18,8 @@ public class FairServiceImpl implements FairService {
 	public List<FairVO> fairList(FairVO vo) {
 		return fairDAO.fairList(vo);
 	}
+	
+	public List<FairVO> fairReserve(FairVO vo){
+		return fairDAO.fairReserve(vo);
+	}
 }

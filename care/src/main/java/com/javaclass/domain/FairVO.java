@@ -8,6 +8,7 @@ public class FairVO {
 	private String fairpoto;
 	private String fairurl;
 	private String faircate;
+	private String faircolor;
 
 	public String getFairname() {
 		return fairname;
@@ -63,6 +64,14 @@ public class FairVO {
 
 	public void setFaircate(String faircate) {
 		this.faircate = faircate;
+	}
+
+	public String getFaircolor() {
+		return faircolor;
+	}
+
+	public void setFaircolor(String faircolor) {
+		this.faircolor = faircolor;
 	}
 
 }

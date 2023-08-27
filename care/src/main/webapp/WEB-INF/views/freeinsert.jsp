@@ -32,6 +32,7 @@
       <link rel="stylesheet" href="resources/css/perfect-scrollbar.css" />
       <!-- custom css -->
       <link rel="stylesheet" href="resources/css/custom.css" />
+      
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -108,22 +109,23 @@
                         <a href="#advice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/counselling-icon.png" style="width: 30px;"></i><span>상담</span></a>
                         <ul class="collapse list-unstyled" id="advice">
                            <li>
-                              <a href="counseling_center1.do">> <span>상담소 찾기</span></a>
+                              <a href="counseling_center1.do"> <span>상담소 찾기</span></a>
                            </li>
                            <li>
                               <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>예약하기</span></a></c:if>
-                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do">> <span>예약하기</span></a></c:if>
-                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do">> <span>일정등록하기</span></a></c:if>
+                              <c:if test="${Login ne null && SdsLogin eq null}"><a href="reservationList.do"> <span>예약하기</span></a></c:if>
+                              <c:if test="${SdsLogin ne null && Login eq null}"><a href="reservation.do"> <span>일정등록하기</span></a></c:if>
                            </li>
                            <li>
                              <c:if test="${Login eq null && SdsLogin eq null}"><a style="cursor:pointer" onclick="service4()"> <span>상담하기</span></a></c:if>
-                             <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do">> <span>상담하기(회원)</span></a></c:if>
-                             <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do">> <span>상담하기(상담사)</span></a></c:if>
+                             <c:if test="${Login ne null && SdsLogin eq null}"><a style="cursor:pointer" href="chat.do">> <span>상담하기</span></a></c:if>
+                             <c:if test="${SdsLogin ne null && Login eq null}"><a style="cursor:pointer" href="chat2.do">> <span>상담하기</span></a></c:if>
                            </li>
                         </ul>
                      </li>
                      <li>
-                        <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a>
+                        <c:if test="${Login eq null && SdsLogin eq null}"> <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a></c:if>
+                       <c:if test="${Login ne null && SdsLogin eq null}"> <a href="#diary" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i><img src="resources/images/icon/diary-icon.png" style="width: 30px;"></i><span>일기장</span></a></c:if>
                         <ul class="collapse list-unstyled" id="diary">
                                    <li>
                               <a onclick="service()" style="cursor:pointer"> <span >일기</span></a>
@@ -133,22 +135,16 @@
                            </li>
                         </ul>
                      </li>
-					<li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px",></i> <span>버킷리스트</span></a></li>             
-                 
-                     <li>
-                        <a href="#apps2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>의사소통훈련</span></a>
-                        <ul class="collapse list-unstyled" id="apps2">
-                           <li><a href="daily_talk.do">> <span>일상대화</span></a></li>
-                           <li><a href="company_talk.do">> <span>업무대화</span></a></li>
-                        </ul>
-                     </li>
+               <c:if test="${Login eq null && SdsLogin eq null}"><li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li></c:if>             
+               <c:if test="${Login ne null && SdsLogin eq null}"><li><a onclick="service3()" style="cursor:pointer"><i><img src="resources/images/icon/bucketList-icon.png" style="width: 30px"></i> <span>버킷리스트</span></a></li></c:if>             
+                     <li><a href="training.do"><i><img src="resources/images/icon/narration-icon.png" style="width: 30px;"></i> <span>대화하기</span></a></li>
                      <li><a href="getAllFreeBoards.do"><i><img src="resources/images/icon/board-icon.png" style="width: 30px;"></i> <span>자유게시판</span></a></li>
                      <li>
                         <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i><img src="resources/images/icon/information-icon.png" style="width: 30px;"></i> <span>정보게시판</span></a>
                         <ul class="collapse list-unstyled" id="apps">
 
-                           <li><a href="jobList.do">> <span>일자리</span></a></li>
-                           <li><a href="fairList.do">> <span>박람회</span></a></li>
+                           <li><a href="jobList.do"> <span>일자리</span></a></li>
+                           <li><a href="fairList.do"> <span>박람회</span></a></li>
 
                         </ul>
                      </li>
@@ -179,14 +175,14 @@
 <%-- 회원, 상담사 모두 null이면 로그인하러가기가 뜸 --%>                                                                     
 <c:if test="${Login eq null && SdsLogin eq null}"><a class="dropdown-toggle" href="login.do"><span class="name_user">로그인하기</span></a></c:if>
 <%-- 회원 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
-<c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }</span></a>
+<c:if test="${Login ne null && SdsLogin eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ Login }&nbsp님</span></a>
                                     <div class="dropdown-menu">
                                        <form action="myPage.do"><input type="hidden" name="id" value="${ IdLogin }" /><input class="dropdown-item" type="submit" name="member" value="마이페이지" /></form>
                                       <!-- <a class="dropdown-item" name="member" href="myPage.do">마이페이지</a> -->
                                       <a class="dropdown-item" href="logout.do"><span>로그아웃</span> <i class="fa fa-sign-out"></i></a>
                                     </div></c:if>
 <%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>                                    
-<c:if test="${SdsLogin ne null && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ NickLogin }</span></a>
+<c:if test="${SdsLogin ne null && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">${ NickLogin }&nbsp상담사</span></a>
                                     <div class="dropdown-menu">
                                     <form action="sdsMyPage.do"><input type="hidden" name="sdsid" value="${ SdsLogin }" /><input class="dropdown-item" type="submit" name="sdsmember" value="마이페이지" /></form>
                                       <!-- <a class="dropdown-item" name="sdsmember" href="sdsMyPage.do">마이페이지</a> -->
@@ -204,27 +200,27 @@
                      </div>
                   </nav>
                </div>
-				<!-- end topbar -->
-				<!-- dashboard inner -->
-				<div class="midde_cont">
-					<div class="container-fluid">
-						<div class="row column_title">
-							<div class="col-md-12">
-								<div class="page_title">
-									<h2>
-									게시글 작성
-									</h2>
-								</div>
-							</div>
-						</div>
-						<!-- row -->
-						  <div class="row">
+            <!-- end topbar -->
+            <!-- dashboard inner -->
+            <div class="midde_cont">
+               <div class="container-fluid">
+                  <div class="row column_title">
+                     <div class="col-md-12">
+                        <div class="page_title">
+                           <h2>
+                           게시글 작성
+                           </h2>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- row -->
+                    <div class="row">
                             <div class="col-md-4 offset-md-4">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <form action="createFreeBoard.do" method="post">
+                                                <form action="createFreeBoard.do" method="post" enctype="multipart/form-data">
                                                     <input type="hidden" name="memcode" value="<%= memcode %>">
                                                     <div class="form-group">
                                                         <label for="freetitle">제목</label>
@@ -233,6 +229,11 @@
                                                     <div class="form-group">
                                                         <label for="freecontent">내용</label>
                                                         <textarea class="form-control" id="freecontent" name="freecontent" rows="9" required></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <p class="freeimg">프로필사진</p>
+                                                         <input class="insert" type="file" name="file" id="file" onchange="readURL1(this)" />
+                                                 <div id="previewDiv1"></div>
                                                     </div>
                                                     <!-- 작성 버튼을 오른쪽으로 배치 -->
                                                     <div class="text-right">
@@ -258,69 +259,81 @@
             </div>
         </div>
     </div>
-	<!-- jQuery -->
-	<script  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9d97072881c8aba749386593c3327fb1&libraries=services,clusterer,drawing"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<!-- <script src="resources/js/jquery.min.js"></script> -->
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<!-- wow animation -->
-	<script src="resources/js/animate.js"></script>
-	<!-- select country -->
-	<script src="resources/js/bootstrap-select.js"></script>
-	<!-- owl carousel -->
-	<script src="resources/js/owl.carousel.js"></script>
-	<!-- chart js -->
-	<script src="resources/js/Chart.min.js"></script>
-	<script src="resources/js/Chart.bundle.min.js"></script>
-	<script src="resources/js/utils.js"></script>
-	<script src="resources/js/analyser.js"></script>
-	<!-- nice scrollbar -->
-	<script src="resources/js/perfect-scrollbar.min.js"></script>
-	<script>
-		var ps = new PerfectScrollbar('#sidebar');
-	</script>
-	<!-- custom js -->
-	<script src="resources/js/custom.js"></script>
-	<script src="resources/js/chart_custom_style1.js"></script>
-	<script src="resources/js/category.js"></script>
-		<script>
-	function service() {
-		let logIn = "${IdLogin}";
-		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
-			location.href="login.do";
-		}else{
-			location.href="diary.do?memcode=${MemLogin}";
-		}
-	}
-	function service2() {
-		let logIn = "${IdLogin}";
-		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
-			location.href="login.do";
-		}else{
-			location.href="emotions.do?memcode=${MemLogin}";
-		}
-	}
-	function service3() {
-		let logIn = "${IdLogin}";
-		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
-			location.href="login.do";
-		}else{
-			location.href="bucket_list.do?memcode=${MemLogin}";
-		}
-	}
-	function service4() {
-		let logIn = "${IdLogin}";
-		if(logIn ==""){
-			alert("서비스 페이지는 로그인 후 사용하실 수 있습니다.");
-			location.href="login.do";
-		}
-	}
-	</script>
-	 
+   <!-- jQuery -->
+   <script  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9d97072881c8aba749386593c3327fb1&libraries=services,clusterer,drawing"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="resources/js/jquery-3.3.1.min.js"></script>
+   <!-- <script src="resources/js/jquery.min.js"></script> -->
+   <script src="resources/js/popper.min.js"></script>
+   <script src="resources/js/bootstrap.min.js"></script>
+   <!-- wow animation -->
+   <script src="resources/js/animate.js"></script>
+   <!-- select country -->
+   <script src="resources/js/bootstrap-select.js"></script>
+   <!-- owl carousel -->
+   <script src="resources/js/owl.carousel.js"></script>
+   <!-- chart js -->
+   <script src="resources/js/Chart.min.js"></script>
+   <script src="resources/js/Chart.bundle.min.js"></script>
+   <script src="resources/js/utils.js"></script>
+   <script src="resources/js/analyser.js"></script>
+   <!-- nice scrollbar -->
+   <script src="resources/js/perfect-scrollbar.min.js"></script>
+   <script>
+      var ps = new PerfectScrollbar('#sidebar');
+   </script>
+   <!-- custom js -->
+   <script src="resources/js/custom.js"></script>
+   <script src="resources/js/chart_custom_style1.js"></script>
+   <script src="resources/js/category.js"></script>
+   <script>
+   function service() {
+      let logIn = "${IdLogin}";
+      if(logIn ==""){
+         alert("서비스 페이지는 회원만 사용할 수 있습니다.");
+         location.href="login.do";
+      }else{
+         location.href="diary.do?memcode=${MemLogin}";
+      }
+   }
+   function service2() {
+      let logIn = "${IdLogin}";
+      if(logIn ==""){
+         alert("서비스 페이지는 회원만 사용할 수 있습니다.");
+         location.href="login.do";
+      }else{
+         location.href="emotions.do?memcode=${MemLogin}";
+      }
+   }
+   function service3() {
+      let logIn = "${IdLogin}";
+      if(logIn ==""){
+         alert("서비스 페이지는 회원만 사용할 수 있습니다.");
+         location.href="login.do";
+      }else{
+         location.href="bucket_list.do?memcode=${MemLogin}";
+      }
+   }
+   function service4() {
+      let logIn = "${IdLogin}";
+      if(logIn ==""){
+         alert("서비스 페이지는 회원만 사용할 수 있습니다.");
+         location.href="login.do";
+      }
+   }
+    function readURL1(obj) {
+         let reader = new FileReader();
+         if(!obj.files.length) {   
+             return;
+         }
+         reader.readAsDataURL(obj.files[0]);
+         reader.onload = function (e) {
+             let img = $('<img class="previewImg" />');
+             $(img).attr('src', e.target.result);
+             $('#previewDiv1').append(img);
+         }
+     }
+   </script>
+    
 </body>
 </html>

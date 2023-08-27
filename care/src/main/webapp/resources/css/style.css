@@ -3575,3 +3575,44 @@ table.projects tr td:first-child {
     display: flex;
     align-items: center;
 }
+
+#carouselExampleControls{
+	width: 430px;
+	left: 711px;
+	margin-top: 50px;
+	height:400px;
+	width: 430px;
+	border: 1px
+}
+.carousel-item{
+	height:400px;
+	border: 1px;
+}
+.mainhome_tel{
+	margin-left: 85px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 430px;
+	height:400px;
+	border: 1px;
+}
+.mainhome_telimg{
+	height: 850px;
+    width: 550px;
+    border: 1px;
+    position: absolute;
+    bottom: 50px;
+}
+
+
+#faircalendar{
+	width: 900px;
+	height : 850px;
+	margin-left: 1215px;
+	position: absolute;
+	bottom: 30px;
+}
+
+#calendar{
+	height: 1000px;
+}

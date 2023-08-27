@@ -22,4 +22,10 @@ public class FairController {
 		return "exposition";
 	}
 	
+	@RequestMapping("/fairReserve.do")
+	public String fairReserve(FairVO vo, Model model) {
+		model.addAttribute("fairReserve", fairService.fairReserve(vo));
+		return "index.jsp";
+	}
+	
 }

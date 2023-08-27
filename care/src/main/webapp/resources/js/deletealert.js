@@ -7,7 +7,7 @@ $(function(){
          $('#scheduleData1').submit();
          
          setTimeout(function() {
-             window.opener.location.href = "reserve.do";
+             window.opener.location.href = "redirect:/reserve.do";
              window.close();
           }, 5);
 

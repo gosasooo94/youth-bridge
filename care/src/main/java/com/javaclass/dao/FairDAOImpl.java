@@ -23,6 +23,9 @@ public class FairDAOImpl implements FairDAO {
 		return list;
 	}
 
-
+	public List<FairVO> fairReserve(FairVO vo){
+		List<FairVO> list = mybatis.selectList("FairDAO.fairReserve",vo);
+		return list;
+	}
 
 }

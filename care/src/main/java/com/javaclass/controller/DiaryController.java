@@ -147,7 +147,7 @@ public class DiaryController {
 		
 		diaryService.insertEmotions(vo);
 
-		return "redirect:/diary.do";
+		return "redirect:/diary.do?memcode=" + vo.getMemcode();
 	}
 
 	// 일기장 수정
@@ -240,16 +240,16 @@ public class DiaryController {
 		
 		diaryService.updateEmotions(vo);
 
-		return "redirect:/diary.do";
+		return "redirect:/diary.do?memcode=" + vo.getMemcode();
 	}
 
 	// 일기장 삭제
 	@RequestMapping("/deleteDiary.do")
 	public String deleteDiary(DiaryVO vo) {
 		System.out.println("일기장 삭제하기 옴!! 글번호notecode" + vo.getNotecode());
-		diaryService.deleteDiary(vo);
 		diaryService.deleteEmotions(vo);
-		return "redirect:/diary.do";
+		diaryService.deleteDiary(vo);
+		return "redirect:/diary.do?memcode="+ vo.getMemcode();
 	}
 
 }

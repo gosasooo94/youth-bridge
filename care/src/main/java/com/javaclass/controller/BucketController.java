@@ -45,7 +45,7 @@ public class BucketController {
 		bucketService.insertBucket(vo);
 		System.out.println("버킷리스트 인서트 : " + vo.getMemcode());
 
-		return "redirect:/bucket_list.do";
+		return "redirect:/bucket_list.do?memcode="+vo.getMemcode();
 	}
 
 	// 버킷리스트 수정
@@ -53,14 +53,14 @@ public class BucketController {
 	public String updateDiary(@ModelAttribute("bucket") BucketVO vo) { // BoardVO board
 		System.out.println(vo.getListcode() + " 업데이트 클래스");
 		bucketService.updateBucket(vo);
-		return "redirect:/bucket_list.do";
+		return "redirect:/bucket_list.do?memcode="+vo.getMemcode();
 	}
 
 	// 버킷 삭제
 	@RequestMapping("/deleteBucket.do")
 	public String deleteDiary(BucketVO vo) {
 		bucketService.deleteBucket(vo);
-		return "redirect:/bucket_list.do";
+		return "redirect:/bucket_list.do?memcode="+vo.getMemcode();
 	}
 
 }

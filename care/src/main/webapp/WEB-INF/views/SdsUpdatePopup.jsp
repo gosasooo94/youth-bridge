@@ -9,7 +9,7 @@
 <link rel="styleet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="resources/css/schedule.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<link rel="stylesheet" href="resources/css/ReserveUpdatePopup.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -43,14 +43,13 @@ String srcode = request.getParameter("srcode");
    <%-- ReserveController참고하면 form에 대한 부분 이해 가능(수정) --%>
    <form id = "scheduleData" action="updateSdsReserve.do" method="POST">
       <div>
-      <p class="label" >일정코드</p>
-      <input type="text" name="srcode" value="<%=srcode %>" />
-      <input type="text" name="sdsmemcode" value="${sdsmemLogin}" />
+      <input type="hidden" name="srcode" value="<%=srcode %>" />
+      <input type="hidden" name="sdsmemcode" value="${sdsmemLogin}" />
       </div>
       <br/>
       
-      <div class = "top">
-         <input class="subject" id="sctitle" type="text" name="sctitle" placeholder="내용을 입력해주세요.(25자)">
+      <div class = "domain">
+         <input class="subject" id="title" type="text" name="sctitle" placeholder="내용을 입력해주세요.(25자)">
       </div>
       <br/>
 
