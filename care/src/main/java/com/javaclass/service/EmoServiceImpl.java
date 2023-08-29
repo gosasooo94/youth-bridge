@@ -21,6 +21,7 @@ public class EmoServiceImpl implements EmoService {
 	@Override
 	public List<EmoVO> getEmo(EmoVO vo) {
 		// TODO Auto-generated method stub
+		System.out.println("그래프 시스템 옴  맴버 코드 : " + vo.getMemcode() + " / 날짜 :  " + vo.getNotedate());
 		return emoDAO.getEmo(vo);
 	}
 

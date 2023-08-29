@@ -25,18 +25,18 @@
                     <button type="button" class="togglebtn" onclick="login()">회원</button>
                     <button type="button" class="togglebtn" onclick="register()">상담사</button>
                 </div>
-                <form id="getLogin" action="login.do" class="input-group" method="post">
+                <form id="getLogin" action="login.do" class="input-group" method="post" style="left: 50px;">
                     <input type="text" id="id" name="id" class="input-field" placeholder="ID" value="" required="" autocomplete="off">
                     <input type="password" id="pw" name="pw" class="input-field" placeholder="PASSWORD" value="" required="">
-                    <button class="submit">Login</button>
-                    <span class="find"><a style="cursor:pointer; color: black" onclick="fid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer; color: black;" onclick="fpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="signup.do" style="text-decoration:none;color: black;">회원가입</a></span>                 
+                    <button class="submit" style="margin-left: 20px;">Login</button>
+                    <span class="find"><a style="cursor:pointer; color: black margin-left: 10px;" onclick="fid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer; color: black;" onclick="fpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="signup.do" style="text-decoration:none;color: black;">회원가입</a></span>                 
                 </form>
                                 
                 <form id="register" action="sdslogin.do" class="input-group" method="post">
                     <input type="text" id="id" name="sdsid" class="input-field" placeholder="ID" required="" autocomplete="off">
                     <input type="password" id="pw" name="sdspw" class="input-field" placeholder="PASSWORD" required="">
-                    <button class="submit">Login</button>
-                    <span class="find"><a style="cursor:pointer; color: black;" onclick="sdsfid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;color: black;" onclick="sdsfpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="sdssignup.do" style="text-decoration:none;color: black;">회원가입</a></span> 
+                    <button class="submit" style="margin-left: 20px;">Login</button>
+                    <span class="find"><a style="cursor:pointer; color: black; margin-left: 10px;" onclick="sdsfid()">아이디찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;color: black;" onclick="sdsfpw()">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="sdssignup.do" style="text-decoration:none;color: black;">회원가입</a></span> 
                 </form>
 
                 <% if (request.getAttribute("errorMessage") != null) { %>
@@ -65,7 +65,7 @@
             function register(){
                 x.style.left = "-400px";
                 y.style.left = "50px";
-                z.style.left = "110px";
+                z.style.left = "100px";
             }
         </script>
     

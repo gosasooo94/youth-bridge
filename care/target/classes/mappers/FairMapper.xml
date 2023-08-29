@@ -17,7 +17,7 @@
 <select id="fairList" resultType="fair"  >
          SELECT F.FAIRNAME, F.FAIRADDR, TO_CHAR(F.FAIRSTART,'YYYY.MM.DD')AS FAIRSTART,TO_CHAR(F.FAIREND,'YYYY.MM.DD')AS FAIREND,F.FAIRURL,F.FAIRPOTO, C.FAIRCATE
          FROM FAIR F, FAIRCATE C WHERE F.FAIRCATECODE = C.FAIRCATECODE
-         ORDER BY FAIRCODE DESC
+         ORDER BY FAIRCATE ASC
    </select> 
 	
 	<select id="fairReserve" resultMap="fairreserveRM">

@@ -6,23 +6,23 @@ const closePopup = document.getElementById("closePopup");
 
 
 const trigger = [
-  ['웅', '그래', '오키'],
-  ['안녕', '안녕하세요', '반갑다'],
-  ['뭐해', '뭐하고 있어'],
-  ['잘 지내니', '어떻게 지내니'],
-  ['오늘 날씨 어때', '날씨가 어때', '날씨'],
-  ['무엇을 좋아해', '좋아하는 것'],
-  ['문제풀고싶어', '명령어알려줘']
+  ['안녕', '웅 안녕'],
+  ['오늘 그냥 집에 있었어'],
+  ['별로 나가고 싶지 않았어', '그냥..'],
+  ['고마워', '그럴까?'],
+  ['나 문제풀기 좋아해'],
+  ['좋아', '풀어볼게'],
+  ['웅웅', '문제줘'],
 ];
 
 const reply = [
-  ['그래 인사해야지?', 'ㅋㅋㅋ인사부터해야지', '단답별로야 인사부터하자ㅋㅋㅋ'],
-  ['안녕!', '안녕하세요!', '반가워요!'],
-  ['지금은 채팅 중이에요.', '당신과 대화 중이에요.'],
-  ['잘 지내고 있어요.', '너무 바쁜 건 아니에요.', '그럭저럭 괜찮아요.'],
-  ['오늘은 맑은 날씨네요.', '비가 조금 오네요.', '날씨는 따뜻해요.'],
-  ['나는 음악을 좋아해요.', '독서를 좋아해요.', '요리를 좋아해요.'],
-  ['"업무대화 문제풀고싶어"라고 입력하시면 업무 대화 문제를 풀어볼 수 있어요.', '"일상대화 문제풀고싶어"라고 입력하시면 일상 대화 문제를 풀어볼 수 있어요.']
+  ['오늘은 뭐했어?'],
+  ['왜 무슨 일 있어?', '왜 이야기 해줄 수 있어?'],
+  ['그렇구나 그래도 나랑 이야기하다보면 괜찮아질거야', '그렇구나 괜찮아 나랑 재밌게 놀자'],
+  ['그럼~ 재밌게 놀아보자 취미는 뭐야?', '그럼~ 좋아하는 거 있어?'],
+  ['준비해볼게'],
+  ['오 그럼 나에게 퀴즈문제가 있는데 풀어볼래?'],
+  ['"업무대화 문제풀고싶어" 또는 "일상대화 문제풀고싶어" 를 입력해줘'],
 ];
 
 function handleKeyPress(event) {
@@ -43,16 +43,27 @@ function sendMessage() {
 }
 
 function processMessage(message) {
-  let response = '뭐라는거야.';
+  let response = '미안해 이해를 못했어.';
+  
+  let popupWidth = 600;
+  let popupHeight = 600;
+
+  // 화면 크기를 얻어오기
+  let screenWidth = window.screen.width;
+  let screenHeight = window.screen.height;
+
+  // 윈도우를 가운데로 위치시키기 위한 좌표 계산
+  let left = (screenWidth - popupWidth) / 2;
+  let top = (screenHeight - popupHeight) / 2;
 
   if (message.includes('업무대화 문제풀고싶어')) {
-    window.open('company_talk.do', '_blank', 'width=600,height=500');
+    window.open('company_talk.do', '_blank', 'width=600,height=600,left=' + left + ',top=' + top);
     response = '잘풀어봐 ㅋㅋ';
   } else if (message.includes('업무 문제풀고싶어!') || message.includes('업무문제풀고싶어') || message.includes('업무문제풀래')) {
-     window.open('company_talk.do', '_blank', 'width=600,height=500');
+     window.open('company_talk.do', '_blank', 'width=600,height=600,left=' + left + ',top=' + top);
     response = '그래! 잘풀어봐';
   } else if (message.includes('일상대화 문제풀고싶어') || message.includes('일상문제풀고싶어') || message.includes('일상대화') || message.includes('일상문제풀래')) {
-     window.open('daily_talk.do', '_blank', 'width=1200,height=500');
+     window.open('daily_talk.do', '_blank', 'width=1000,height=700');
      response = '그래! 잘풀어봐';
   } else {
     for (let i = 0; i < trigger.length; i++) {
@@ -66,7 +77,7 @@ function processMessage(message) {
   }
 
   setTimeout(() => {
-    addMessage('인싸', response);
+    addMessage('친구', response);
   }, 1000);
 }
 
@@ -80,7 +91,7 @@ function addMessage(sender, message) {
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
-addMessage('인싸 ' , '야 나랑 대화하자!!');
+addMessage('친구 ' , '안녕!!');
 
 
 infoButton.addEventListener("click", () => {
@@ -96,9 +107,3 @@ window.addEventListener("click", (event) => {
         infoPopup.style.display = "none";
     }
 });
-
-
-
-
-
-

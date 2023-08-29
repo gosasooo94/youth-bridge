@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UTF-8">
 <head>
 <!-- basic -->
 <meta charset="utf-8">
@@ -31,111 +31,7 @@
 <link rel="stylesheet" href="resources/css/perfect-scrollbar.css" />
 <!-- custom css -->
 <link rel="stylesheet" href="resources/css/custom.css" />
-
-
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"
-	crossorigin="anonymous">
-
-
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.2/main.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-	integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-	crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<link
-	href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css'
-	rel='stylesheet'>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css"
-	integrity="sha512-63+XcK3ZAZFBhAVZ4irKWe9eorFG0qYsy2CaM5Z+F3kUn76ukznN0cp4SArgItSbDFD1RrrWgVMBY9C/2ZoURA=="
-	crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script
-	src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js'></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"
-	integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg=="
-	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                
-             headerToolbar: {
-                 left: 'prev,next today,dayGridMonth',
-                 center: 'title',
-                 right: 'listWeek'
-             },
-            locale: 'ko',
-            
-              dayCellContent: function(info) {
-                   var number = document.createElement("a");
-                   number.classList.add("fc-daygrid-day-number");
-                   number.innerHTML = info.dayNumberText.replace("일",'');
-                   
-                // 클릭 이벤트 핸들러 함수 작성
-                   function cellClickHandler(event) {
-                       // 여기에 일정 수정을 위한 로직 작성
-                       // 예: 특정 날짜의 일정을 수정하기 위한 팝업 창을 띄워주는 등의 동작
-                       console.log("날짜 셀 클릭됨:", info.date);
-                   }
-
-                   // HTML 엘리먼트에 클릭 이벤트 핸들러 추가
-                   number.addEventListener("click", cellClickHandler);
-                   
-                   // 시간을 함께 표시하도록 추가
-               var time = document.createElement("div");
-               time.classList.add("fc-daygrid-event-time");
-               time.textContent = "시간을 표시하고 싶은 내용"; // 원하는 시간 형식을 여기에 추가
-
-               var container = document.createElement("div");
-               container.appendChild(number);
-               container.appendChild(time);
-                   
-                   if(info.view.type === "dayGridMonth")
-                      {
-                      return{html: number.outerHTML};
-                      }
-                   return{domNodes:[number]};   
-                   },
-                   
-                   eventAdd: function () { // 이벤트가 추가되면 발생하는 이벤트
-                       console.log()
-                   },
-                   eventAdd: function(info) {
-                       // info.event.title, info.event.start, info.event.end 등의 정보를 활용하여 서버로 데이터 전송
-                       // 서버에서 데이터를 처리한 후, 성공적으로 처리되면 아래와 같이 FullCalendar를 업데이트할 수 있습니다.
-                       calendar.refetchEvents();
-                   },
-                  
-            // Your calendar configuration options
-            events: [
-                // Iterate over eventList and generate event objects here
-                <c:forEach var="fair" items="${fairReserve}">
-                {
-                   title: '<c:out value="${fiar.fairname}"/>',
-                    start: '<c:out value="${fair.fairstart}"/>',
-                    end: '<c:out value="${fair.fairend}"/>',
-                    color : '<c:out value="${fair.color}"/>',
-                    cate : '<c:out value="${fair.faircate}"/>',
-                },
-                </c:forEach>
-            ],
-                                   
-        });
-        
-        calendar.render();
-    });
-</script>
+<link rel="stylesheet" href="resources/css/mainair.css" />
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -147,7 +43,8 @@ String sdsid = (String) session.getAttribute("SdsLogin");
 int sdsmemcode = (Integer) session.getAttribute("sdsmemLogin");
 %>
 </head>
-<body class="dashboard dashboard_1">
+<body class="dashboard dashboard_1"
+	style="-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none">
 	<div class="full_container">
 		<div class="inner_container">
 			<!-- sidebar 메뉴  -->
@@ -176,15 +73,15 @@ int sdsmemcode = (Integer) session.getAttribute("sdsmemLogin");
 								<li><a href="counseling_center1.do">> <span>상담소
 											찾기</span></a></li>
 								<li><c:if test="${Login eq null && SdsLogin eq null}">
-										<a style="cursor: pointer" onclick="service4()"> <span>예약하기</span></a>
+										<a style="cursor: pointer" onclick="service4()">> <span>예약하기</span></a>
 									</c:if> <c:if test="${Login ne null && SdsLogin eq null}">
-										<a href="reservationList.do"> <span>예약하기</span></a>
+										<a href="reservationList.do">> <span>예약하기</span></a>
 									</c:if> <c:if test="${SdsLogin ne null && Login eq null}">
 										<a href="javascript:void(0);"
-											onclick="sdspopup('${sdsmemLogin}')"><span>일정등록하기</span></a>
+											onclick="sdspopup('${sdsmemLogin}')">> <span>일정등록하기</span></a>
 									</c:if></li>
 								<li><c:if test="${Login eq null && SdsLogin eq null}">
-										<a style="cursor: pointer" onclick="service4()"> <span>상담하기</span></a>
+										<a style="cursor: pointer" onclick="service4()">> <span>상담하기</span></a>
 									</c:if> <c:if test="${Login ne null && SdsLogin eq null}">
 										<a style="cursor: pointer" href="chat.do">> <span>상담하기</span></a>
 									</c:if> <c:if test="${SdsLogin ne null && Login eq null}">
@@ -204,9 +101,9 @@ int sdsmemcode = (Integer) session.getAttribute("sdsmemLogin");
 										style="width: 30px;"></i><span>일기장</span></a>
 							</c:if>
 							<ul class="collapse list-unstyled" id="diary">
-								<li><a onclick="service()" style="cursor: pointer"> <span>일기</span></a>
+								<li><a onclick="service()" style="cursor: pointer">> <span>일기</span></a>
 								</li>
-								<li><a onclick="service2()" style="cursor: pointer"><span>감정그래프</span></a>
+								<li><a onclick="service2()" style="cursor: pointer">> <span>감정그래프</span></a>
 								</li>
 							</ul></li>
 						<c:if test="${Login eq null && SdsLogin eq null}">
@@ -224,18 +121,16 @@ int sdsmemcode = (Integer) session.getAttribute("sdsmemLogin");
 									style="width: 30px;"></i> <span>대화하기</span></a></li>
 						<li><a href="getAllFreeBoards.do"><i><img
 									src="resources/images/icon/board-icon.png" style="width: 30px;"></i>
-								<span>자유게시판</span></a></li>
+								<span>이용후기게시판</span></a></li>
 						<li><a href="#apps" data-toggle="collapse"
 							aria-expanded="false" class="dropdown-toggle"><i><img
 									src="resources/images/icon/information-icon.png"
 									style="width: 30px;"></i> <span>정보게시판</span></a>
 							<ul class="collapse list-unstyled" id="apps">
+								<li><a href="advocacy.do">> <span>지원정책</span></a></li>
 								<li><a href="jobList.do">> <span>일자리</span></a></li>
 								<li><a href="fairList.do">> <span>박람회</span></a></li>
 							</ul></li>
-						<li><a href="advocacy.do"><i><img
-									src="resources/images/icon/support-icon.png"
-									style="width: 30px;,"></i> <span>지원정책</span></a></li>
 						<li><a href="faq.do"><i><img
 									src="resources/images/icon/support-icon.png"
 									style="width: 30px;"></i> <span>FAQ</span></a></li>
@@ -249,52 +144,51 @@ int sdsmemcode = (Integer) session.getAttribute("sdsmemLogin");
 				<div class="topbar">
 					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="full">
-							<button type="button" id="sidebarCollapse" class="sidebar_toggle">
+							<button type="button" id="sidebarCollapse" class="sidebar_toggle"
+								style="height: 76px; padding: 15px 26px 15px;">
 								<i class="fa fa-bars"></i>
 							</button>
 							<div class="logo_section">
 								<a href="index.jsp"><img class="img-responsive"
-									src="resources/images/logo/logo.png" alt="#" /></a>
+									src="resources/images/logo/logo.png" /></a>
 							</div>
 							<div class="right_topbar">
 								<div class="icon_info">
-									<ul>
-										<li><a href="#"><i class="fa fa-bell-o"></i><span
-												class="badge">2</span></a></li>
-									</ul>
 									<ul class="user_profile_dd">
 										<li>
 											<%-- choose는 확실히 구분될때, if는 조건으로 구분해야할 때 사용 --%> <%-- 회원, 상담사 모두 null이면 로그인하러가기가 뜸 --%>
 											<c:if test="${Login eq null && SdsLogin eq null}">
 												<a class="dropdown-toggle" href="login.do"><span
-													class="name_user">로그인하기</span></a>
+													class="name_user">로그인</span></a>
 											</c:if> <%-- 회원 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>
 											<c:if test="${Login ne null && SdsLogin eq null}">
 												<a class="dropdown-toggle" data-toggle="dropdown"><span
-													class="name_user">${ Login }&nbsp님</span></a>
+													class="name_user login_name">${ Login }&nbsp님 </span></a>
 												<div class="dropdown-menu">
-													<form action="myPage.do">
-														<input type="hidden" name="id" value="${ IdLogin }" /><input
-															class="dropdown-item" type="submit" name="member"
-															value="마이페이지" />
+													<form action="myPage.do" class="dropdown-item"
+														style="padding: 4px 15px;">
+														<input type="hidden" name="id" value="${ IdLogin }" /> <input
+															class="" type="submit" name="member" value="마이페이지"
+															style="padding: 0rem 0rem;" />
 													</form>
 													<!-- <a class="dropdown-item" name="member" href="myPage.do">마이페이지</a> -->
-													<a class="dropdown-item" href="logout.do"><span>로그아웃</span>
-														<i class="fa fa-sign-out"></i></a>
+													<a class="dropdown-item" href="logout.do"><span>로그아웃&nbsp;</span><i
+														class="fa fa-sign-out"></i></a>
 												</div>
 											</c:if> <%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) --%>
 											<c:if test="${SdsLogin ne null && Login eq null}">
 												<a class="dropdown-toggle" data-toggle="dropdown"><span
-													class="name_user">${ NickLogin }&nbsp상담사</span></a>
+													class="name_user login_name">${ NickLogin }&nbsp상담사</span></a>
 												<div class="dropdown-menu">
-													<form action="sdsMyPage.do">
-														<input type="hidden" name="sdsid" value="${ SdsLogin }" /><input
-															class="dropdown-item" type="submit" name="sdsmember"
-															value="마이페이지" />
+													<form action="sdsMyPage.do" class="dropdown-item"
+														style="padding: 4px 15px;">
+														<input type="hidden" name="sdsid" value="${ SdsLogin }" />
+														<input class="dropdown-item" type="submit"
+															name="sdsmember" value="마이페이지"
+															style="padding: 0rem 0rem;" />
 													</form>
 													<!-- <a class="dropdown-item" name="sdsmember" href="sdsMyPage.do">마이페이지</a> -->
-													<a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span>
-														<i class="fa fa-sign-out"></i></a>
+													<a class="dropdown-item" href="sdslogout.do"><span>로그아웃</span></a>
 												</div>
 											</c:if> <%-- 상담사 닉네임 나오게 하는 부분(null이면 로그인 하러가기 나오고, 로그인하면 마이페이지, 로그아웃 나오게함) + 상담사 권한이 'N'이면 로그아웃만 나옴(마이페이지 이용 불가) --%>
 											<%-- <c:if test="${SdsLogin ne null && SdsCheck eq 'N' && Login eq null}"><a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user"><%= sdsnick %></span></a>
@@ -329,73 +223,23 @@ int sdsmemcode = (Integer) session.getAttribute("sdsmemLogin");
 									<div class="full graph_revenue">
 										<div class="row">
 											<div class="col-md-12">
-												<div class="content">
-													<div id="carouselExampleControls" class="carousel slide"
-														data-ride="carousel">
-														<div class="carousel-inner">
-															<div class="carousel-item active">
-																<img class="d-block w-100"
-																	src="resources/images/support_policy/1.jpg"
-																	alt="First slide">
-															</div>
-															<div class="carousel-item">
-																<img class="d-block w-100"
-																	src="resources/images/support_policy/2.jpg"
-																	alt="Second slide">
-															</div>
-															<div class="carousel-item">
-																<img class="d-block w-100"
-																	src="resources/images/support_policy/3.jpg"
-																	alt="Third slide">
-															</div>
-															<div class="carousel-item">
-																<img class="d-block w-100"
-																	src="resources/images/support_policy/12.jpg"
-																	alt="Third slide">
-															</div>
-															<div class="carousel-item">
-																<img class="d-block w-100"
-																	src="resources/images/support_policy/14.jpg"
-																	alt="Third slide">
-															</div>
-															<div class="carousel-item">
-																<img class="d-block w-100"
-																	src="resources/images/support_policy/8.jpg"
-																	alt="Third slide">
-															</div>
-															<div class="carousel-item">
-																<img class="d-block w-100"
-																	src="resources/images/support_policy/9.jpg"
-																	alt="Third slide">
-															</div>
-															<div class="carousel-item">
-																<img class="d-block w-100"
-																	src="resources/images/support_policy/10.jpg"
-																	alt="Third slide">
-															</div>
+												<div class="content1">
 
+
+													<section class="intro">
+
+														<h2>삶은 언제나 우리에게<br/>힘든 위기를 겪게 하고 나서야<br/>그 자신의 가장 빛나는 모습을 드러냅니다. <br/> 그러니, 우리 조금만 더 힘내 볼까요?<br/>우리가 당신의 다리가 되어드리겠습니다.<br/>Youth-Bridge</h2>
+
+
+
+
+														<!--Loader-->
+														<div class="loader">
+															<span class="bar"> <i class="animate"></i>
+															</span>
 														</div>
-														<a class="carousel-control-prev"
-															href="#carouselExampleControls" role="button"
-															data-slide="prev"> <span
-															class="carousel-control-prev-icon" aria-hidden="true"></span>
-															<span class="sr-only">Previous</span>
-														</a> <a class="carousel-control-next"
-															href="#carouselExampleControls" role="button"
-															data-slide="next"> <span
-															class="carousel-control-next-icon" aria-hidden="true"></span>
-															<span class="sr-only">Next</span>
-														</a>
-													</div>
-													<div class="mainhome_tel">
-														<img class="mainhome_telimg"
-															src="resources/images/support/tel.jpg">
-													</div>
 
-													<div class="card mb-4 mt-3 p-2" id="faircalendar" >
-														<div id='calendar' ></div>
-													</div>
-
+													</section>
 												</div>
 											</div>
 										</div>
@@ -403,19 +247,255 @@ int sdsmemcode = (Integer) session.getAttribute("sdsmemLogin");
 								</div>
 							</div>
 						</div>
+
 						<!-- end graph -->
 						<div class="row column3">
 							<!-- testimonial -->
-
+							<div class="col-md-6">
+								<div class="dark_bg full margin_bottom_30">
+									<div class="full graph_head">
+										<div class="heading1 margin_0">
+											<h2>상담사 한마디</h2>
+										</div>
+									</div>
+									<div class="full graph_revenue">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="content testimonial" style="border-top: none;">
+													<div id="testimonial_slider" class="carousel slide"
+														data-ride="carousel">
+														<!-- Wrapper for carousel items -->
+														<div class="carousel-inner">
+															<div class="item carousel-item active">
+																<div class="img-box">
+																	<img src="resources/images/sds/1.jpg" alt="">
+																</div>
+																<p class="testimonial f_size20_2">
+																	"생면부지의 사람에게 자신의 이야기를 더구나 사적이고 내밀한 부분까지 드러낸다는 것은<br />무척
+																	어려운 일입니다. 털어놓는다고 해서 해결이 될까하는 의구심도 생기기 마련입니다.<br />오히려
+																	부당한 평가나 몰이 때문에 더 상처 받지는 않을지 두려운 마음도 따라옵니다."
+																</p>
+																<p class="overview">
+																	<b class="f_size20_2">신민준</b>
+																</p>
+															</div>
+															<div class="item carousel-item">
+																<div class="img-box">
+																	<img src="resources/images/sds/2.jpg" alt="">
+																</div>
+																<p class="testimonial f_size20_2">
+																	"혼자 내 문제에 매몰되어 있는 것은 구덩이에 빠진채 삽질을 계속하는 것과 비슷합니다.<br />친구나
+																	가족들에게 조언을 구하는 것은 때때로 살아온 관성 속에 거듭 가두어지는 결과를 초래하기도 합니다.
+																	전문성과 인간성을 겸비하기 위해 오랜 기간 공부하며 훈련 받은 전문 상담사와 만나보시길 바랍니다."
+																</p>
+																<p class="overview">
+																	<b class="f_size20_2">박다솜</b>
+																</p>
+															</div>
+															<div class="item carousel-item">
+																<div class="img-box">
+																	<img src="resources/images/sds/5.jpg" alt="">
+																</div>
+																<p class="testimonial f_size20_2">"우리는 수많은 말속에 둘러싸여
+																	있지만 나에게 집중하여 언어를 사용한 경험은 그리 많지 않을 것입니다. 지금 이 글을 보는 여러분의
+																	마음은 나에 대해 이야기하고 싶고, 이해를 바라며, 변화를 꿈꾸고 있습니다. 밖으로 향했던 시선을
+																	이제 여러분의 내면에 두실 시간입니다."</p>
+																<p class="overview">
+																	<b class="f_size20_2">이초롱</b>
+																</p>
+															</div>
+														</div>
+														<!-- Carousel controls -->
+														<a class="carousel-control left carousel-control-prev"
+															href="#testimonial_slider" data-slide="prev"> <i
+															class="fa fa-angle-left"></i>
+														</a> <a class="carousel-control right carousel-control-next"
+															href="#testimonial_slider" data-slide="next"> <i
+															class="fa fa-angle-right"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 							<!-- end testimonial -->
 							<!-- progress bar -->
 							<div class="col-md-6">
-								<div class="white_shd full margin_bottom_30"></div>
+								<div class="white_shd full margin_bottom_30">
+									<div class="full graph_head">
+										<div class="heading1 margin_0">
+											<h2>지원정책</h2>
+										</div>
+									</div>
+									<div class="full progress_bar_inner">
+										<div class="row">
+											<div class="col-md-12">
+
+												<div class="container" style="margin-top: 8px;">
+													<div class="row row-cols-4">
+														<div class="col">
+															<a
+																href="https://www.pie-edu.com/news-5/-%5B%EB%AC%B4%EB%A3%8C-%EC%8B%AC%EB%A6%AC%EC%83%81%EB%8B%B4%5D-%EC%9D%80%EB%91%94%EA%B3%A0%EB%A6%BD%EC%B2%AD%EB%85%84%EB%93%A4%EA%B3%BC-%EA%B7%B8-%EB%B6%80%EB%AA%A8%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%AC%B4%EB%A3%8C-%EC%8B%AC%EB%A6%AC-%EC%83%81%EB%8B%B4-%EC%A7%80%EC%9B%90"
+																target='_blank'><img
+																src="resources/images/support_policy/1.jpg" width="300"
+																height="230" class="card-img-top" alt="..."></a>
+														</div>
+														<div class="col">
+															<a
+																href="https://youth.seoul.go.kr/site/main/content/reclusion_youth_intro"
+																target='_blank'><img
+																src="resources/images/support_policy/2.jpg" width="300"
+																height="230" class="card-img-top" alt="..."></a>
+														</div>
+														<div class="col">
+															<a href="https://youth.seoul.go.kr/site/youthnet/home"
+																target='_blank'><img
+																src="resources/images/support_policy/3.jpg" width="300"
+																height="230" class="card-img-top" alt="..."></a>
+														</div>
+														<div class="col">
+															<a href="https://www.work.go.kr/youngChallenge/index.do"
+																target='_blank'><img
+																src="resources/images/support_policy/4.jpg" width="300"
+																height="230" class="card-img-top" alt="..."></a>
+														</div>
+													</div>
+												</div>
+												<div class="container">
+													<div class="row row-cols-4"
+														style="margin-top: 8px; margin-bottom: 8px;">
+														<div class="col">
+															<a
+																href="https://youth.seoul.go.kr/site/main/youth/politics/user/detail/40867"
+																target='_blank'><img
+																src="resources/images/support_policy/5.jpg" width="300"
+																height="230" class="card-img-top" alt="..."></a>
+														</div>
+														<div class="col">
+															<a
+																href="https://youth.seoul.go.kr/site/main/content/mind_reliable_ask"
+																target='_blank'><img
+																src="resources/images/support_policy/6.jpg" width="300"
+																height="230" class="card-img-top" alt="..."></a>
+														</div>
+														<div class="col">
+															<a
+																href="https://youth.seoul.go.kr/site/orang/youth/politics/program/detail/41013"
+																target='_blank'><img
+																src="resources/images/support_policy/7.png" width="300"
+																height="230" class="card-img-top" alt="..."></a>
+														</div>
+														<div class="col">
+															<a
+																href="https://youth.seoul.go.kr/site/orang/youth/politics/program/detail/40385"
+																target='_blank'><img
+																src="resources/images/support_policy/8.png" width="300"
+																height="230" class="card-img-top" alt="..."></a>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 							<!-- end progress bar -->
 						</div>
-						<div class="row column4 graph"></div>
+
+						<div class="row column4 graph">
+							<div class="col-md-6 margin_bottom_30">
+								<div class="dash_blog">
+									<div class="dash_blog_inner">
+										<div class="dash_head">
+											<h3>
+												<span><i class="fa fa-calendar"></i> 박람회</span>
+											</h3>
+										</div>
+										<div class="list_cont">
+											<p>박람회 일정</p>
+										</div>
+										<div class="task_list_main">
+											<ul class="task_list">
+												<li><span class="name_user f_size20_3">2023 관광산업 일자리박람회</span><br> <strong>START :
+														2023-09-18 <br /> END : 2023-09-19
+												</strong></li>
+												<li><span class="name_user f_size20_3">2023 고졸성공 취업·창업 페스타</span><br> <strong>START
+														: 2023-09-07 <br /> END : 2023-09-07
+												</strong></li>
+												<li><span class="name_user f_size20_3">제약ㆍ바이오ㆍ건강기능 산업 전시회</span><br> <strong>START
+														: 2023-08-30 <br /> END : 2023-09-01
+												</strong></li>
+												<li><span class="name_user f_size20_3">서울 팝 컬처 컨벤션세계</span><br> <strong>START :
+														2023-08-25 <br /> END : 2023-08-27
+												</strong></li>
+												<li><span class="name_user f_size20_3">2023 Global Talent Fair</span><br> <strong>
+														START : 2023-08-21 <br /> END : 2023-08-22
+												</strong></li>
+											</ul>
+										</div>
+										<div class="read_more" >
+											<div class="center" style="padding: 0.8% 0">
+												<a class="main_bt read_bt" style="padding: 1.2% 3%;" href="fairList.do">박람회 더보기</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="dash_blog">
+									<div class="dash_blog_inner">
+										<div class="dash_head">
+											<h3>
+												<span><i class="fa fa-comments-o"></i> 쉼터</span>
+											</h3>
+										</div>
+										<div class="list_cont">
+											<p>고민하지 말고 연락해주세요</p>
+										</div>
+										<div class="msg_list_main">
+											<ul class="msg_list">
+												<li><span><img
+														src="resources/images/layout_img/tel.png"
+														class="img-responsive" alt="#" /></span> <span> <span
+														class="name_user f_size20_2">자살예방상담전화</span> <span class="msg_user">1393</span>
+												</span></li>
+												<li><span><img
+														src="resources/images/layout_img/tel1.png"
+														class="img-responsive" alt="#" /></span> <span> <span
+														class="name_user f_size20_2">생명의전화</span> <span class="msg_user">1588-9191</span>
+												</span></li>
+												<li><span><img
+														src="resources/images/layout_img/tel3.png"
+														class="img-responsive" alt="#" /></span> <span> <span
+														class="name_user f_size20_2">보건복지상담센터</span> <span class="msg_user">129</span>
+												</span></li>
+												<li><span><img
+														src="resources/images/layout_img/tel2.jpg"
+														class="img-responsive" alt="#" /></span> <span> <span
+														class="name_user f_size20_2">대한법률구조공단</span> <span class="msg_user">132</span>
+												</span></li>
+												<li><span><img
+														src="resources/images/layout_img/tel4.png"
+														class="img-responsive" alt="#" /></span> <span> <span
+														class="name_user f_size20_2">온라인청년센터</span> <span class="msg_user">youthcenter.go.kr</span>
+												</span></li>
+												<li><span><img
+														src="resources/images/layout_img/tel5.jpg"
+														class="img-responsive" alt="#" /></span> <span> <span
+														class="name_user f_size20_2">여성새로일하기센터</span> <span class="msg_user">1544-1199</span>
+												</span></li>
+											</ul>
+										</div>
+										<div class="read_more" ></div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
+
 					<!-- footer -->
 					<div class="container-fluid">
 						<div class="footer">
@@ -455,11 +535,7 @@ int sdsmemcode = (Integer) session.getAttribute("sdsmemLogin");
 	<script src="resources/js/custom.js"></script>
 	<script src="resources/js/chart_custom_style1.js"></script>
 	<script src="resources/js/Service.js"></script>
-	  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.2/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.2/locales-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-            crossorigin="anonymous"></script>
+	<script src="resources/js/mainair.js"></script>
 	<script>
 		function service() {
 			let logIn = "${IdLogin}";

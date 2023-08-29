@@ -8,7 +8,7 @@ var question1 = {
                 };
 
 var question2 = {
-                  question: "직장인들에게 필요한 대화기술이 아닌 것은?",
+                  question: "직장인들에게 필요한 대화기술이<br>아닌 것은?",
                   answers: ['부정적인 말 자주하기', '메모하기', '자세한 설명 요구하기', '상대의 말에 자신의 말을 덧붙이기'],
                   correct: 0
                 };
@@ -38,25 +38,25 @@ var question6 = {
                 };
 
 var question7 = {
-                  question: "직장상사와 카톡으로 대화하기 팁이 아닌 것은?",
+                  question: "직장상사와 카톡으로<br>대화하기 팁이 아닌 것은?",
                   answers: ["직원을 이해", "직원에게 먼저 알림", "정기적인 의사소통", "단어와 행동 불일치"],
                   correct: 3
                 };
                 
 var question8 = {
-                  question: "상사와의 일반적인 대화법으로 틀린 것은?",
+                  question: "상사와의 일반적인<br>대화법으로 틀린 것은?",
                   answers: ["이모티콘 자주 사용", "필요한 경우에만 카톡하기", "내용이 정리되지 않을 땐 요점 확인하기", "감사합니다. 붙이기"],
                   correct: 0
                 };
                 
 var question9 = {
-                  question: "상사와 의견이 다를 때 대화법으로 틀린 것은?",
+                  question: "상사와 의견이 다를 때<br>대화법으로 틀린 것은?",
                   answers: ["상사가 내 옆에 서서 이름을 부르면 나도 일어서서 대답하기", "대화 기다리기", "모르는 것이 있으면 먼저 조사하고 상사에게 물어보기", "나의 잘못된 부분이나 부족한 부분을 이야기하면 감사해하기"],
                   correct: 1
                 };
                 
 var question10 = {
-                  question: "상사와 의견이 다를 때 대화법으로 틀린 것은?",
+                  question: "상사와 의견이 다를 때<br>대화법으로 틀린 것은?",
                   answers: ["내가 기분이 나빠져도 예의 바르게 말하기", "상사가 기분 나빠하지 않도록 조심해서 말하기", "상사 의견보다 내 의견 먼저 이야기하기", "부정적인 반응 보이지 않기"],
                   correct: 2
                 };                            
@@ -172,7 +172,7 @@ function checkAnswer (){
 
   // check that an answer has been selected
   if (selectedItem == undefined) {
-    alert("Please selected an answer!")
+    alert("답변을 선택해 주세요!")
     return
   } else {
     // get user answer if form of text
@@ -181,7 +181,7 @@ function checkAnswer (){
 
   // change the background of the answer according to the Results
   if (userAns == currentQuestion.answers[currentQuestion.correct]) {
-    console.log("Correct! The answer is: "+ userAns);
+    console.log("정답입니다! 정답은 : "+ userAns);
     // change color of selected item by changing className
     selectedItem.className = 'correct';
     // count the number of correct answers
@@ -220,7 +220,7 @@ function showResults () {
   document.getElementById('pages').innerHTML='';
 
   // Change Title
-  questionTitle.innerHTML = '<h1>당신의 점수는!?!?!?!?!?!?</h1>';
+  questionTitle.innerHTML = '<h1>당신의 점수는?!</h1>';
 
   // Get the area that will be used to display the user's score
   var newInfo = document.getElementById('quiz-results');

@@ -37,11 +37,62 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"
             integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="resources/js/deletealert.js"></script>
     <%
     String sdsmemcode = request.getParameter("sdsmemcode");
     // 상담사 이름(sdsname)을 이용하여 처리
     int memcode = (Integer)session.getAttribute("MemLogin");
 %> 
+
+<style>
+    .fc-day-sat {
+        color: #3E74C7;
+    }
+    
+    .fc-day-sun {
+        color: red;
+    }
+    .fc-col-header-cell.fc-day-mon {
+    background-color: #33445A; 
+}
+
+.fc-col-header-cell.fc-day-tue {
+    background-color: #33445A; 
+}
+
+.fc-col-header-cell.fc-day-wed {
+    background-color: #33445A; 
+}
+
+.fc-col-header-cell.fc-day-thu {
+    background-color: #33445A; 
+}
+
+.fc-col-header-cell.fc-day-fri {
+    background-color: #33445A; 
+}
+
+.fc-col-header-cell.fc-day-sat {
+    background-color: #33445A;
+}
+
+.fc-col-header-cell.fc-day-sun {
+    background-color: #33445A; 
+}
+
+.fc-col-header-cell.fc-day-mon,
+.fc-col-header-cell.fc-day-tue,
+.fc-col-header-cell.fc-day-wed,
+.fc-col-header-cell.fc-day-thu,
+.fc-col-header-cell.fc-day-fri {
+    color: white; 
+}    
+
+.fc-day-today {
+    background-color: #ebf0f7 !important; /* 당일 배경색 */
+}
+
+</style>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -53,7 +104,7 @@
                            var sdsmemcode = "<%= sdsmemcode %>"; // 상담사 이름 추출
                            var url = "ReservePopup.do?sdsmemcode=" + encodeURIComponent(sdsmemcode);
                            var name = "ReservePopup";
-                           var option ="width = 600, height = 600 left = 100, top = 400, location = no";
+                           var option ="width = 600, height = 650 left = 100, top = 400, location = no";
                            window.open(url,name,option)
                          } 
                      },    
@@ -106,13 +157,7 @@
                        // 서버에서 데이터를 처리한 후, 성공적으로 처리되면 아래와 같이 FullCalendar를 업데이트할 수 있습니다.
                        calendar.refetchEvents();
                    },
-                   eventRender: function(info) {
-                      var mrcode = info.event.extendedProps.mrcode;
-                      var title = info.event.title;
-                      
-                      // 일정 제목 옆에 mrcode 값 추가하여 표시
-                      info.el.querySelector('.fc-title').innerHTML = title + ' (MRCODE: ' + mrcode + ')';
-                  },
+                 
             // Your calendar configuration options
             events: [
                 // Iterate over eventList and generate event objects here
@@ -137,9 +182,9 @@
                     var mrcode = info.event.extendedProps.mrcode; // event에서 mrcode 추출
                     console.log("mrcode:", mrcode);
                     var sdsmemcode = "<%= sdsmemcode %>"; // 상담사 이름 추출
-                    var url = "ReserveUpdatePopup.do?sdsmemcode=" + encodeURIComponent(sdsmemcode) + "&mrcode=" + encodeURIComponent(mrcode);
+                    var url = "ReserveUpdatePopup.do?sdsmemcode="+encodeURIComponent(sdsmemcode)+"&mrcode="+encodeURIComponent(mrcode);
                     var name = "ReserveUpdatePopup";
-                    var option = "width=600,height=600,left=100,top=50,location=no";
+                    var option = "width=600,height=650,left=100,top=50,location=no";
                     window.open(url, name, option);
                 }
             }

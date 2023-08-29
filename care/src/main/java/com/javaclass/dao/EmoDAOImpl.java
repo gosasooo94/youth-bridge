@@ -23,7 +23,12 @@ public class EmoDAOImpl implements EmoDAO{
 	@Override
 	public List<EmoVO> getEmo(EmoVO vo) {
 		// TODO Auto-generated method stub
-		return mybatis.selectList("EmoDAO.getEmo", vo);
+		System.out.println("그래프 다오 감 맴버 코드 :" + vo.getMemcode() + " / " + vo.getNotedate());
+		List a = mybatis.selectList("EmoDAO.getEmo", vo);
+		
+		System.out.println(" a : " + a);
+		
+		return a;
 	}
 
 }

@@ -51,20 +51,28 @@ function searchStores() {
                                     </div>
                                 </div>
                             </aside>
-                            <aside class="lg-side" style="background: #f6f6f6;">
+                            <aside class="lg-side" style="background: #f6f6f6; position: relative;">
                                 <div class="inbox-head">
                                     <h3></h3>
                                     <div class="bottom_list">
                                         <ul>
                                             <li><h1>매장명 : ${data[i].clinicname}</h1></li>
                                             <li><h1>전화번호 : ${data[i].clinictel}</h1></li>
-                                            <li><h1>주소 : ${data[i].clinicaddr}</h1></li>
-                                            <div class="right_button float-left">
-                                                <button type="button" class="btn btn-xs detail_button sdmap-button">지도</button>
-                                                <div class="map-container" style="width: 800px; height: 290px; display: none;"></div>
+                                            <li>
+                                               <h1>주소 : ${data[i].clinicaddr}
+                                                  <button type="button" class="btn btn-xs detail_button sdmap-button" style="margin-bottom: 5px;">지도</button>
+                                               </h1>
+                                            </li>
+                                            <div>
+                                            
                                             </div>
+                                            <div class="right_button float-left">
+                                                <div class="map-container" style="width: 800px; height: 250px; display: none;"></div>
+                                            </div>
+                                            
                                         </div>
                                     </div>
+                                    <img src="resources/images/flower.png" class="flower-image"/>
                                 </div>
                             </aside>
                         </div>

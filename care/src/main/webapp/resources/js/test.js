@@ -1,5 +1,3 @@
-
-
 fc=()=>{
   if( (document.querySelector(".ag").scrollHeight - document.querySelector(".ag").scrollTop) === document.querySelector(".ag").clientHeight ){
     // 스크롤 영역의 높이 - 현재 스크롤 위치 = div의 높이
@@ -34,4 +32,16 @@ function turn() {
 	
 }
 
+
+$('#chooseFile').bind('change', function () {
+  var filename = $("#chooseFile").val();
+  if (/^\s*$/.test(filename)) {
+    $(".file-upload").removeClass('active');
+    $("#noFile").text("No file chosen..."); 
+  }
+  else {
+    $(".file-upload").addClass('active');
+    $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+  }
+});
 
