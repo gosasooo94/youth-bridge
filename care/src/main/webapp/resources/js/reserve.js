@@ -59,12 +59,13 @@
     }
 
     if (arg.view.type === 'timeGridDay') {
-        var title = prompt('일정을 입력해주세요.');
+        var title = prompt('일정을 등록해주세요.');
         if (title) {
             calendar.addEvent({
+            	memcode : memcode,
                 title: title,
-                start: arg.start,
-                end: arg.end,
+                startDate: arg.start,
+                endDate: arg.end,
             });
         }
                         
@@ -75,8 +76,9 @@
                                 var obj = new Object();     // Json 을 담기 위해 Object 선언
                                 // alert(allEvent[i]._def.title); // 이벤트 명칭 알람
                                 obj.title = allEvent[i]._def.title; // 이벤트 명칭  ConsoleLog 로 확인 가능.
-                                obj.start = allEvent[i]._instance.range.start; // 시작
-                                obj.end = allEvent[i]._instance.range.end; // 끝
+                                obj.startDate = allEvent[i]._instance.range.start; // 시작
+                                obj.endDate = allEvent[i]._instance.range.end; // 끝
+                                obj.c_code = allEvent[i]._def.memcode; //멤머코드
  
                                 events.push(obj);
                             }

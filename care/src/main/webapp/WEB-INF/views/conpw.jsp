@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 찾기</title>
 </head>
 <body>
-<h2>당신의 아이디는 </h2>
+<h2>당신의 비밀번호는 </h2>
 <c:forEach items="${ conpw }" var="f">
 <div>
 <input type="text" name="pw" value="${ f.pw }" disabled />입니다.

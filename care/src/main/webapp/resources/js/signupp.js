@@ -3,5 +3,5 @@ function setAgreementStatus(checked) {
     }
 
 function pop() {
-	window.open("agree.do", "_blank", "width=500, height=500");
+	window.open("agree.do", "_blank", "width=513, height=500");
 }

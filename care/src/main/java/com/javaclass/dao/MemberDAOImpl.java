@@ -47,4 +47,10 @@ public class MemberDAOImpl implements MemberDAO {
 			List<MemberVO> list =mybatis.selectList("MemberDAO.conpw", vo);
 			return list;
 		}
+		
+		@Override
+	       public MemberVO getMemberById(String id) {
+	           System.out.println("===>  MemberMapper getMemberById() 호출");
+	           return mybatis.selectOne("MemberDAO.getMemberById", id);
+	       }
 }

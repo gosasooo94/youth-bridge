@@ -23,4 +23,6 @@ public interface MemberDAO {
 	
 	// 비밀번호 찾기
 	public List<MemberVO> conpw(MemberVO vo);
+	
+	public MemberVO getMemberById(String id); 
 }

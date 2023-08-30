@@ -13,18 +13,21 @@
 }
 .form-wrap {
     width: 400px;
-    height: 700px;
+    height: 400px;
     position: relative;
-    margin: 15% auto;
-    background: #fff;
+    margin: 20% auto;
+    background: #fff !important;
     padding: 5px;
     overflow: hidden;
+    background-color: #fff !important;
+    border: 3px solid #D1E7FF;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 .button-wrap {
-    width: 230px;
+    width: 210px;
     margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 600px 9px #fee1ff;
+    box-shadow: 0 0 400px 9px #fff;		/*여기에 배경 색 영향받는다!*/
     border-radius: 30px;
 }
 .togglebtn {
@@ -41,7 +44,7 @@
     position: absolute;
     width: 100px;
     height: 100%;
-    background: linear-gradient(to right, #fee1ff, #ffe1e1);
+    background: linear-gradient(to right, #D1E7FF, #EBF4FF);
     border-radius: 30px;
     transition: .5s;
 }
@@ -75,7 +78,7 @@
     cursor: pointer;
     display: block;
     margin: auto;
-    background: linear-gradient(to right, #fee1ff, #ffe1e1);
+    background: linear-gradient(to right, #D1E7FF, #EBF4FF);
     border: 0;
     outline: none;
     border-radius: 30px;
@@ -107,4 +110,3 @@ span {
     font-size: 13;
     text-align: center;
 }
-

@@ -12,6 +12,7 @@ import com.javaclass.domain.FairVO;
 
 @Repository("fairDAO") 
 public class FairDAOImpl implements FairDAO {
+	
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
@@ -22,6 +23,9 @@ public class FairDAOImpl implements FairDAO {
 		return list;
 	}
 
-
+	public List<FairVO> fairReserve(FairVO vo){
+		List<FairVO> list = mybatis.selectList("FairDAO.fairReserve",vo);
+		return list;
+	}
 
 }

@@ -8,8 +8,8 @@
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
    <property name="url" value="jdbc:oracle:thin:@192.168.0.36:1521:orcl"></property>
-   <property name="username" value="huhu"></property>
-   <property name="password" value="huhu"></property>
+   <property name="username" value="hoho"></property>
+   <property name="password" value="hoho"></property>
 </bean>
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
   <property name="dataSource" ref="dataSource" />
@@ -25,7 +25,17 @@
          <value>com.javaclass.domain.SdsMemberVO</value>
          <value>com.javaclass.domain.ReserveVO</value>
          <value>com.javaclass.domain.ReservationVO</value>
-         <value>com.javaclass.domain.ScheduleVO</value>
+         <value>com.javaclass.domain.CategoryVO</value>
+         <value>com.javaclass.domain.CityVO</value>
+         <value>com.javaclass.domain.ClinicVO</value>
+         <value>com.javaclass.domain.SupportVO</value>
+         <value>com.javaclass.domain.DiaryVO</value>
+         <value>com.javaclass.domain.BucketVO</value>
+         <value>com.javaclass.domain.EmoVO</value>
+         <value>com.javaclass.domain.Criteria</value>
+         <value>com.javaclass.domain.PageVO</value>
+         <value>com.javaclass.domain.SdsReserveVO</value>
+         <value>com.javaclass.domain.FreeBoardVO</value>
       </list>
    </property>
  </bean>
