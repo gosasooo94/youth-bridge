@@ -59,6 +59,7 @@
     }
     #sidebar.active ul.components {
         padding: 0;
+        padding-top: 14px;	/* 메뉴 버튼 눌렀을때*/
     }
     #sidebar.active .logo_big {
         display: none;

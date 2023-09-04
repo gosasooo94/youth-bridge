@@ -1,43 +1,62 @@
 package com.javaclass.domain;
 
 public class JobVO {
-	private String jobName;
-	private String jobAddr;
-	private String jobTel;
-	private String jobStart;
-	private String jobEnd;
+	private String jobtitle;
+	private String jobname;
+	private String jobend;
+	private String jobloc;
+	private String jobexper;
+	private String jobreq;
+	private String jobtype;
+	private String joburl;
 	
-	public String getJobName() {
-		return jobName;
+	public String getJobtitle() {
+		return jobtitle;
 	}
-	public void setJobName(String jobName) {
-		this.jobName = jobName;
+	public void setJobtitle(String jobtitle) {
+		this.jobtitle = jobtitle;
 	}
-	public String getJobAddr() {
-		return jobAddr;
+	public String getJobname() {
+		return jobname;
 	}
-	public void setJobAddr(String jobAddr) {
-		this.jobAddr = jobAddr;
+	public void setJobname(String jobname) {
+		this.jobname = jobname;
 	}
-	public String getJobTel() {
-		return jobTel;
+	public String getJobend() {
+		return jobend;
 	}
-	public void setJobTel(String jobTel) {
-		this.jobTel = jobTel;
+	public void setJobend(String jobend) {
+		this.jobend = jobend;
 	}
-	public String getJobStart() {
-		return jobStart;
+	public String getJobloc() {
+		return jobloc;
 	}
-	public void setJobStart(String jobStart) {
-		this.jobStart = jobStart;
+	public void setJobloc(String jobloc) {
+		this.jobloc = jobloc;
 	}
-	public String getJobEnd() {
-		return jobEnd;
+	public String getJobexper() {
+		return jobexper;
 	}
-	public void setJobEnd(String jobEnd) {
-		this.jobEnd = jobEnd;
+	public void setJobexper(String jobexper) {
+		this.jobexper = jobexper;
 	}
-	
-	
+	public String getJobreq() {
+		return jobreq;
+	}
+	public void setJobreq(String jobreq) {
+		this.jobreq = jobreq;
+	}
+	public String getJobtype() {
+		return jobtype;
+	}
+	public void setJobtype(String jobtype) {
+		this.jobtype = jobtype;
+	}
+	public String getJoburl() {
+		return joburl;
+	}
+	public void setJoburl(String joburl) {
+		this.joburl = joburl;
+	}
 	
 }
